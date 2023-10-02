@@ -1,16 +1,23 @@
 @import "./variable.css";
+@import "./fonts.css";
+@import "./topbar.css";
 
 /* Start Default Styles */
 
 html {
     box-sizing: border-box;
     font-size: 62.5%;
+    direction: rtl;
 }
 
 body {
     line-height: 1.6;
     font-size: 1.6rem;
     font-family: var(--primary-font);
+}
+
+ul {
+    margin: 0;
 }
 
 *,
@@ -34,4 +41,4 @@ i {
     user-select: none;
 }
 
-/* End Default Styles */
+/* Finish Default Styles */
