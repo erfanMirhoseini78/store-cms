@@ -1,0 +1,36 @@
+.top-bar {
+    color: var(--dark-color);
+    padding: 2rem 0;
+    background-color: #f0f2f7;
+}
+
+.top-bar__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+
+.top-bar__menu {
+    gap: 1.5rem;
+}
+
+.top-bar__link {
+    color: var(--dark-color);
+    font-size: 1.5rem;
+}
+
+.top-bar__left {
+    gap: 3rem;
+}
+
+.top-bar__email,
+.top-bar__phone {
+    gap: 0.5rem;
+}
+
+.top-bar__email-icon,
+.top-bar__phone-icon {
+    color: var(--primary-color);
+    font-size: 2rem;
+}
