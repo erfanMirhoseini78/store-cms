@@ -1,5 +1,42 @@
+@import "./variable.css";
+
+/* Helper Classes */
+
 .center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.title {
+    font-size: 2.3rem;
+    letter-spacing: -2px;
+    color: #444446;
+    font-weight: bold;
+    line-height: 1.2;
+    position: relative;
+}
+
+.title::before {
+    content: "";
+    position: absolute;
+    width: .4rem;
+    height: 5rem;
+    border-radius: 1rem;
+    background-color: var(--primary-color);
+    transform: rotate(10deg);
+    right: -1.2rem;
+}
+
+.title::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    max-width: 250px;
+    height: 60%;
+    background-color: rgba(43, 206, 86, 0.2);
+    right: 0;
+    bottom: 0;
+    border-radius: .5rem;
+    z-index: -1;
 }
