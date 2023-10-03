@@ -421,3 +421,56 @@ i {
 }
 
 /* Finish Lastest Courses Styles */
+
+
+
+/* Start About Us Styles */
+
+.aboutUs {
+    margin: 4rem 0;
+}
+
+.aboutUs-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutUs-header__text {
+    color: #9c9c9c;
+    font-size: 1.5rem;
+}
+
+.aboutUs-content {
+    margin-top: 4rem;
+}
+
+.aboutUs-box {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 1rem;
+    margin: 1rem 0;
+    gap: 2rem;
+    padding: 1.5rem;
+}
+
+.aboutUs-box__icon {
+    font-size: 7rem;
+    color: #666;
+}
+
+.aboutUs-box__left {
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutUs-box__title {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.aboutUs-box__text {
+    font-size: 1.5rem;
+}
+
+/* Finish About Us Styles */
