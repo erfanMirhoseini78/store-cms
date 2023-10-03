@@ -264,7 +264,7 @@ i {
 /* Start Lastest Courses Styles */
 
 .courses {
-    margin: 4rem 0;
+    margin: 6rem 0;
 }
 
 .courses__header {
@@ -427,7 +427,7 @@ i {
 /* Start About Us Styles */
 
 .aboutUs {
-    margin: 4rem 0;
+    margin: 6rem 0;
 }
 
 .aboutUs-header {
@@ -474,3 +474,47 @@ i {
 }
 
 /* Finish About Us Styles */
+
+
+
+/* Start Popular Courses Styles */
+
+.popluar {
+    margin: 6rem 0;
+}
+
+.popular-slider {
+    margin-top: 4rem;
+}
+
+.popular-slider .course-box {
+    box-shadow: 0 0 10px rgba(168, 172, 185, 0.3);
+}
+
+.popular-slider .course-box:hover {
+    transform: translateY(0);
+}
+
+/* Finish Popular Courses Styles */
+
+
+
+/* Start Pre Sell Courses Styles */
+
+.preSell {
+    margin: 6rem 0;
+}
+
+.presell-slider {
+    margin-top: 4rem;
+}
+
+.presell-slider .course-box {
+    box-shadow: 0 0 10px rgba(168, 172, 185, 0.3);
+}
+
+.presell-slider .course-box:hover {
+    transform: translateY(0);
+}
+
+/* Finish Pre Sell Courses Styles */
