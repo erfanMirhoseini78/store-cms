@@ -276,6 +276,7 @@ i {
 .courses-header__right {
     display: flex;
     flex-direction: column;
+    gap: 0.7rem;
 }
 
 .courses-header__text {
@@ -433,6 +434,7 @@ i {
 .aboutUs-header {
     display: flex;
     flex-direction: column;
+    gap: 0.7rem;
 }
 
 .aboutUs-header__text {
@@ -483,6 +485,11 @@ i {
     margin: 6rem 0;
 }
 
+.popular-header {
+    display: flex;
+    flex-direction: column;
+}
+
 .popular-slider {
     margin-top: 4rem;
 }
@@ -505,6 +512,11 @@ i {
     margin: 6rem 0;
 }
 
+.preSell-header {
+    display: flex;
+    flex-direction: column;
+}
+
 .presell-slider {
     margin-top: 4rem;
 }
@@ -518,3 +530,104 @@ i {
 }
 
 /* Finish Pre Sell Courses Styles */
+
+
+
+/* Start Articles Sections Styles */
+
+.articles {
+    margin: 6rem 0;
+}
+
+.articles-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.articles-header__right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.articles-header__text {
+    color: #9c9c9c;
+    font-size: 1.5rem;
+}
+
+.articles-header__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.articles-header__link:hover {
+    color: var(--white-color);
+}
+
+.articles-header__icon {
+    font-size: 1.4rem;
+}
+
+.articles-content {
+    margin-top: 4rem;
+}
+
+.article-card {
+    margin: 1rem 0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+    transition: all 400ms ease;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.article-card:hover {
+    transform: translateY(-7px);
+}
+
+.article-card__logo {
+    width: 100%;
+    height: 300px;
+}
+
+.article-card__img {
+    width: 100%;
+    height: 300px;
+}
+
+.articel-card__content {
+    padding: 1rem 2rem 3rem;
+}
+
+.article-card__title {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.article-card__desc {
+    font-size: 1.4rem;
+    color: #898989;
+    padding: 1rem 0 2rem;
+}
+
+.article-card__btn {
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    transition: all 400ms ease;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.article-card__btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* Finish Articles Sections Styles */

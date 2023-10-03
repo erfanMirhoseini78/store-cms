@@ -21,18 +21,19 @@
     content: "";
     position: absolute;
     width: .4rem;
-    height: 5rem;
+    height: 4.5rem;
     border-radius: 1rem;
     background-color: var(--primary-color);
     transform: rotate(10deg);
-    right: -1.2rem;
+    right: -1.4rem;
+    top: 0.65rem;
 }
 
 .title::after {
     content: "";
     position: absolute;
     width: 100%;
-    max-width: 250px;
+    max-width: 230px;
     height: 60%;
     background-color: rgba(43, 206, 86, 0.2);
     right: 0;
