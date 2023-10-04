@@ -50,7 +50,7 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
     border-radius: 0.5rem;
     width: 24rem;
-    z-index: 1;
+    z-index: 100;
     padding: 1rem;
     border-bottom: 4px solid var(--primary-color);
     opacity: 0;
