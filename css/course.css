@@ -72,7 +72,7 @@
 
 
 
-/* Start Details Main Course Styles */
+/* Start Course Main Info Styles */
 
 .course-info {
     margin: 6rem;
@@ -126,4 +126,93 @@
     border-radius: 1rem;
 }
 
-/* Finish Details Main Course Styles */
+/* Finish Course Main Info Styles */
+
+
+
+/* Start Course Details Styles */
+
+.course-details {
+    margin: 6rem 0;
+}
+
+.course {}
+
+.course-boxes {
+    margin-bottom: 4rem;
+}
+
+.course-boxes__container {
+    display: flex;
+    row-gap: 1.5rem;
+}
+
+.course-box__content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background-color: var(--white-color);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+}
+
+.course-boxes__box-right {}
+
+.course-boxes__box-icon {
+    color: var(--primary-color);
+    font-size: 3.5rem;
+}
+
+.course-boxes__box-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.course-boxes__box-title {
+    font-weight: 600;
+    font-size: 1.7rem;
+    color: #858c96;
+}
+
+.course-boxes__box-desc {
+    font-size: 1.4rem;
+    color: #7d7e7f;
+}
+
+/* Finish Course Details Styles */
+
+
+
+/* Start Course Progress Styles */
+
+.course-progress {
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: #f0f2f8;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.course-progress__header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    color: #7b868a;
+    font-size: 1.8rem;
+}
+
+.course-progress__header-text {
+    font-weight: 600;
+    letter-spacing: -2px;
+}
+
+.progress-bar {
+    background-color: var(--primary-color);
+}
+
+/* Finish Course Progress Styles */
