@@ -216,3 +216,147 @@
 }
 
 /* Finish Course Progress Styles */
+
+
+
+
+/* Start Course Description Styles */
+
+.course-desc {
+    margin: 6rem 0;
+    background-color: var(--white-color);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    padding: 3rem 4rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.course-desc__item {}
+
+.course-desc__item-title {
+    display: inline-block;
+    margin-bottom: 3rem;
+}
+
+.course-desc__item-img {
+    display: block;
+    margin-bottom: 3rem;
+    border-radius: 1rem;
+}
+
+.course-desc__item-text {
+    line-height: 1.4;
+    margin-bottom: 4rem;
+    font-size: 1.6rem;
+    color: #7a7a7a;
+}
+
+.course-desc__btns {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.course-desc__btn {
+    padding: .3rem 1rem;
+    border-radius: 0.5rem;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    transition: all 400ms ease;
+    letter-spacing: -1px;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.course-desc__btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* Default Class in Bootstrap */
+
+.accordion {
+    margin-top: 2.5rem;
+}
+
+.accordion-item {
+    background-color: #f7f9fa;
+}
+
+.accordion-button {
+    background-color: #f7f9fa;
+    font-size: 1.7rem;
+    padding: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.accordion-button::after {
+    position: absolute;
+    left: 1rem;
+    right: auto;
+    width: 3rem;
+    height: 3rem;
+    background-position: center;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #f7f9fa;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(43, 206, 86, 0.4);
+}
+
+/* Default Class in Bootstrap */
+
+
+.course-desc__accordion-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.course-desc__accordion-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.course-desc__accordion-count {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: #656464;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    font-size: 1.8rem;
+}
+
+.course-desc__accordion-number {
+    margin-top: 0.5rem;
+}
+
+.course-desc__accordion-icon {
+    font-size: 1.8rem;
+    color: #939aa3;
+}
+
+.course-desc__accordion-link {
+    font-size: 1.6rem;
+    letter-spacing: -1px;
+    color: #161616;
+}
+
+.course-desc__accordion-time {
+    font-size: 1.6rem;
+    color: #7a7a7a;
+}
+
+/* Finish Course Description Styles */

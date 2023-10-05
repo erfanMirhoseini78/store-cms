@@ -15,6 +15,7 @@
     font-weight: bold;
     line-height: 1.2;
     position: relative;
+    z-index: 100;
 }
 
 .title::before {
@@ -33,7 +34,7 @@
     content: "";
     position: absolute;
     width: 100%;
-    max-width: 230px;
+    /* max-width: 230px; */
     height: 60%;
     background-color: rgba(43, 206, 86, 0.2);
     right: 0;
