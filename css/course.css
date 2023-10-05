@@ -69,3 +69,61 @@
 }
 
 /* Finish BreadCrumb Styles */
+
+
+
+/* Start Details Main Course Styles */
+
+.course-info {
+    margin: 6rem;
+}
+
+.course-info__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-info__link {
+    display: inline-block;
+    font-size: 1.3rem;
+    background-color: rgba(43, 206, 86, 0.2);
+    color: var(--primary-color);
+    padding: .4rem 1.2rem;
+    border-radius: .5rem;
+    margin-bottom: 2.5rem;
+}
+
+.course-info__title {
+    letter-spacing: -2px;
+    font-weight: bold;
+    font-size: 2.6rem;
+    margin-bottom: 1.25rem;
+    color: #464749;
+}
+
+.course-info__desc {
+    text-align: justify;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    color: #7b868a;
+}
+
+.course-info__social-media {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.course-info__social-media-link {
+    color: #b1bbbf;
+    font-size: 2rem;
+}
+
+.course-info__video {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+/* Finish Details Main Course Styles */
