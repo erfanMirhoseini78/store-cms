@@ -1,0 +1,71 @@
+@import "./variable.css";
+@import "./fonts.css";
+@import "./module/default.css";
+@import "./module/topbar.css";
+@import "./module/navbar.css";
+@import "./module/pagination.css";
+@import "./module/footer.css";
+
+/* Start BreadCrumb Styles */
+
+.breadcrumb {
+    margin: 3rem 0;
+}
+
+.breadcrumb__content {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+    background-color: #f0f2f7;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+}
+
+.breadcrumb__content-home {
+    background-color: var(--white-color);
+    height: 3.5rem;
+    width: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.breadcrumb__content-home:hover .breadcrumb__content-home-icon {
+    color: #000;
+}
+
+.breadcrumb__content-home-icon {
+    font-size: 1.8rem;
+    color: #909aa7;
+    transition: all 400ms ease;
+}
+
+.breadcrumb__content-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.breadcrumb__content-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 1.6rem;
+    color: #7f8187;
+    transition: all 300ms ease;
+}
+
+.breadcrumb__content-link:hover {
+    color: #000;
+}
+
+.breadcrumb__content-link-icon {
+    font-size: 1.2rem;
+}
+
+/* Finish BreadCrumb Styles */
