@@ -9,7 +9,7 @@
 /* Start BreadCrumb Styles */
 
 .breadcrumb {
-    margin: 3rem 0;
+    margin: 1rem 0;
 }
 
 .breadcrumb__content {
@@ -75,7 +75,7 @@
 /* Start Course Main Info Styles */
 
 .course-info {
-    margin: 6rem;
+    margin: 4rem;
 }
 
 .course-info__container {
@@ -130,16 +130,18 @@
 
 
 
-/* Start Course Details Styles */
+
+
+/*! Start Course Styles */
 
 .course-details {
-    margin: 6rem 0;
+    margin: 5rem 0;
 }
 
-.course {}
+/* Start Course Details Styles */
 
 .course-boxes {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .course-boxes__container {
@@ -156,8 +158,6 @@
     padding: 1.5rem 2rem;
     border-radius: 1rem;
 }
-
-.course-boxes__box-right {}
 
 .course-boxes__box-icon {
     color: var(--primary-color);
@@ -219,11 +219,10 @@
 
 
 
-
 /* Start Course Description Styles */
 
 .course-desc {
-    margin: 6rem 0;
+    margin: 3rem 0;
     background-color: var(--white-color);
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
     padding: 3rem 4rem;
@@ -233,8 +232,6 @@
     flex-direction: column;
     gap: 2rem;
 }
-
-.course-desc__item {}
 
 .course-desc__item-title {
     display: inline-block;
@@ -275,6 +272,7 @@
     background-color: var(--primary-color);
     color: var(--white-color);
 }
+
 
 /* Default Class in Bootstrap */
 
@@ -360,3 +358,133 @@
 }
 
 /* Finish Course Description Styles */
+
+
+
+/* Start Teacher Info Styles */
+
+.teacher-info {
+    background-color: var(--white-color);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+}
+
+.teacher-info__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.teacher-info__header-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.teacher-info__header-img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.teacher-info__header-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.teacher-info__header-link {
+    font-weight: bold;
+    font-size: 1.7rem;
+    letter-spacing: -1px;
+    color: #7b868a;
+}
+
+.teacher-info__header-skills {
+    font-size: 1.2rem;
+    letter-spacing: -0.5px;
+    color: #7b868a;
+}
+
+.teacher-info__header-left {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.teacher-info__header-icon {
+    font-size: 1.8rem;
+}
+
+.teacher-info__header-text {
+    letter-spacing: -1px;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.teacher-info__body {
+    margin-top: 1.4rem;
+    color: #7b868a;
+    letter-spacing: -0.5px;
+}
+
+/* Finish Teacher Info Styles */
+
+/*! Finish Course Styles */
+
+
+
+
+
+/*! Start Side Bar Styles */
+
+.side-bar {
+    top: 2rem;
+    position: sticky;
+}
+
+.course-infos {
+    border-radius: 1rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    border: 2px solid #f2f2f2;
+}
+
+.course-infos:first-child {
+    margin-top: 0;
+}
+
+/* Start Register Course Styles */
+
+.course-infos__register {
+    text-align: center;
+    background-color: #1fbd50;
+    color: var(--white-color);
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 5px 0 rgba(31, 189, 80, 35%);
+}
+
+.course-infos__register-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+}
+
+.course-infos__register-icon {
+    font-size: 2rem;
+}
+
+/* Finish Register Course Styles */
