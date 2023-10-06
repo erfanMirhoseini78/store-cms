@@ -4,6 +4,124 @@
 @import "./module/topbar.css";
 @import "./module/navbar.css";
 @import "./module/breadcrumb.css";
+@import "./module/sidebarCoursesBox.css";
 @import "./module/pagination.css";
 @import "./module/footer.css";
 
+/*? Start Course Details */
+
+.course-details {
+    margin-top: 4rem;
+}
+
+
+
+/*! Start Side Bar Styles */
+
+.side-bar {
+    top: 1rem;
+    position: sticky;
+}
+
+.course-infos {
+    border-radius: 1rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    border: 2px solid #f2f2f2;
+}
+
+.course-infos:first-child {
+    margin-top: 0;
+}
+
+
+
+/* Start Related Course Box Section */
+
+.course-infos {
+    overflow: hidden;
+}
+
+.course-info__related-course-title {
+    position: relative;
+}
+
+.course-info__related-course-title::after {
+    content: "";
+    position: absolute;
+    right: -3.2rem;
+    top: -.4rem;
+    width: 2.5rem;
+    height: 4rem;
+    background-color: var(--primary-color);
+    border-radius: 8px 0 0 12px;
+    transform: skewX(-10deg);
+}
+
+.course-info__related-course-item {
+    margin-bottom: 1rem;
+}
+
+.course-info__related-course-item:last-child {
+    margin-bottom: 0;
+}
+
+.course-info__related-course-price {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+/* Start Related Course Box Section */
+
+
+
+/* Start Access Related Course Styles */
+
+.sidebar-articles__list {
+    margin-top: -1rem;
+}
+
+.sidebar-articles__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 2px solid #eeeeee;
+    padding: 1rem 0;
+    transition: all 400ms ease;
+    cursor: pointer;
+}
+
+.sidebar-articles__item:last-child {
+    border-bottom: none;
+}
+
+.sidebar-articles__item:hover {
+    padding-right: 1rem;
+    background-color: #f8f9fa;
+}
+
+.sidebar-articles__item:hover .sidebar-articles__link {
+    color: #1e83f0;
+}
+
+.sidebar-articles__item:hover .sidebar-articles__icon {
+    color: var(--primary-color);
+}
+
+.sidebar-articles__icon {
+    font-size: 1.4rem;
+    transition: all 400ms ease;
+    color: #909aa7;
+}
+
+.sidebar-articles__link {
+    transition: all 400ms ease;
+    font-size: 1.3rem;
+}
+
+/* Finish Access Related Course Styles */
+
+/*! Finish Side Bar Styles */
+
+/*? Finish Course Details */

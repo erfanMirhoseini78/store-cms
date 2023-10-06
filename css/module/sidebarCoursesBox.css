@@ -1,0 +1,33 @@
+.course-info__related-course-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: block;
+    color: var(--dark-color);
+    margin-bottom: 2rem;
+}
+
+.course-info__related-course-item {
+    margin-bottom: 2rem;
+}
+
+.course-info__related-course-item:last-child {
+    margin-bottom: 0;
+}
+
+.course-info__related-course-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.course-info__related-course-img {
+    width: 8rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+}
+
+.course-info__related-course-text {
+    font-size: 1.3rem;
+    color: #8d8d8d;
+    font-weight: bold;
+}
