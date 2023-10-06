@@ -10,7 +10,7 @@
 /* Start Courses TopBar Styles */
 
 .courses {
-    margin: 6rem 0;
+    margin: 2.5rem 0 5rem;
 }
 
 .courses-topbar {
@@ -154,7 +154,7 @@
 /* Start Courses Content Styles */
 
 .courses-content {
-    margin: 4rem 0;
+    margin: 2.5rem 0;
 }
 
 /* Finish Courses Content Styles */

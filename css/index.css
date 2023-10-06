@@ -92,7 +92,7 @@
 /* Start Lastest Courses Styles */
 
 .courses {
-    margin: 6rem 0;
+    margin: 5rem 0;
 }
 
 .courses__header {
@@ -133,7 +133,7 @@
 }
 
 .courses-content {
-    margin-top: 4rem;
+    margin-top: 2.5rem;
 }
 
 /* Finish Lastest Courses Styles */
@@ -143,7 +143,7 @@
 /* Start About Us Styles */
 
 .aboutUs {
-    margin: 6rem 0;
+    margin: 5rem 0;
 }
 
 .aboutUs-header {
@@ -159,7 +159,7 @@
 }
 
 .aboutUs-content {
-    margin-top: 4rem;
+    margin-top: 2.5rem;
 }
 
 .aboutUs-box {
@@ -198,7 +198,7 @@
 /* Start Popular Courses Styles */
 
 .popluar {
-    margin: 6rem 0;
+    margin: 5rem 0;
 }
 
 .popular-header {
@@ -208,7 +208,7 @@
 }
 
 .popular-slider {
-    margin-top: 4rem;
+    margin-top: 2.5rem;
 }
 
 .popular-slider .course-box {
@@ -226,7 +226,7 @@
 /* Start Pre Sell Courses Styles */
 
 .preSell {
-    margin: 6rem 0;
+    margin: 5rem 0;
 }
 
 .preSell-header {
@@ -236,7 +236,7 @@
 }
 
 .presell-slider {
-    margin-top: 4rem;
+    margin-top: 2.5rem;
 }
 
 .presell-slider .course-box {
@@ -254,7 +254,7 @@
 /* Start Articles Sections Styles */
 
 .articles {
-    margin: 6rem 0;
+    margin: 5rem 0;
 }
 
 .articles-header {
@@ -295,7 +295,7 @@
 }
 
 .articles-content {
-    margin-top: 4rem;
+    margin-top: 2.5rem;
 }
 
 .article-card {
