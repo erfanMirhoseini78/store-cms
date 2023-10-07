@@ -1,0 +1,209 @@
+@import "./variable.css";
+@import "./fonts.css";
+@import "./custome.css";
+@import "./module/default.css";
+@import "./module/topbar.css";
+@import "./module/navbar.css";
+@import "./module/breadcrumb.css";
+@import "./module/sidebarCoursesBox.css";
+@import "./module/pagination.css";
+@import "./module/footer.css";
+
+/*? Start Login && Register Form Styles */
+
+.login-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-register::before {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    background-color: #2bce56;
+    width: 150%;
+    height: 38rem;
+    z-index: -1;
+    transform: rotate(-4deg);
+}
+
+.login-register::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(43, 206, 86, 0.6);
+    top: -5rem;
+    width: 150%;
+    height: 38rem;
+    z-index: -10;
+    transform: rotate(-4deg);
+}
+
+
+
+/* Start Login Form Styles */
+
+.login {
+    background-color: var(--white-color);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: .5rem solid var(--primary-color);
+    padding: 2.5rem;
+    /* padding-bottom: 5rem; */
+    border-radius: 1rem;
+    margin-top: 4rem;
+    width: 45rem;
+}
+
+.login__title {
+    display: block;
+    color: #7b868a;
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.login__subtitle {
+    font-size: 1.5rem;
+    color: #7b868a;
+}
+
+.login__new-member {
+    background-color: #f0f2f7;
+    margin: 2rem 0;
+    border-radius: 0.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.login__new-member-text {
+    font-size: 1.4rem;
+    color: #7b868a;
+}
+
+.login__new-member-link {
+    /* background-color: #a8aaaf; */
+    background-color: var(--primary-color);
+    padding: 0.3rem .9rem;
+    border-radius: 0.5rem;
+    color: var(--white-color);
+}
+
+.login-form {
+    width: 100%;
+}
+
+.login-form__username,
+.login-form__password,
+.login-form__email,
+.login-form__phone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #e6e6e6;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.login-form__username-input,
+.login-form__password-input,
+.login-form__email-input,
+.login-form__phone-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+}
+
+.login-form__username-input::placeholder,
+.login-form__password-input::placeholder,
+.login-form__email-input::placeholder,
+.login-form__phone-input::placeholder {
+    color: var(--primary-color);
+}
+
+.login-form__username-icon,
+.login-form__password-icon,
+.login-form__email-icon,
+.login-form__phone-icon {
+    font-size: 2.2rem;
+    color: #ccc;
+}
+
+.login-form__btn {
+    border: none;
+    outline: none;
+    width: 100%;
+    color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    position: relative;
+}
+
+.login-form__btn-icon {
+    position: absolute;
+    right: 2rem;
+    font-size: 2rem;
+}
+
+.login-form__btn-text {
+    font-size: 1.8rem;
+}
+
+.login-form__password-settings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.login-form__password-remember {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.login-form__password-remembre-text {
+    color: #6c757d;
+    letter-spacing: -1px;
+    font-size: 1.5rem;
+}
+
+.login-desc {
+    margin-top: 2rem;
+    color: #7b868a;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.login-desc__title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.login-desc__list {
+    list-style: disc;
+    margin-right: 2rem;
+    margin-top: 1rem;
+}
+
+/* Finish Login Form Styles */
+
+/*? Finish Login && Register Form Styles */

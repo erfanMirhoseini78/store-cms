@@ -15,8 +15,8 @@
     <!-- Custome Css -->
     <link rel="stylesheet" href="css/custome.css">
     <!-- Style Css -->
-    <link rel="stylesheet" href="css/login.css">
-    <title>سبزلرن | صفحه ورود</title>
+    <link rel="stylesheet" href="css/register.css">
+    <title>سبزلرن | صفحه ثبت نام</title>
 </head>
 
 <body>
@@ -318,27 +318,37 @@
         <!-- Start Login Form Section -->
         <div class="login">
             <span class="login__title">
-                ورود به حساب کاربری
+                ساخت حساب کاربری
             </span>
 
             <span class="login__subtitle">
-                خوشحالیم دوباره میبینیمت دوست عزیز
+                خوشحالیم قراره به جمع ما بپیوندی
             </span>
 
             <div class="login__new-member">
                 <span class="login__new-member-text">
-                    کاربر جدید هستید؟
+                    قبلا ثبت نام کرده اید؟
                 </span>
 
-                <a href="register.html" class="login__new-member-link">
-                    ثبت نام
+                <a href="login.html" class="login__new-member-link">
+                    وارد شوید
                 </a>
             </div>
 
             <form action="#" class="login-form">
                 <div class="login-form__username">
-                    <input type="text" class="login-form__username-input" placeholder="نام کاربری یا آدرس ایمیل">
+                    <input type="text" class="login-form__username-input" placeholder="نام و نام خانوادگی">
                     <i class="fas fa-user login-form__username-icon"></i>
+                </div>
+
+                <div class="login-form__phone">
+                    <input type="text" class="login-form__phone-input" placeholder="شماره تماس">
+                    <i class="fas fa-phone login-form__phone-icon"></i>
+                </div>
+
+                <div class="login-form__email">
+                    <input type="email" class="login-form__email-input" placeholder="آدرس ایمیل">
+                    <i class="fas fa-envelope login-form__email-icon"></i>
                 </div>
 
                 <div class="login-form__password">
@@ -347,10 +357,10 @@
                 </div>
 
                 <button type="submit" class="login-form__btn">
-                    <i class="fas fa-sign-out-alt login-form__btn-icon"></i>
+                    <i class="fas fa-user-plus login-form__btn-icon"></i>
 
                     <span class="login-form__btn-text">
-                        ورود
+                        عضویت
                     </span>
                 </button>
 
@@ -360,12 +370,6 @@
                         <span class="login-form__password-remembre-text">
                             مرا به خاطر داشته باش
                         </span>
-                    </label>
-
-                    <label class="login-form__password-forget">
-                        <a href="#" class="login-form__password-forget-link">
-                            رمز عبور را فراموش کرده اید؟
-                        </a>
                     </label>
                 </div>
             </form>
