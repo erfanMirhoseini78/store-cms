@@ -8,11 +8,92 @@
 @import "./module/pagination.css";
 @import "./module/footer.css";
 
-/*? Start Course Details */
+/*? Start Article Details */
 
-.course-details {
+.article-details {
     margin-top: 4rem;
 }
+
+
+/*! Start Article Styles */
+
+.article {
+    padding: 2rem;
+    background-color: var(--white-color);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+}
+
+
+
+/* Start Article Box Styles */
+
+.article__title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    letter-spacing: -2px;
+    color: var(--dark-color);
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #f3f3f3;
+}
+
+.article__header {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding-top: 1rem;
+}
+
+.article__header-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.article__header-icon {
+    font-size: 1.8rem;
+    color: #c7c7c7;
+}
+
+.article__header-text {
+    font-size: 1.3rem;
+    color: #8f8f8f;
+}
+
+.article__img {
+    width: 100%;
+    margin: 4rem 0;
+}
+
+/* Finish Article Box Styles */
+
+
+
+/* Start Article Score Styles */
+
+.article__score {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.article__score-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.article__score-text {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 1.7rem;
+    color: #7d7d7d;
+}
+
+/* Finish Article Score Styles */
+
+/*! Finish Article Styles */
 
 
 
@@ -23,7 +104,7 @@
     position: sticky;
 }
 
-.course-infos {
+.article-infos {
     border-radius: 1rem;
     margin-top: 2rem;
     padding: 2rem;
@@ -31,17 +112,17 @@
     border: 2px solid #f2f2f2;
 }
 
-.course-infos:first-child {
+.article-infos:first-child {
     margin-top: 0;
+}
+
+.article-infos {
+    overflow: hidden;
 }
 
 
 
 /* Start Related Course Box Section */
-
-.course-infos {
-    overflow: hidden;
-}
 
 .course-info__related-course-title {
     position: relative;
@@ -147,4 +228,4 @@
 
 /*! Finish Side Bar Styles */
 
-/*? Finish Course Details */
+/*? Finish Article Details */
