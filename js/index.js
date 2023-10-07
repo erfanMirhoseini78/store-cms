@@ -28,10 +28,11 @@ function makeCounter(max, elem) {
     let counter = 0;
     const interval = setInterval(() => {
         if (counter === max) {
-            clearInterval(interval)
+            clearInterval(interval);
         }
+
         elem.innerHTML = counter;
         counter++;
 
-    }, .001)
+    }, .01)
 }
