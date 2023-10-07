@@ -23,6 +23,7 @@
     background-color: var(--white-color);
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
     border-radius: 1rem;
+    overflow: hidden;
 }
 
 
@@ -64,7 +65,7 @@
 
 .article__img {
     display: block;
-    margin: 4rem 0;
+    margin: 4rem auto;
     border-radius: 2rem;
 }
 
@@ -191,6 +192,121 @@
 }
 
 /* Finish Article Shared Section */
+
+
+
+/* Start Suggestion Articles Styles */
+
+.suggestion-articles {
+    margin: 5rem 0;
+    padding: 3.5rem 2.5rem;
+    border-radius: 1rem;
+    background-color: #f0f2f7;
+}
+
+.suggestion-articles__right::after {
+    content: "قدیمی تر";
+    position: absolute;
+    top: -2.5rem;
+    transform: rotate(180deg);
+    left: 2rem;
+    font-size: 1.8rem;
+    color: #adb5db;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.suggestion-articles__content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+}
+
+.suggestion-articles__icon-link {
+    color: #adb5db;
+    font-size: 1.8rem;
+}
+
+.suggestion-articles__link {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.suggestion-articles__left {
+    flex-direction: row-reverse;
+}
+
+.suggestion-articles__left::after {
+    content: "جدید تر";
+    position: absolute;
+    top: -2.5rem;
+    right: 2rem;
+    font-size: 1.8rem;
+    color: #adb5db;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+/* Finish Suggestion Articles Styles */
+
+
+
+/* Start Comments Styles */
+
+.comments__title {
+    display: block;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: var(--dark-color);
+}
+
+.comment__text {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.comments__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.comments__content-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: #6c757d;
+}
+
+.comments__star {
+    color: red;
+}
+
+.comments__content-textarea {
+    resize: vertical;
+    min-height: 20rem;
+    max-height: 30rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: none;
+    background-color: #f3f3f3;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.comments__button {
+    border: none;
+    outline: none;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    padding: 0.8rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+}
+
+/* Finish Comments Styles */
 
 /*! Finish Article Styles */
 
