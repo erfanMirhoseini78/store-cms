@@ -122,6 +122,29 @@
 
 /* Finish Access Related Course Styles */
 
+
+
+/* Start Lastest Blog Styles */
+
+.sidebar-lastest__articles-list {
+    margin-top: -1rem;
+}
+
+.sidebar-lastest__articles-item {
+    border-bottom: 2px solid #eeeeee;
+    padding: 1rem 0;
+}
+
+.sidebar-lastest__articles-item:last-child {
+    border-bottom: none;
+}
+
+.sidebar-lastest__articles-link {
+    font-size: 1.4rem;
+}
+
+/* Finish Lastest Blog Styles */
+
 /*! Finish Side Bar Styles */
 
 /*? Finish Course Details */
