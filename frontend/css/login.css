@@ -127,6 +127,19 @@
     color: var(--primary-color);
 } */
 
+.login-form__password-wrapper-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.password-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .login-form__username-icon,
 .login-form__password-icon {
     font-size: 2.2rem;

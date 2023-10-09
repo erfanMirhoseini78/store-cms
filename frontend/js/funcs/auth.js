@@ -1,14 +1,14 @@
 import { showSwal, saveIntoLocalStorage } from "./utility.js";
 
-const nameInput = document.querySelector('#name');
-const usernameInput = document.querySelector('#username');
-const emailInput = document.querySelector('#email');
-const phoneInput = document.querySelector('#phone');
-const passwordInput = document.querySelector('#password');
-const confirmPasswordInput = document.querySelector('#confirmPassword');
-
 const register = event => {
     event.preventDefault();
+
+    const nameInput = document.querySelector('#name');
+    const usernameInput = document.querySelector('#username');
+    const emailInput = document.querySelector('#email');
+    const phoneInput = document.querySelector('#phone');
+    const passwordInput = document.querySelector('#password');
+    const confirmPasswordInput = document.querySelector('#confirmPassword');
 
     let newUser = {
         name: nameInput.value.trim(),
@@ -35,18 +35,17 @@ const register = event => {
                     'ورود به پنل',
                     result => {
                         console.log(result);
-                        clearInput();
+                        clearInputRegister();
                         location.href = 'index.html';
                     })
                 return res.json();
             }
-            else if (res.status > 300) {
+            else if (res.status === 400 || res.status === 401) {
                 showSwal('error',
                     'اطلاعات را به درستی وارد کنید',
                     'تصحیح اطلاعات',
-                    result => {
-                        console.log(result);
-                    })
+                    () => { }
+                )
             }
         })
         .then(result => {
@@ -55,15 +54,85 @@ const register = event => {
             saveIntoLocalStorage('user', { token: result.accessToken })
         })
     // .catch(err => console.log("Error: ", err))
+
+    function clearInputRegister() {
+        nameInput.value = "";
+        usernameInput.value = "";
+        emailInput.value = "";
+        phoneInput.value = "";
+        passwordInput.value = "";
+        confirmPasswordInput.value = "";
+    }
 }
 
-function clearInput() {
-    nameInput.value = "";
-    usernameInput.value = "";
-    emailInput.value = "";
-    phoneInput.value = "";
-    passwordInput.value = "";
-    confirmPasswordInput.value = "";
+const login = event => {
+    event.preventDefault();
+
+    const identifierInput = document.querySelector('#identifier');
+    const passwordInput = document.querySelector('#password');
+
+    let userInfos = {
+        identifier: identifierInput.value.trim(),
+        password: passwordInput.value.trim(),
+    }
+
+    fetch('http://localhost:4000/v1/auth/login', {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(userInfos)
+    })
+        .then(res => {
+            console.log(res);
+            if (res.status === 200) {
+                showSwal('success',
+                    'با موفقیت وارد شدید',
+                    'ورود به پنل',
+                    result => {
+                        console.log(result);
+                        clearInputLogin();
+                        location.href = 'index.html';
+                    })
+                return res.json();
+            }
+            else if (res.status === 400 || res.status === 401) {
+                showSwal('error',
+                    'کاربری با این اطلاعات یافت نشد!',
+                    'تصحیح اطلاعات',
+                    () => { }
+                )
+            }
+        })
+        .then(result => {
+            console.log("Result: ", result);
+
+            saveIntoLocalStorage('user', { token: result.accessToken })
+        })
+
+    function clearInputLogin() {
+        identifierInput.value = "";
+        passwordInput.value = "";
+    }
 }
 
-export { register }
+function showPassword(elem, input) {
+    let isShowPassword = false;
+    if (!isShowPassword) {
+        elem.lastElementChild.remove();
+        elem.insertAdjacentHTML('beforeend', `
+        <i class="fas fa-eye-slash login-form__password-icon password-icon"></i>
+        `)
+        isShowPassword = true;
+        input.setAttribute('type', 'text');
+    } else {
+        elem.lastElementChild.remove();
+        elem.insertAdjacentHTML('beforeend', `
+        <i class="fas fa-eye login-form__password-icon password-icon"></i>
+        `)
+        isShowPassword = false;
+        input.setAttribute('type', 'password');
+    }
+}
+
+export { register, showPassword, login }
