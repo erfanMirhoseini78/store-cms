@@ -102,10 +102,11 @@
     width: 100%;
 }
 
+.login-form__name,
 .login-form__username,
-.login-form__password,
 .login-form__email,
-.login-form__phone {
+.login-form__phone,
+.login-form__password {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -116,27 +117,52 @@
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
 }
 
+.login-form__name-input,
 .login-form__username-input,
-.login-form__password-input,
 .login-form__email-input,
-.login-form__phone-input {
+.login-form__phone-input,
+.login-form__password-input,
+.login-form__password-confirm-input {
     width: 100%;
     border: none;
     outline: none;
     font-size: 1.5rem;
 }
 
-.login-form__username-input::placeholder,
+/*! English Input Data */
+/* .login-form__username-input {
+    text-align: left;
+    direction: ltr;
+} */
+
+/* .login-form__username-input::placeholder,
 .login-form__password-input::placeholder,
 .login-form__email-input::placeholder,
 .login-form__phone-input::placeholder {
     color: var(--primary-color);
+} */
+
+.login-form__password-wrapper-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
+#password-icon,
+#password__confirm-icon {
+    cursor: pointer;
+}
+
+.password-icon {
+    margin-top: 1rem;
+}
+
+.login-form__name-icon,
 .login-form__username-icon,
-.login-form__password-icon,
 .login-form__email-icon,
-.login-form__phone-icon {
+.login-form__phone-icon,
+.login-form__password-icon {
     font-size: 2.2rem;
     color: #ccc;
 }
@@ -207,3 +233,16 @@
 /* Finish Login Form Styles */
 
 /*? Finish Login && Register Form Styles */
+
+
+/*! Sweet ALert */
+.swal2-popup {
+    width: 40rem;
+    height: 20rem;
+}
+
+.swal2-confirm{
+    width: 12rem;
+    height: 3.5rem;
+    margin-bottom: 3rem;
+}

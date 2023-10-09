@@ -122,10 +122,10 @@
     font-size: 1.5rem;
 }
 
-.login-form__username-input::placeholder,
+/* .login-form__username-input::placeholder,
 .login-form__password-input::placeholder {
     color: var(--primary-color);
-}
+} */
 
 .login-form__username-icon,
 .login-form__password-icon {
