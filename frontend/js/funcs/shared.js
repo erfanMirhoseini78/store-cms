@@ -1,5 +1,5 @@
 import { getMe } from "./auth.js";
-import { isLogin } from "./utility.js";
+import { isLogin, getToken } from "./utility.js";
 
 const showNameInNavbar = () => {
     const navProfile = document.querySelector('.nav__profile');
@@ -179,7 +179,6 @@ const getAndShowPreSellCourses = async () => {
     const getPreSellCourses = await fetch('http://localhost:4000/v1/courses/presell');
     const showPreSellCourses = await getPreSellCourses.json();
 
-    console.log(showPreSellCourses);
     presellCoursesContainer.innerHTML = '';
     showPreSellCourses.slice(0, 4).forEach(course => {
         presellCoursesContainer.insertAdjacentHTML('beforeend', `
@@ -236,4 +235,45 @@ const getAndShowPreSellCourses = async () => {
     })
 }
 
-export { showNameInNavbar, renderTopbarMenus, getAndShowAllCourses, getAndShowPopularCourses, getAndShowPreSellCourses }
+const getAndShowArticles = () => {
+    const articleContainer = document.querySelector('#article__container');
+
+    articleContainer.innerHTML = '';
+    const userToken = getToken();
+
+    fetch('http://localhost:4000/v1/articles', {
+        headers: {
+            Authorization: `Bearer ${userToken}`,
+        }
+    })
+        .then(res => res.json())
+        .then(articles => {
+            articles.slice(0, 6).forEach(article => {
+                articleContainer.insertAdjacentHTML('beforeend', `
+                <div class="col-4">
+                            <div class="article-card">
+                                <div class="articel-card__header">
+                                    <a href="#" class="article-card__logo">
+                                        <img src=http://localhost:4000/courses/covers/${article.cover} alt="Articel Cover" class="article-card__img">
+                                    </a>
+                                </div>
+
+                                <div class="articel-card__content">
+                                    <a href="#" class="article-card__title">
+                                        ${article.title}
+                                    </a>
+                                    <p class="article-card__desc">
+                                        ${article.description}
+                                    </p>
+                                    <a href="#" class="article-card__btn">
+                                        بیشتر بخوانید
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                `)
+            })
+        })
+}
+
+export { showNameInNavbar, renderTopbarMenus, getAndShowAllCourses, getAndShowPopularCourses, getAndShowPreSellCourses, getAndShowArticles }
