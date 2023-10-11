@@ -1,3 +1,5 @@
+import { getAndShowAllCourses } from "./funcs/shared.js";
+
 const landingTitle = document.querySelector('.landing__title');
 const landingCourseCount = document.querySelector('#landing-courses__count');
 const landingLearnMinutes = document.querySelector('#landing-learn__minutes');
@@ -11,9 +13,10 @@ window.addEventListener('load', () => {
     makeCounter(40, landingCourseCount);
     makeCounter(3_320, landingLearnMinutes);
     makeCounter(3_071, landingUserCount);
+    getAndShowAllCourses();
 })
 
-function typeWriter(text, index) {
+const typeWriter = (text, index) => {
     if (index < text.length) {
         landingTitle.innerHTML += text[index];
         index++;
@@ -24,7 +27,7 @@ function typeWriter(text, index) {
     }, 100)
 }
 
-function makeCounter(max, elem) {
+const makeCounter = (max, elem) => {
     let counter = 0;
     const interval = setInterval(() => {
         if (counter === max) {

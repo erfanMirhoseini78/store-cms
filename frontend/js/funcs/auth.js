@@ -116,7 +116,7 @@ const login = event => {
     }
 }
 
-function showPassword(elem, input) {
+const showPassword = (elem, input) => {
     let isShowPassword = false;
     if (!isShowPassword) {
         elem.lastElementChild.remove();
