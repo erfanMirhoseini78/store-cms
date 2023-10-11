@@ -147,9 +147,19 @@
     border: 2px solid var(--primary-color);
     border-radius: 0.5rem;
     color: var(--primary-color);
+    transition: all 400ms ease;
 }
 
 .nav__profile:hover {
     background-color: var(--primary-color);
     color: var(--white-color);
+}
+
+.nav__profile:hover .nav__profile-link {
+    color: var(--white-color);
+}
+
+.nav__profile-link {
+    transition: all 400ms ease;
+    color: var(--primary-color);
 }

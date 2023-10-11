@@ -1,4 +1,4 @@
-import { showSwal, saveIntoLocalStorage } from "./utility.js";
+import { showSwal, saveIntoLocalStorage, getToken } from "./utility.js";
 
 const register = event => {
     event.preventDefault();
@@ -135,4 +135,21 @@ function showPassword(elem, input) {
     }
 }
 
-export { register, showPassword, login }
+const getMe = async () => {
+    let token = getToken();
+
+    if (!token) {
+        return false;
+    }
+
+    const res = await fetch('http://localhost:4000/v1/auth/me', {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+    const data = await res.json();
+
+    return data;
+}
+
+export { register, showPassword, login, getMe }

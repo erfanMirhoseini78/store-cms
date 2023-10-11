@@ -15,5 +15,3 @@ passwordIcon.addEventListener('click', () => {
 passwordConfirmIcon.addEventListener('click', () => {
     showPassword(passwordConfirmIcon, confirmPasswordInput);
 })
-
-

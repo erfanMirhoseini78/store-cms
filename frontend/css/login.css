@@ -53,7 +53,6 @@
     flex-direction: column;
     border-bottom: .5rem solid var(--primary-color);
     padding: 2.5rem;
-    /* padding-bottom: 5rem; */
     border-radius: 1rem;
     margin-top: 4rem;
     width: 45rem;
@@ -91,7 +90,6 @@
 }
 
 .login__new-member-link {
-    /* background-color: #a8aaaf; */
     background-color: var(--primary-color);
     padding: 0.3rem .9rem;
     border-radius: 0.5rem;
@@ -121,11 +119,6 @@
     outline: none;
     font-size: 1.5rem;
 }
-
-/* .login-form__username-input::placeholder,
-.login-form__password-input::placeholder {
-    color: var(--primary-color);
-} */
 
 .login-form__password-wrapper-icon {
     display: flex;
