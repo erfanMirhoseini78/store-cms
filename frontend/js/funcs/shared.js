@@ -3,30 +3,50 @@ import { isLogin, getToken } from "./utility.js";
 
 const showNameInNavbar = () => {
     const navProfile = document.querySelector('.nav__profile');
+    const topBarEmail = document.querySelector('.top-bar__email')
+    const topBarPhone = document.querySelector('.top-bar__phone');
     const isUserLogin = isLogin();
 
     if (isUserLogin) {
         navProfile.innerHTML = '';
         getMe()
             .then(data => {
-                navProfile.insertAdjacentHTML('beforeend', `
-                    <span class="nav__profile-text">
+                navProfile.innerHTML = `<span class="nav__profile-text">
                     ${data.name}
-                    </span>
-                `);
+                    </span>`;
+
+                topBarEmail.innerHTML = `<a href="#" class="top-bar__email-text top-bar__link">
+                    ${data.email}
+                    </a>
+                    <i class="fas fa-envelope top-bar__email-icon"></i>`;
+
+                topBarPhone.innerHTML = `<a href="#" class="top-bar__phone-text top-bar__link">
+                    ${data.phone}
+                    </a>
+                    <i class="fas fa-phone
+                    top-bar__phone-icon"></i>`;
             })
     }
     else {
         navProfile.innerHTML = '';
-        navProfile.insertAdjacentHTML('beforeend', `
-            <a href="login.html" class="nav__profile-link">
+        topBarEmail.innerHTML = '';
+        topBarPhone.innerHTML = '';
+
+        navProfile.innerHTML = `<a href="login.html" class="nav__profile-link">
                 ورود
             </a>
                 /
             <a href="register.html" class="nav__profile-link">
                 ثبت نام
-            </a>
-        `);
+            </a>`;
+
+        topBarEmail.innerHTML = `
+            <a href="#" class="top-bar__email-text top-bar__link">sabzlearn@gmail.com</a>
+            <i class="fas fa-envelope top-bar__email-icon"></i>`;
+
+        topBarPhone.innerHTML = `
+            <a href="#" class="top-bar__phone-text top-bar__link">09123456789</a>
+            <i class="fas fa-phone top-bar__phone-icon"></i>`;
     }
 }
 
@@ -276,4 +296,32 @@ const getAndShowArticles = () => {
         })
 }
 
-export { showNameInNavbar, renderTopbarMenus, getAndShowAllCourses, getAndShowPopularCourses, getAndShowPreSellCourses, getAndShowArticles }
+const getAndShowMenus = () => {
+    const navMenu = document.querySelector('.nav__menu');
+
+    fetch('http://localhost:4000/v1/menus')
+        .then(res => res.json())
+        .then(menus => {
+            menus.forEach(menu => {
+                navMenu.insertAdjacentHTML('beforeend', `
+                <li class="nav__item">
+                    <a href="#${menu.href}" class="nav__link">
+                        ${menu.title}
+                        ${menu.submenus.length ? `<i class="fas fa-angle-up nav__link-icon"></i> 
+                        <ul class="nav__sub-menu">
+                            ${menu.submenus.map(submenu =>
+                    `<li class="nav__sub-item">
+                                <a href="#${submenu.href}" class="nav__sub-link">
+                                    ${submenu.title}
+                                </a>
+                            </li>`).join('')}
+                        </ul>` : ''}
+                    </a>
+                </li>
+                `)
+
+            })
+        })
+}
+
+export { showNameInNavbar, renderTopbarMenus, getAndShowAllCourses, getAndShowPopularCourses, getAndShowPreSellCourses, getAndShowArticles, getAndShowMenus }

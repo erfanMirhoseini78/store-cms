@@ -27,8 +27,6 @@ const register = event => {
         body: JSON.stringify(newUser)
     })
         .then(res => {
-            console.log(res);
-
             if (res.status === 201) {
                 showSwal('success',
                     'ثبت نام با موفقیت انجام شد',
@@ -49,12 +47,9 @@ const register = event => {
             }
         })
         .then(result => {
-            console.log("Result: ", result);
-
             saveIntoLocalStorage('user', { token: result.accessToken })
         })
-    // .catch(err => console.log("Error: ", err))
-
+    
     function clearInputRegister() {
         nameInput.value = "";
         usernameInput.value = "";
@@ -84,7 +79,6 @@ const login = event => {
         body: JSON.stringify(userInfos)
     })
         .then(res => {
-            console.log(res);
             if (res.status === 200) {
                 showSwal('success',
                     'با موفقیت وارد شدید',
@@ -105,9 +99,7 @@ const login = event => {
             }
         })
         .then(result => {
-            console.log("Result: ", result);
-
-            saveIntoLocalStorage('user', { token: result.accessToken })
+           saveIntoLocalStorage('user', { token: result.accessToken })
         })
 
     function clearInputLogin() {

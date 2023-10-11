@@ -68,6 +68,10 @@
     margin-bottom: 2rem;
 }
 
+.nav__sub-item:last-child {
+    margin-bottom: 1rem;
+}
+
 .nav__sub-item::before {
     content: "";
     position: absolute;
