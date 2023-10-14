@@ -3,7 +3,7 @@
 @import "./module/default.css";
 @import "./module/topbar.css";
 @import "./module/navbar.css";
-@import "./module/coursecart.css";
+@import "./module/coursecartcol.css";
 @import "./module/footer.css";
 
 /* Start Landing Styles */
@@ -317,7 +317,7 @@
 
 .article-card__img {
     width: 100%;
-    height: 250px;
+    height: 22rem;
 }
 
 .articel-card__content {

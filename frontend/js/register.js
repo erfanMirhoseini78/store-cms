@@ -1,4 +1,7 @@
-import { register, showPassword } from "./funcs/auth.js";
+import {
+    register,
+    showPassword,
+} from "./funcs/auth.js";
 
 const registerFormBtn = document.querySelector('#register-btn');
 const passwordIcon = document.querySelector('#password-icon');

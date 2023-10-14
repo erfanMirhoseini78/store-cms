@@ -1,4 +1,7 @@
-import { showPassword, login } from "./funcs/auth.js";
+import {
+    showPassword,
+    login,
+} from "./funcs/auth.js";
 
 const passwordIcon = document.querySelector('#password-icon');
 const passwordInput = document.querySelector('#password');

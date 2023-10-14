@@ -1,4 +1,9 @@
-import { getAndShowAllCourses, getAndShowPopularCourses, getAndShowPreSellCourses, getAndShowArticles } from "./funcs/shared.js";
+import {
+    getAndShowAllCourses,
+    getAndShowPopularCourses,
+    getAndShowPreSellCourses,
+    getAndShowArticles,
+} from "./funcs/shared.js";
 
 const landingTitle = document.querySelector('.landing__title');
 const landingCourseCount = document.querySelector('#landing-courses__count');

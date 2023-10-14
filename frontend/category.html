@@ -63,7 +63,9 @@
 
                     <ul class="nav__menu center">
                         <li class="nav__item">
-                            <a href="#" class="nav__link">صفحه اصلی</a>
+                            <a href="index.html" class="nav__link">
+                                صفحه اصلی
+                            </a>
                         </li>
 
                         <!--! Element From JS -->
@@ -93,15 +95,15 @@
 
     <!-- Start Courses Section -->
     <section class="courses">
-        <div class="container">
+        <div class="container" id="category__container">
             <!-- Start Courses TopBar Section -->
             <div class="courses-topbar">
                 <div class="courses-topbar__right">
-                    <div class="courses-topbar__row-btn courses-topbar__btn-icon--active">
+                    <div class="courses-topbar__row-btn courses-topbar__icon-parent courses-topbar__btn-icon--active">
                         <i class="fas fa-border-all courses-topbar__btn-icon"></i>
                     </div>
 
-                    <div class="courses-topbar__column-btn">
+                    <div class="courses-topbar__column-btn courses-topbar__icon-parent">
                         <i class="fas fa-align-left courses-topbar__btn-icon"></i>
                     </div>
 
@@ -111,40 +113,38 @@
                             <i class="fas fa-angle-up courses-topbar__selections-icon"></i>
                         </span>
                         <ul class="courses-topbar__selections-list">
-                            <li class="courses-topbar__selections-item courses-topbar__selections-item--active">
-                                <a href="#" class="courses-topbar__selections-link">
-                                    مرتب سازی پیش فرض
-                                </a>
+                            <li class="courses-topbar__selections-item courses-topbar__selections-item--active"
+                                data-key="default">
+                                مرتب سازی پیش فرض
+                            </li>
+                            
+                            <li class="courses-topbar__selections-item"
+                                data-key="popular">
+                                مرتب سازی بر اساس محبوبیت
                             </li>
 
-                            <li class="courses-topbar__selections-item">
-                                <a href="#" class="courses-topbar__selections-link">
-                                    مرتب سازی بر اساس محبوبیت
-                                </a>
+                            <li class="courses-topbar__selections-item" data-key="last">
+                                مرتب سازی بر اساس آخرین
                             </li>
 
-                            <li class="courses-topbar__selections-item">
-                                <a href="#" class="courses-topbar__selections-link">
-                                    مرتب سازی بر اساس امتیاز
-                                </a>
+                            <li class="courses-topbar__selections-item" data-key="first">
+                                مرتب سازی بر اساس اولین
                             </li>
 
-                            <li class="courses-topbar__selections-item">
-                                <a href="#" class="courses-topbar__selections-link">
-                                    مرتب سازی بر اساس آخرین
-                                </a>
+                            <li class="courses-topbar__selections-item" data-key="free">
+                                مرتب سازی بر اساس رایگان
                             </li>
 
-                            <li class="courses-topbar__selections-item">
-                                <a href="#" class="courses-topbar__selections-link">
-                                    مرتب سازی بر اساس ارزانترین
-                                </a>
+                            <li class="courses-topbar__selections-item" data-key="money">
+                                مرتب سازی بر اساس پولی
                             </li>
 
-                            <li class="courses-topbar__selections-item">
-                                <a href="#" class="courses-topbar__selections-link">
-                                    مرتب سازی بر اساس گرانترین
-                                </a>
+                            <li class="courses-topbar__selections-item" data-key="cheapest">
+                                مرتب سازی بر اساس ارزانترین
+                            </li>
+                            
+                            <li class="courses-topbar__selections-item" data-key="expensive">
+                                مرتب سازی بر اساس گرانترین
                             </li>
                         </ul>
                     </div>
@@ -163,325 +163,8 @@
             <!-- Start Courses Box Section -->
             <div class="courses-content">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="course-box">
-                                <a href="#" class="course-box__logo">
-                                    <img src="./images/courses/js_project.png" alt="Course Img" class="course-box__img">
-                                </a>
-                                <div class="course-box__main">
-                                    <a href="#" class="course-box__title">
-                                        دوره پروژه های تخصصی با جاوااسکریپت برای بازار کار
-                                    </a>
-
-                                    <div class="course-box__rating-teacher">
-                                        <div class="courser-box__teacher">
-                                            <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
-                                            <a href="#" class="course-box__teacher-link">
-                                                محمدامین سعیدی راد
-                                            </a>
-                                        </div>
-
-                                        <div class="course-box__rating">
-                                            <img src="./images/svgs/star.svg" alt="Rating" class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                        </div>
-                                    </div>
-
-                                    <div class="course-box__status">
-                                        <div class="course-box__users">
-                                            <i class="fas fa-users course-box__users-icon"></i>
-                                            <span class="course-box__users-count">
-                                                500
-                                            </span>
-                                        </div>
-                                        <span class="course-box__price">
-                                            390,000
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="course-box__footer">
-                                    <a href="#" class="course-box__footer-text">
-                                        مشاهده اطلاعات
-                                        <i class="fas fa-arrow-left course-box__footer-icon"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="course-box">
-                                <a href="#" class="course-box__logo">
-                                    <img src="./images/courses/fareelancer.png" alt="Course Img"
-                                        class="course-box__img">
-                                </a>
-                                <div class="course-box__main">
-                                    <a href="#" class="course-box__title">
-                                        دوره پروژه های تخصصی با جاوااسکریپت برای بازار کار
-                                    </a>
-
-                                    <div class="course-box__rating-teacher">
-                                        <div class="courser-box__teacher">
-                                            <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
-                                            <a href="#" class="course-box__teacher-link">
-                                                محمدامین سعیدی راد
-                                            </a>
-                                        </div>
-
-                                        <div class="course-box__rating">
-                                            <img src="./images/svgs/star.svg" alt="Rating" class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                        </div>
-                                    </div>
-
-                                    <div class="course-box__status">
-                                        <div class="course-box__users">
-                                            <i class="fas fa-users course-box__users-icon"></i>
-                                            <span class="course-box__users-count">
-                                                500
-                                            </span>
-                                        </div>
-                                        <span class="course-box__price">
-                                            390,000
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="course-box__footer">
-                                    <a href="#" class="course-box__footer-text">
-                                        مشاهده اطلاعات
-                                        <i class="fas fa-arrow-left course-box__footer-icon"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="course-box">
-                                <a href="#" class="course-box__logo">
-                                    <img src="./images/courses/jango.png" alt="Course Img" class="course-box__img">
-                                </a>
-                                <div class="course-box__main">
-                                    <a href="#" class="course-box__title">
-                                        دوره پروژه های تخصصی با جاوااسکریپت برای بازار کار
-                                    </a>
-
-                                    <div class="course-box__rating-teacher">
-                                        <div class="courser-box__teacher">
-                                            <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
-                                            <a href="#" class="course-box__teacher-link">
-                                                محمدامین سعیدی راد
-                                            </a>
-                                        </div>
-
-                                        <div class="course-box__rating">
-                                            <img src="./images/svgs/star.svg" alt="Rating" class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                        </div>
-                                    </div>
-
-                                    <div class="course-box__status">
-                                        <div class="course-box__users">
-                                            <i class="fas fa-users course-box__users-icon"></i>
-                                            <span class="course-box__users-count">
-                                                500
-                                            </span>
-                                        </div>
-                                        <span class="course-box__price">
-                                            390,000
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="course-box__footer">
-                                    <a href="#" class="course-box__footer-text">
-                                        مشاهده اطلاعات
-                                        <i class="fas fa-arrow-left course-box__footer-icon"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="course-box">
-                                <a href="#" class="course-box__logo">
-                                    <img src="./images/courses/nodejs.png" alt="Course Img" class="course-box__img">
-                                </a>
-                                <div class="course-box__main">
-                                    <a href="#" class="course-box__title">
-                                        دوره پروژه های تخصصی با جاوااسکریپت برای بازار کار
-                                    </a>
-
-                                    <div class="course-box__rating-teacher">
-                                        <div class="courser-box__teacher">
-                                            <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
-                                            <a href="#" class="course-box__teacher-link">
-                                                محمدامین سعیدی راد
-                                            </a>
-                                        </div>
-
-                                        <div class="course-box__rating">
-                                            <img src="./images/svgs/star.svg" alt="Rating" class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                        </div>
-                                    </div>
-
-                                    <div class="course-box__status">
-                                        <div class="course-box__users">
-                                            <i class="fas fa-users course-box__users-icon"></i>
-                                            <span class="course-box__users-count">
-                                                500
-                                            </span>
-                                        </div>
-                                        <span class="course-box__price">
-                                            390,000
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="course-box__footer">
-                                    <a href="#" class="course-box__footer-text">
-                                        مشاهده اطلاعات
-                                        <i class="fas fa-arrow-left course-box__footer-icon"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="course-box">
-                                <a href="#" class="course-box__logo">
-                                    <img src="./images/courses/python.png" alt="Course Img" class="course-box__img">
-                                </a>
-                                <div class="course-box__main">
-                                    <a href="#" class="course-box__title">
-                                        دوره پروژه های تخصصی با جاوااسکریپت برای بازار کار
-                                    </a>
-
-                                    <div class="course-box__rating-teacher">
-                                        <div class="courser-box__teacher">
-                                            <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
-                                            <a href="#" class="course-box__teacher-link">
-                                                محمدامین سعیدی راد
-                                            </a>
-                                        </div>
-
-                                        <div class="course-box__rating">
-                                            <img src="./images/svgs/star.svg" alt="Rating" class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                        </div>
-                                    </div>
-
-                                    <div class="course-box__status">
-                                        <div class="course-box__users">
-                                            <i class="fas fa-users course-box__users-icon"></i>
-                                            <span class="course-box__users-count">
-                                                500
-                                            </span>
-                                        </div>
-                                        <span class="course-box__price">
-                                            390,000
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="course-box__footer">
-                                    <a href="#" class="course-box__footer-text">
-                                        مشاهده اطلاعات
-                                        <i class="fas fa-arrow-left course-box__footer-icon"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="course-box">
-                                <a href="#" class="course-box__logo">
-                                    <img src="./images/courses/youtuber.png" alt="Course Img" class="course-box__img">
-                                </a>
-                                <div class="course-box__main">
-                                    <a href="#" class="course-box__title">
-                                        دوره پروژه های تخصصی با جاوااسکریپت برای بازار کار
-                                    </a>
-
-                                    <div class="course-box__rating-teacher">
-                                        <div class="courser-box__teacher">
-                                            <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
-                                            <a href="#" class="course-box__teacher-link">
-                                                محمدامین سعیدی راد
-                                            </a>
-                                        </div>
-
-                                        <div class="course-box__rating">
-                                            <img src="./images/svgs/star.svg" alt="Rating" class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                            <img src="./images/svgs/star_fill.svg" alt="Rating"
-                                                class="course-box__star">
-                                        </div>
-                                    </div>
-
-                                    <div class="course-box__status">
-                                        <div class="course-box__users">
-                                            <i class="fas fa-users course-box__users-icon"></i>
-                                            <span class="course-box__users-count">
-                                                500
-                                            </span>
-                                        </div>
-                                        <span class="course-box__price">
-                                            390,000
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="course-box__footer">
-                                    <a href="#" class="course-box__footer-text">
-                                        مشاهده اطلاعات
-                                        <i class="fas fa-arrow-left course-box__footer-icon"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row" id="course-category__container">
+                        <!--! Element From JS -->
                     </div>
                 </div>
             </div>
@@ -629,14 +312,14 @@
     </footer>
     <!-- Finish Footer Section -->
 
-    <!-- Script JS -->
-    <script src="./js/script.js"></script>
     <!-- Bootstrap -->
     <script src="./vendor/Bootstrap/bootstrap.bundle.min.js"></script>
     <!-- FontAwesome -->
     <script src="./vendor/FontAwesome5/all.min.js"></script>
     <!-- Shared JS -->
     <script type="module" src="./js/shared.js"></script>
+    <!-- Category JS -->
+    <script type="module" src="./js/category.js"></script>
 
 </body>
 

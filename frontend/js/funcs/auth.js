@@ -1,4 +1,8 @@
-import { showSwal, saveIntoLocalStorage, getToken } from "./utility.js";
+import {
+    showSwal,
+    saveIntoLocalStorage,
+    getToken,
+} from "./utility.js";
 
 const register = event => {
     event.preventDefault();
@@ -49,7 +53,7 @@ const register = event => {
         .then(result => {
             saveIntoLocalStorage('user', { token: result.accessToken })
         })
-    
+
     function clearInputRegister() {
         nameInput.value = "";
         usernameInput.value = "";
@@ -99,7 +103,7 @@ const login = event => {
             }
         })
         .then(result => {
-           saveIntoLocalStorage('user', { token: result.accessToken })
+            saveIntoLocalStorage('user', { token: result.accessToken })
         })
 
     function clearInputLogin() {
@@ -144,4 +148,9 @@ const getMe = async () => {
     return data;
 }
 
-export { register, showPassword, login, getMe }
+export {
+    register,
+    showPassword,
+    login,
+    getMe,
+}

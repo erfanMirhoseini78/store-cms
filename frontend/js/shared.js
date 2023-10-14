@@ -1,4 +1,8 @@
-import { showNameInNavbar, renderTopbarMenus, getAndShowMenus } from "./funcs/shared.js";
+import {
+    showNameInNavbar,
+    renderTopbarMenus,
+    getAndShowMenus,
+} from "./funcs/shared.js";
 
 window.addEventListener('load', () => {
     showNameInNavbar();
