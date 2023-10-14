@@ -2,6 +2,7 @@ import { getMe } from "./auth.js";
 import {
     isLogin,
     getToken,
+    getUrlParam,
 } from "./utility.js";
 
 const showNameInNavbar = () => {
@@ -84,11 +85,11 @@ const getAndShowAllCourses = async () => {
         coursesContainer.insertAdjacentHTML('beforeend', `
                 <div class="col-4">
                     <div class="course-box">
-                        <a href="course.html" class="course-box__logo">
+                        <a href=course.html?name=${course.shortName} class="course-box__logo">
                             <img src=http://localhost:4000/courses/covers/${course.cover} alt="Course Img" class="course-box__img">
                         </a>
                         <div class="course-box__main">
-                            <a href="course.html" class="course-box__title">
+                            <a href=course.html?name=${course.shortName} class="course-box__title">
                             ${course.name}
                             </a>
 
@@ -125,7 +126,7 @@ const getAndShowAllCourses = async () => {
                         </div>
 
                         <div class="course-box__footer">
-                            <a href="course.html" class="course-box__footer-text">
+                            <a href=course.html?name=${course.shortName} class="course-box__footer-text">
                                 مشاهده اطلاعات
                                 <i class="fas fa-arrow-left course-box__footer-icon"></i>
                             </a>
@@ -147,11 +148,11 @@ const getAndShowPopularCourses = async () => {
         popularCoursesContainer.insertAdjacentHTML('beforeend', `
             <div class="swiper-slide">
                 <div class="course-box">
-                    <a href="course.html" class="course-box__logo">
+                    <a href=course.html?name=${course.shortName} class="course-box__logo">
                         <img src=http://localhost:4000/courses/covers/${course.cover} alt="Course Img" class="course-box__img">
                     </a>
                     <div class="course-box__main">
-                        <a href="course.html" class="course-box__title">
+                        <a href=course.html?name=${course.shortName} class="course-box__title">
                             ${course.name}
                         </a>
 
@@ -187,7 +188,7 @@ const getAndShowPopularCourses = async () => {
                     </div>
 
                     <div class="course-box__footer">
-                        <a href="course.html" class="course-box__footer-text">
+                        <a href=course.html?name=${course.shortName} class="course-box__footer-text">
                             مشاهده اطلاعات
                             <i class="fas fa-arrow-left course-box__footer-icon"></i>
                         </a>
@@ -209,11 +210,11 @@ const getAndShowPreSellCourses = async () => {
         presellCoursesContainer.insertAdjacentHTML('beforeend', `
             <div class="swiper-slide">
                 <div class="course-box">
-                    <a href="course.html" class="course-box__logo">
+                    <a href=course.html?name=${course.shortName} class="course-box__logo">
                         <img src=http://localhost:4000/courses/covers/${course.cover} alt="Course Img" class="course-box__img">
                     </a>
                     <div class="course-box__main">
-                        <a href="course.html" class="course-box__title">
+                        <a href=course.html?name=${course.shortName} class="course-box__title">
                             ${course.name}
                         </a>
 
@@ -249,7 +250,7 @@ const getAndShowPreSellCourses = async () => {
                     </div>
 
                     <div class="course-box__footer">
-                        <a href="course.html" class="course-box__footer-text">
+                        <a href=course.html?name=${course.shortName} class="course-box__footer-text">
                             مشاهده اطلاعات
                             <i class="fas fa-arrow-left course-box__footer-icon"></i>
                         </a>
@@ -354,11 +355,11 @@ const insertCourseBoxHtmlTemplate = (courses, showType, parentElement, errorMess
                 parentElement.insertAdjacentHTML('beforeend', `
             <div class="col-4">
                 <div class="course-box">
-                    <a href="course.html" class="course-box__logo">
+                    <a href=course.html?name=${course.shortName} class="course-box__logo">
                         <img src=http://localhost:4000/courses/covers/${course.cover} alt="Course Img" class="course-box__img">
                     </a>
                     <div class="course-box__main">
-                        <a href="course.html" class="course-box__title">
+                        <a href=course.html?name=${course.shortName} class="course-box__title">
                             ${course.name}
                         </a>
     
@@ -394,7 +395,7 @@ const insertCourseBoxHtmlTemplate = (courses, showType, parentElement, errorMess
                     </div>
     
                     <div class="course-box__footer">
-                        <a href="course.html" class="course-box__footer-text">
+                        <a href=course.html?name=${course.shortName} class="course-box__footer-text">
                             مشاهده اطلاعات
                             <i class="fas fa-arrow-left course-box__footer-icon"></i>
                         </a>
@@ -535,6 +536,10 @@ const coursesSorting = (array, filterMethod) => {
     }
 
     return outputArray;
+}
+
+const getCourseDeyails = () => {
+
 }
 
 export {

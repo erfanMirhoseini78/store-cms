@@ -44,5 +44,6 @@ export {
     getFromLocalStorage,
     getToken,
     isLogin,
+    getUrlParam,
     searchInArray,
 }
