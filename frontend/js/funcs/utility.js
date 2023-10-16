@@ -38,6 +38,21 @@ const searchInArray = (array, searchProperty, searchValue) => {
     return outputArray;
 }
 
+const computingTime = (sessionsTime) => {
+    let hours = 0;
+    let minuets = 0;
+
+    sessionsTime.forEach(session => {
+        hours += +session.time.split(':')[0];
+        minuets += +session.time.split(':')[1];
+    })
+
+    let minuetsRounded = Math.ceil(minuets / 60);
+    let totalTime = Math.ceil((hours + minuetsRounded) / 60);
+
+    return totalTime;
+}
+
 export {
     showSwal,
     saveIntoLocalStorage,
@@ -46,4 +61,5 @@ export {
     isLogin,
     getUrlParam,
     searchInArray,
+    computingTime,
 }

@@ -17,7 +17,13 @@
 .course-info__container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+}
+
+.course-info__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 26.8rem;
 }
 
 .course-info__link {
@@ -50,6 +56,7 @@
     display: flex;
     align-items: center;
     gap: 2rem;
+    margin-top: auto;
 }
 
 .course-info__social-media-link {
@@ -254,6 +261,10 @@
 
 
 .course-desc__accordion-body {
+    border-bottom: 1px solid #e8ebed;
+}
+
+.course-desc__accordion-body {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -270,32 +281,40 @@
 .course-desc__accordion-count {
     border: 1px solid rgba(0, 0, 0, 0.3);
     color: #656464;
-    width: 3rem;
-    height: 3rem;
+    width: 2.6rem;
+    height: 2.6rem;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 100%;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .course-desc__accordion-number {
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
 }
 
-.course-desc__accordion-icon {
+.course-desc__accordion-right-icon,
+.course-desc__accordion-left-icon {
     font-size: 1.8rem;
     color: #939aa3;
 }
 
 .course-desc__accordion-link {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     letter-spacing: -1px;
     color: #161616;
 }
 
+.course-desc__accordion-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 .course-desc__accordion-time {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: #7a7a7a;
 }
 
@@ -418,6 +437,7 @@
 }
 
 .course-infos__register-text {
+    color: var(--white-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -425,6 +445,10 @@
     font-size: 1.8rem;
     font-weight: bold;
     letter-spacing: -0.5px;
+}
+
+.course-infos__register-text:hover {
+    color: var(--white-color);
 }
 
 .course-infos__register-icon {
