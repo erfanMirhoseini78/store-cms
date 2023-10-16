@@ -1,4 +1,7 @@
-import { getMe } from "./auth.js";
+import {
+    getMe
+} from "./auth.js";
+
 import {
     isLogin,
     getToken,
@@ -604,7 +607,7 @@ const getCourseDetails = () => {
     
                                 <i class="fab fa-youtube course-desc__accordion-right-icon"></i>
                                 
-                            ${(session.free || course.isUserRegisteredToThisCourse) ? `<a href="#" class="course-desc__accordion-link">
+                            ${(session.free || course.isUserRegisteredToThisCourse) ? `<a href="episode.html?name=${course.shortName}&id=${session._id}" class="course-desc__accordion-link">
                                         ${session.title}
                                 </a>` :
                             `<span class="course-desc__accordion-link">
@@ -688,6 +691,69 @@ const getAndShowRelatedCourses = () => {
         })
 }
 
+const getAndShowOneSessionCourse = async () => {
+    const shortNameCourse = getUrlParam("name");
+    const shortIDCourse = getUrlParam("id");
+    const userToken = getToken();
+
+    // Select Elems For DOM
+    const episodeContentVideo = document.querySelector('.episode-content__video');
+    const sidebarTopicsList = document.querySelector('.sidebar-topics__list');
+    const episodeHeaderLeftText = document.querySelector('.episode-header__left-text');
+
+    const res = await fetch(`http://localhost:4000/v1/courses/${shortNameCourse}/${shortIDCourse}`, {
+        headers: {
+            Authorization: `Bearer ${userToken}`,
+        }
+    });
+    const episode = await res.json();
+
+    episodeContentVideo.setAttribute('src', `http://localhost:4000/courses/covers/${episode.session.video}`);
+    episodeHeaderLeftText.innerHTML = episode.session.title;
+
+    sidebarTopicsList.innerHTML = "";
+    episode.sessions.forEach(session => {
+        sidebarTopicsList.insertAdjacentHTML('beforeend', `
+        <li class="sidebar-topics__list-item">
+            <div class="sidebar-topics__list-right">
+                <i class="sidebar-topics__list-item-icon fa fa-play-circle"></i>
+
+                ${session.free ? `<a href="episode.html?name=${shortNameCourse}&id=${session._id}" class="sidebar-topics__list-item-link">
+                    ${session.title}
+                </a>` : `
+                <span class="sidebar-topics__list-item-title">
+                    ${session.title}
+                </span>`}
+                
+            </div>
+            <div class="sidebar-topics__list-left">
+            ${session.free ? `<span class="sidebar-topics__list-item-time" style="padding-left:19px";>
+                ${session.time}
+            </span>` : `<span class="sidebar-topics__list-item-time">
+                ${session.time}
+            </span>`}
+                
+                ${session.free ? "" : `<i class="fa-solid fa-lock sidebar-topics__list-left-icon"></i>`}
+            </div>
+        </li>
+    `)
+    })
+
+    const sidebarTopicsListItems = document.querySelectorAll('.sidebar-topics__list-item');
+
+    sidebarTopicsListItems.forEach(item => {
+        let textItem = item.firstElementChild.lastElementChild.innerText;
+
+        if (episode.session.title === textItem) {  
+            sidebarTopicsListItems.forEach(item => item.classList.remove('sidebar-topics__list-item--active'));
+
+            item.classList.add('sidebar-topics__list-item--active');
+        }
+    })
+
+    return episode;
+}
+
 export {
     showNameInNavbar,
     renderTopbarMenus,
@@ -701,4 +767,5 @@ export {
     coursesSorting,
     getCourseDetails,
     getAndShowRelatedCourses,
+    getAndShowOneSessionCourse,
 }
