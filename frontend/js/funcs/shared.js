@@ -788,9 +788,7 @@ const submitContactUsMessage = () => {
                         'success',
                         'پیغام شما با موفقیت ارسال شد',
                         'ورود به پنل',
-                        () => {
-                            location.href = "index.html";
-                        });
+                        () => { });
                     clearInputs();
                 }
                 else {
@@ -811,6 +809,42 @@ const submitContactUsMessage = () => {
     }
 }
 
+const joinNewsLetters = async () => {
+
+    // Select Elems From DOM
+    const footerNewsLetterInput = document.querySelector('.footer-news-letter__input');
+
+    const emailNewsLetterObj = {
+        email: footerNewsLetterInput.value.trim()
+    };
+
+    let res = await fetch('http://localhost:4000/v1/newsletters', {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(emailNewsLetterObj),
+    })
+
+    if (res.status === 201) {
+        footerNewsLetterInput.value = "";
+        showSwal(
+            'success',
+            'با موفقیت در خبرنامه عضو شدید',
+            'دمت گرم',
+            () => { });
+    }
+    else {
+        showSwal(
+            'error',
+            'لطفا ایمیل رو به درستی وارد کنید',
+            'ای بابا !',
+            () => { });
+    }
+
+    return res;
+}
+
 export {
     showNameInNavbar,
     renderTopbarMenus,
@@ -826,4 +860,5 @@ export {
     getAndShowRelatedCourses,
     getAndShowOneSessionCourse,
     submitContactUsMessage,
+    joinNewsLetters,
 }
