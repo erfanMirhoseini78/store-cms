@@ -1,5 +1,5 @@
 import {
-    getMe
+    getMe,
 } from "./auth.js";
 
 import {
@@ -7,6 +7,7 @@ import {
     getToken,
     getUrlParam,
     computingTime,
+    showSwal,
 } from "./utility.js";
 
 const showNameInNavbar = () => {
@@ -696,7 +697,7 @@ const getAndShowOneSessionCourse = async () => {
     const shortIDCourse = getUrlParam("id");
     const userToken = getToken();
 
-    // Select Elems For DOM
+    // Select Elems From DOM
     const episodeContentVideo = document.querySelector('.episode-content__video');
     const sidebarTopicsList = document.querySelector('.sidebar-topics__list');
     const episodeHeaderLeftText = document.querySelector('.episode-header__left-text');
@@ -744,7 +745,7 @@ const getAndShowOneSessionCourse = async () => {
     sidebarTopicsListItems.forEach(item => {
         let textItem = item.firstElementChild.lastElementChild.innerText;
 
-        if (episode.session.title === textItem) {  
+        if (episode.session.title === textItem) {
             sidebarTopicsListItems.forEach(item => item.classList.remove('sidebar-topics__list-item--active'));
 
             item.classList.add('sidebar-topics__list-item--active');
@@ -752,6 +753,62 @@ const getAndShowOneSessionCourse = async () => {
     })
 
     return episode;
+}
+
+const submitContactUsMessage = () => {
+
+    // Select Elems From DOM
+    const loginFormUsernameInput = document.querySelector('.login-form__username-input');
+    const loginFormEmailInput = document.querySelector('.login-form__email-input');
+    const loginFormPhoneInput = document.querySelector('.login-form__phone-input');
+    const loginFormTextInput = document.querySelector('.login-form__text-input');
+    const loginFormBtn = document.querySelector('.login-form__btn');
+
+    loginFormBtn.addEventListener('click', event => {
+        event.preventDefault();
+
+        let newContactUsBody = {
+            name: loginFormUsernameInput.value.trim(),
+            email: loginFormEmailInput.value.trim(),
+            phone: loginFormPhoneInput.value.trim(),
+            body: loginFormTextInput.value.trim(),
+        }
+
+        fetch(`http://localhost:4000/v1/contact`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newContactUsBody)
+        })
+            .then(res => {
+                console.log(res);
+                if (res.status === 201) {
+                    showSwal(
+                        'success',
+                        'پیغام شما با موفقیت ارسال شد',
+                        'ورود به پنل',
+                        () => {
+                            location.href = "index.html";
+                        });
+                    clearInputs();
+                }
+                else {
+                    showSwal(
+                        'error',
+                        'مشکلی در ارسال پیام وجود دارد \n لطفا بعدا امتحان کنید',
+                        'ای بابا !',
+                        () => { });
+                }
+            })
+    })
+
+    function clearInputs() {
+        loginFormEmailInput.value = "";
+        loginFormPhoneInput.value = "";
+        loginFormTextInput.value = "";
+        loginFormBtn.value = "";
+    }
 }
 
 export {
@@ -768,4 +825,5 @@ export {
     getCourseDetails,
     getAndShowRelatedCourses,
     getAndShowOneSessionCourse,
+    submitContactUsMessage,
 }

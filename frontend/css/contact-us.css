@@ -1,4 +1,4 @@
-@import "./variables.css";
+@import "./variable.css";
 @import "./fonts.css";
 @import "./module/default.css";
 @import "./module/topbar.css";
@@ -42,12 +42,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 4rem 0;
+    margin-top: 5rem;
     padding: 2.5rem 2rem 5rem 2rem;
     background-color: var(--white-color);
     box-shadow: 0 6px 20px rgba(168, 172, 185, 0.3);
-    border-radius: 5px;
-    width: 50rem;
+    border-radius: .5rem;
+    width: 45rem;
     border-bottom: 5px solid #2bce56;
 }
 
@@ -72,18 +72,20 @@
 }
 
 .login-form__username-input,
-.login-form__password-input {
+.login-form__email-input,
+.login-form__phone-input {
     width: 100%;
     border: 1px solid #e6e6e6;
     padding: 1rem 1.1rem;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
     margin: 0.8rem 0;
-    border-radius: 3px;
+    border-radius: .5rem;
     font-size: 1.4rem;
 }
 
 .login-form__username-icon,
-.login-form__password-icon {
+.login-form__email-icon,
+.login-form__phone-icon {
     position: absolute;
     left: 1.5rem;
     top: 2rem;
@@ -100,15 +102,16 @@
     border: 1px solid #e6e6e6;
     padding: 1rem 1.1rem;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
-    border-radius: 3px;
+    border-radius: .5rem;
     font-size: 1.4rem;
-    height: 130px;
+    min-height: 13rem;
+    max-height: 20rem;
 }
 
 .login-form__btn {
     width: 100%;
     border: none;
-    border-radius: 3px;
+    border-radius: .5rem;
     padding: 1.2rem 0;
     margin-top: 0.8rem;
     display: flex;
