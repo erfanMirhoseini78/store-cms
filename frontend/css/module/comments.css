@@ -1,7 +1,7 @@
 .comments {
-    margin-top: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 13px 1px rgba(70, 72, 77, 0.08);
+    margin-top: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
     padding: 2rem 2.5rem;
 }
 
@@ -133,7 +133,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 6rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .comments__rules-title {
@@ -180,7 +180,8 @@
 }
 
 .comments__score-input:hover {
-    background-color: #1e83f0;
+    /* background-color: #1e83f0; */
+    background-color: var(--primary-color);
     color: var(--white-color);
 }
 
@@ -188,6 +189,7 @@
     font-size: 1.5rem;
     color: #6c757d;
     margin-bottom: 0.5rem;
+    margin-top: 2rem;
 }
 
 .comments__score-input-respond {
