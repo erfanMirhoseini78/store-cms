@@ -5,6 +5,7 @@
 @import "./module/navbar.css";
 @import "./module/breadcrumb.css";
 @import "./module/sidebarCoursesBox.css";
+@import "./module/comments.css";
 @import "./module/pagination.css";
 @import "./module/footer.css";
 
@@ -553,6 +554,10 @@
     align-items: center;
     color: #7b868a;
     gap: 1rem;
+}
+
+.course-infos__header-short-url-wrapper {
+    color: #7b868a;
 }
 
 .course-infos__header-short-url-icon {

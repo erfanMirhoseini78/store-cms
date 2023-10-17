@@ -560,6 +560,8 @@ const getCourseDetails = () => {
     const courseInfosMoreCommentsCount = document.querySelector('.course-infos__more-comments-count');
     const courseInfosMoreSaleCount = document.querySelector('.course-infos__more-sale-count');
     const collapseWrapper = document.querySelector('#collapseOne');
+    const breadcrumbContentGroping = document.querySelector('#breadcrumb__content-groping');
+    const breadcrumbContentCourse = document.querySelector('#breadcrumb__content-course');
 
 
     fetch(`http://localhost:4000/v1/courses/${shortNameCourse}`, {
@@ -570,11 +572,19 @@ const getCourseDetails = () => {
     })
         .then(res => res.json())
         .then(course => {
+            console.log(course);
+            breadcrumbContentGroping.innerHTML = course.categoryID.title + `<i class="fas fa-angle-left breadcrumb__content-link-icon"></i>`;
+            breadcrumbContentCourse.innerHTML = course.name + `<i class="fas fa-angle-left breadcrumb__content-link-icon"></i>`;
+
             courseInfoLink.innerHTML = course.categoryID.title;
             courseInfoLink.setAttribute("href", `category.html?cat=/category-info/${course.categoryID.name}`);
+
             courseInfoTitle.innerHTML = course.name;
+
             courseInfoVideo.setAttribute("poster", `http://localhost:4000/courses/covers/${course.cover}`);
+
             courseInfoDesc.innerHTML = course.description;
+
             document.title = `سبزلرن | ${course.name}`;
 
             courseInfosRegisterText.insertAdjacentHTML('beforeend',
@@ -594,7 +604,7 @@ const getCourseDetails = () => {
 
             courseInfosMoreSaleCount.innerHTML = course.courseStudentsCount;
 
-            //? Show Course Sessions 
+            //! Show Course Sessions 
             if (course.sessions.length) {
                 course.sessions.forEach((session, index) => {
                     collapseWrapper.insertAdjacentHTML('beforeend', `
