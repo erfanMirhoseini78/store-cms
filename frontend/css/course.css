@@ -424,6 +424,19 @@
     margin-top: 0;
 }
 
+.course-info__related-course-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.course-info__related-course-desc__null {
+    color: #7d7e7f;
+    font-size: 1.4rem;
+    margin-bottom: 0;
+}
 
 
 /* Start Register Course Styles */
@@ -565,12 +578,17 @@
 }
 
 .course-infos__header-short-url-text {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: var(--dark-color);
+    /* margin-bottom: 1rem; */
 }
 
 .course-infos__short-url {
     display: block;
-    margin: 1rem 0;
+    margin: 0;
+    margin-top: 1rem;
     border: 1px solid #dcdcdc;
     color: #a7a7a7;
     border-radius: 0.5rem;
@@ -588,6 +606,9 @@
     display: block;
     color: var(--dark-color);
     font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
 }
 
 .course-info__topic-text {
@@ -596,8 +617,8 @@
 }
 
 .course-info__topic-link {
-    color: blue;
     font-weight: bold;
+    color: var(--primary-color);
     font-size: 1.8rem;
 }
 

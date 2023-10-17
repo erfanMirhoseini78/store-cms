@@ -562,6 +562,9 @@ const getCourseDetails = () => {
     const collapseWrapper = document.querySelector('#collapseOne');
     const breadcrumbContentGroping = document.querySelector('#breadcrumb__content-groping');
     const breadcrumbContentCourse = document.querySelector('#breadcrumb__content-course');
+    const commentsContentWrapper = document.querySelector(
+        ".comments__content"
+    );
 
 
     fetch(`http://localhost:4000/v1/courses/${shortNameCourse}`, {
@@ -573,8 +576,11 @@ const getCourseDetails = () => {
         .then(res => res.json())
         .then(course => {
             console.log(course);
-            breadcrumbContentGroping.innerHTML = course.categoryID.title + `<i class="fas fa-angle-left breadcrumb__content-link-icon"></i>`;
-            breadcrumbContentCourse.innerHTML = course.name + `<i class="fas fa-angle-left breadcrumb__content-link-icon"></i>`;
+            breadcrumbContentGroping.innerHTML = `<a href="category.html?cat=/category-info/${course.categoryID.name}" class="breadcrumb__content-link">
+                ${course.categoryID.title}
+                <i class="fas fa-angle-left breadcrumb__content-link-icon"></i>
+            </a>`;
+            breadcrumbContentCourse.innerHTML = course.name;
 
             courseInfoLink.innerHTML = course.categoryID.title;
             courseInfoLink.setAttribute("href", `category.html?cat=/category-info/${course.categoryID.name}`);
@@ -668,6 +674,81 @@ const getCourseDetails = () => {
                         </div>
                     `)
             }
+
+
+            //! Show Course Comments
+            if (course.comments.length) {
+
+                course.comments.forEach(comment => {
+                    commentsContentWrapper.insertAdjacentHTML('beforeend', `
+                <div class="comments__item">
+                    <div class="comments__question">
+                        <div class="comments__question-header">
+                            <div class="comments__question-header-right">
+                                <span class="comments__question-name comment-name">
+                                    ${comment.creator.name}
+                                </span>
+                                
+                                <span class="comments__question-status comment-status">
+                                    ${comment.creator.role === 'USER' ? "دانشجو" : "مدرس"}
+                                </span>
+
+                                <span class="comments__question-date comment-date">
+                                ${comment.createdAt.slice(0, 10)}
+                                </span>
+                            </div>
+
+                            <div class="comments__question-header-left">
+                                <a class="comments__question-header-link comment-link" href="#">
+                                    پاسخ
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="comments__question-text">
+                            <p class="comments__question-paragraph comment-paragraph">
+                                ${comment.body}
+                            </p>
+                        </div>
+                    </div>
+
+                    ${comment.answerContent ?
+                            `<div class="comments__ansewr">
+                            <div class="comments__ansewr-header">
+                                <div class="comments__ansewr-header-right">
+                                    <span class="comments__ansewr-name comment-name">
+                                        ${comment.answerContent.creator.name}
+                                    </span>
+
+                                    <span class="comments__ansewr-staus comment-status">
+                                      ${comment.answerContent.creator.role === 'USER' ? "دانشجو" : "مدرس"}
+                                    </span>
+
+                                    <span class="comments__ansewr-date comment-date">
+                                        1401/04/21
+                                    </span>
+                                </div>
+
+                                <div class="comments__ansewr-header-left">
+                                    <a class="comments__ansewr-header-link comment-link" href="#">
+                                        پاسخ
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="comments__ansewr-text">
+                                <p class="comments__ansewr-paragraph comment-paragraph">
+                                  ${comment.answerContent.body}
+                                </p>
+                            </div>
+                        </div>` : ''}
+                </div>`)
+                })
+            }
+            else {
+                commentsContentWrapper.insertAdjacentHTML('beforeend', `<div class="alert alert-danger">
+                    هنوز هیچ کامنتی برای این دوره ثبت نشده است
+                </div>`)
+            }
         })
 }
 
@@ -686,18 +767,24 @@ const getAndShowRelatedCourses = () => {
             if (relatedCourses.length) {
                 relatedCourses.forEach(course => {
                     courseInfoRelatedCourseList.insertAdjacentHTML('beforeend', `
-                    <li class="course-info__related-course-item">
-                        <a href="course.html?name=${course.shortName} " class="course-info__related-course-link">
-                            <img src=http://localhost:4000/courses/covers/${course.cover} alt="Course Related"
-                            class="course-info__related-course-img">
-                
-                            <span class="course-info__related-course-text">
-                            ${course.name}
-                            </span>
-                        </a>
-                    </li>
-                `)
+                        <li class="course-info__related-course-item">
+                            <a href="course.html?name=${course.shortName} " class="course-info__related-course-link">
+                                <img src=http://localhost:4000/courses/covers/${course.cover} alt="Course Related"
+                                class="course-info__related-course-img">
+                    
+                                <span class="course-info__related-course-text">
+                                ${course.name}
+                                </span>
+                            </a>
+                        </li>
+                    `)
                 })
+
+            }
+            else {
+                courseInfoRelatedCourseList.insertAdjacentHTML('beforeend', `
+                    <p class="course-info__related-course-desc__null">هیج دوره مرتبطی با این دوره وجود ندارد</p>
+                    `)
             }
         })
 }

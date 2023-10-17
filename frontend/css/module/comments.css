@@ -38,10 +38,18 @@
     margin-bottom: 3rem;
 }
 
+.comments__ansewr {
+    margin-top: 2rem;
+}
+
 .comments__question-header,
 .comments__ansewr-header {
     display: flex;
     justify-content: space-between;
+}
+
+.comments__ansewr-text {
+    margin-top: 1rem;
 }
 
 .comments__question-header-right,
@@ -64,7 +72,7 @@
     font-size: 1rem;
     font-weight: bold;
     padding: 0.3rem 0.7rem;
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
     margin: 0 1rem;
 }
 
@@ -132,7 +140,7 @@
 .comments__rules {
     display: flex;
     flex-direction: column;
-    margin-top: 6rem;
+    margin-top: 5rem;
     margin-bottom: 2rem;
 }
 
