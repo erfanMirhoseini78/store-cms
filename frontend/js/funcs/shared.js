@@ -942,6 +942,127 @@ const joinNewsLetters = async () => {
     return res;
 }
 
+const globalSearch = async () => {
+    const searchValue = getUrlParam('value');
+
+    // Select Elems From DOM
+    const coursesContainer = document.querySelector('#courses-container');
+    const articlesWrappe = document.querySelector('#articles-wrapper');
+
+
+    const res = await fetch(`http://localhost:4000/v1/search/${searchValue}`);
+
+    const result = await res.json();
+
+    coursesContainer.innerHTML = "";
+    articlesWrappe.innerHTML = "";
+
+    if (result.allResultCourses.length) {
+        result.allResultCourses.forEach(course => {
+            coursesContainer.insertAdjacentHTML('beforeend', `
+                <div class="col-4">
+                    <div class="course-box">
+                        <a href=course.html?name=${course.shortName} class="course-box__logo">
+                            <img src=http://localhost:4000/courses/covers/${course.cover} alt="Course Img" class="course-box__img">
+                        </a>
+    
+                        <div class="course-box__main">
+                            <a href=course.html?name=${course.shortName} class="course-box__title">
+                                ${course.name}
+                            </a>
+    
+                            <div class="course-box__rating-teacher">
+                                <div class="courser-box__teacher">
+                                    <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
+    
+                                    <a href="#" class="course-box__teacher-link">
+                                        محمد امین سعیدی راد
+                                    </a>
+                                </div>
+                            
+                                <div class="course-box__rating">
+                                    <img src="./images/svgs/star_fill.svg" alt="Rating" class="course-box__star">
+    
+                                    <img src="./images/svgs/star_fill.svg" alt="Rating" class="course-box__star">
+                                    
+                                    <img src="./images/svgs/star_fill.svg" alt="Rating" class="course-box__star">
+                                    
+                                    <img src="./images/svgs/star_fill.svg" alt="Rating" class="course-box__star">
+                                    
+                                    <img src="./images/svgs/star_fill.svg" alt="Rating" class="course-box__star">
+                                </div>
+                            </div>
+    
+                            <div class="course-box__status">
+                                <div class="course-box__users">
+                                    <i class="fas fa-users course-box__users-icon"></i>
+    
+                                    <span class="course-box__users-count">
+                                        0
+                                    </span>
+                                </div>
+    
+                                <span class="course-box__price">
+                                    ${course.price ? `${course.price.toLocaleString()} تومان` : "رایگان"}
+                                </span>
+                            </div>
+                        </div>
+    
+                        <div class="course-box__footer">
+                            <a href=course.html?name=${course.shortName} class="course-box__footer-text">
+                                مشاهده اطلاعات
+                                <i class="fas fa-arrow-left course-box__footer-icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        `)
+        })
+    }
+    else {
+        coursesContainer.innerHTML = `<div class="alert alert-danger">
+            هیچ دوره ای مطابق با مقدار جست و جو شده وجود ندارد
+        </div>`
+    }
+
+
+    if (result.allResultArticles.length) {
+        result.allResultArticles.forEach(article => {
+            console.log(article);
+            articlesWrappe.insertAdjacentHTML('beforeend', `
+            <div class="col-4">
+                <div class="article-card">
+                    <div class="articel-card__header">
+                        <a href="blog.html" class="article-card__logo">
+                            <img src=http://localhost:4000/courses/covers/${article.cover} alt="Articel Cover" class="article-card__img">
+                        </a>
+                    </div>
+    
+                    <div class="articel-card__content">
+                        <a href="blog.html" class="article-card__title">
+                            ${article.title}
+                        </a>
+                        <p class="article-card__desc">
+                            ${article.description}
+                        </p>
+                        <a href="blog.html" class="article-card__btn">
+                            بیشتر بخوانید
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `)
+        })
+    }
+    else {
+        articlesWrappe.innerHTML = `<div class="alert alert-danger">
+            هیچ مقاله ای مطابق با مقدار جست و جو شده وجود ندارد
+        </div>`
+    }
+
+    return result
+}
+
 export {
     showNameInNavbar,
     renderTopbarMenus,
@@ -958,4 +1079,5 @@ export {
     getAndShowOneSessionCourse,
     submitContactUsMessage,
     joinNewsLetters,
+    globalSearch,
 }
