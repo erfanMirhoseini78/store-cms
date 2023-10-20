@@ -349,7 +349,7 @@ const getAndShowCategoryCourses = async () => {
     return showCategoryCourses;
 }
 
-const insertCourseBoxHtmlTemplate = (courses, showType, parentElement, errorMessage) => {
+const insertCourseBoxHtmlTemplate = (courses, showType = "row", parentElement, errorMessage) => {
     parentElement.innerHTML = '';
     if (showType === 'row') {
         if (courses.length) {
@@ -491,6 +491,45 @@ const insertCourseBoxHtmlTemplate = (courses, showType, parentElement, errorMess
                 `)
             })
         } else {
+            parentElement.insertAdjacentHTML('beforeend', `
+                <div class="alert alert-danger">
+                    ${errorMessage}
+                </div>
+            `)
+        }
+    }
+}
+
+const insertArticleBoxHtmlTemplate = (articles, showType = "row", parentElement, errorMessage) => {
+    parentElement.innerHTML = '';
+    if (showType === 'row') {
+        if (articles.length) {
+            articles.forEach(article => {
+                parentElement.insertAdjacentHTML('beforeend', `
+                    <div class="col-4">
+                        <div class="article-card">
+                            <div class="articel-card__header">
+                                <a href="blog.html" class="article-card__logo">
+                                    <img src=http://localhost:4000/courses/covers/${article.cover} alt="Articel Cover" class="article-card__img">
+                                </a>
+                            </div>
+
+                            <div class="articel-card__content">
+                                <a href="blog.html" class="article-card__title">
+                                    ${article.title}
+                                </a>
+                                <p class="article-card__desc">
+                                    ${article.description}
+                                </p>
+                                <a href="blog.html" class="article-card__btn">
+                                    بیشتر بخوانید
+                                </a>
+                            </div>
+                        </div>
+                    </div>`)
+            })
+        }
+        else {
             parentElement.insertAdjacentHTML('beforeend', `
                 <div class="alert alert-danger">
                     ${errorMessage}
@@ -1113,6 +1152,24 @@ const submitComments = async () => {
     return res;
 }
 
+const showAllCoursesInCoursesPage = async () => {
+    const coursesWrapper = document.getElementById('courses-wrapper');
+
+    const res = await fetch('http://localhost:4000/v1/courses');
+    const courses = await res.json();
+
+    return courses;
+}
+
+const showAllArticlesInArticlesPage = async () => {
+    const articleContainer = document.querySelector('#article__container');
+
+    const res = await fetch('http://localhost:4000/v1/articles');
+    const articles = await res.json();
+
+    return articles;
+}
+
 export {
     showNameInNavbar,
     renderTopbarMenus,
@@ -1122,6 +1179,7 @@ export {
     getAndShowArticles,
     getAndShowMenus,
     getAndShowCategoryCourses,
+    insertArticleBoxHtmlTemplate,
     insertCourseBoxHtmlTemplate,
     coursesSorting,
     getCourseDetails,
@@ -1131,4 +1189,6 @@ export {
     joinNewsLetters,
     globalSearch,
     submitComments,
+    showAllCoursesInCoursesPage,
+    showAllArticlesInArticlesPage,
 }

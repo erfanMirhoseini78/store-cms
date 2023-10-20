@@ -84,7 +84,7 @@ window.onload = () => {
             const coursesPaginationList = document.querySelector('.courses-pagination__list');
 
             const currentPage = getUrlParam('page');
-            const showCourses = paginateItems([...responseCourses], 2, coursesPaginationList, currentPage);
+            const showCourses = paginateItems([...responseCourses], 3, coursesPaginationList, currentPage);
 
             insertCourseBoxHtmlTemplate([...showCourses], coursesShowType, courseCategoryContainer, "هیچ دوره‌ای برای این دسته بندی وجود ندارد :/");
         })

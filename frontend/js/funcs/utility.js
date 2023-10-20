@@ -69,15 +69,6 @@ const paginateItems = (array, itemsPerPage, paginateParentElement, currentPage) 
     let startIndex = endIndex - itemsPerPage; // 6 - 3 = 3;
     let paginatedItems = array.slice(startIndex, endIndex);
 
-    // paginateParentElement.innerHTML = `
-    // <li class="courses-pagination__item" data-page="right">
-    //     <a href="#" class="courses-pagination__link">
-    //         <i class="fas fa-long-arrow-alt-right courses-pagination__link-icon"></i>
-    //     </a>
-    // </li>`;
-
-
-
     for (let i = 1; i < pageCount + 1; i++) { // start PageNumber From 1
         paginateParentElement.insertAdjacentHTML('beforeend', `
         ${i === +currentPage ? `<li class="courses-pagination__item courses-pagination__item--active" onclick="addParamToUrl('page', ${i})">
@@ -92,39 +83,6 @@ const paginateItems = (array, itemsPerPage, paginateParentElement, currentPage) 
             }        
         `)
     }
-
-
-
-
-    // const coursesPaginationItems = document.querySelectorAll('.courses-pagination__item');
-
-    // coursesPaginationItems.forEach(item => {
-    //     item.addEventListener('click', event => {
-    //         addParamToUrl(item, event);
-    //     });
-    // })
-
-    // paginateParentElement.innerHTML += `
-    // <li class="courses-pagination__item" data-page="left">
-    //     <a href="#" class="courses-pagination__link">
-    //         <i class="fas fa-long-arrow-alt-left courses-pagination__link-icon"></i>
-    //     </a>
-    // </li>`;
-
-    // const coursesPaginationItem = document.querySelectorAll('.courses-pagination__item');
-
-    // coursesPaginationItem.forEach(item => {
-    //     item.addEventListener('click', event => {
-    //         event.preventDefault();
-    //         console.log(item.dataset.page);
-
-    //         let currentPageTest = getUrlParam('page');
-
-    //         currentPageTest = item.dataset.page;
-    //         console.log(currentPageTest);
-    //         console.log(location.search);
-    //     })
-    // })
 
     return paginatedItems;
 }

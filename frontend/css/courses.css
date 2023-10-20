@@ -1,0 +1,27 @@
+@import "./variable.css";
+@import "./fonts.css";
+@import "./module/default.css";
+@import "./module/topbar.css";
+@import "./module/navbar.css";
+@import "./module/coursecartcol.css";
+@import "./module/pagination.css";
+@import "./module/footer.css";
+
+/* Start Courses Styles */
+
+.courses {
+    margin-top: 3rem;
+}
+
+/* Finish Courses Styles */
+
+
+
+/* Start Pagination Styles */
+
+.courses-pagination__list {
+    margin-top: 3rem;
+
+}
+
+/* Finish Pagination Styles */
