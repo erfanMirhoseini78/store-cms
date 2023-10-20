@@ -183,7 +183,7 @@ function deleteProduct(event) {
 
 function searchDataFromDataBase() {
   let dataFromDataBase = JSON.parse(localStorage.getItem("products"));
-  let findDataFromDataBase = dataFromDataBase.filter(function(product){
+  let findDataFromDataBase = dataFromDataBase.filter(function (product) {
     return searchBarInput.value === product.name
   })
   console.log(findDataFromDataBase)

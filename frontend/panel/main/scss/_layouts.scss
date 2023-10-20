@@ -4,17 +4,22 @@
     height: 100vh;
     position: fixed;
     right: 0;
+
     .sidebar-header {
         border-bottom: $border;
-        @include flex($j-c:space-between);
+        @include flex($j-c: space-between);
+
         .sidebar-logo {
             padding: 15px 25px;
+
             img {
                 width: 70px;
             }
         }
+
         .sidebar-menu-btn {
             padding: 10px 25px;
+
             i {
                 color: #fff;
                 cursor: pointer;
@@ -22,23 +27,28 @@
             }
         }
     }
+
     .sidebar-menu {
         margin-top: 40px;
+
         ul {
             li {
                 &:hover {
                     background: rgb(53, 60, 80);
                     background: linear-gradient(90deg, rgba(53, 60, 80, 1) 0%, rgba(0, 212, 255, 0) 100%);
                 }
+
                 a {
                     color: #8c90a0;
                     transition: $transition;
                     display: block;
                     padding: 15px 25px;
                     font-size: $font-size-md;
+
                     &:hover {
                         color: #fff;
                     }
+
                     i {
                         padding-left: 10px;
                     }
@@ -47,20 +57,25 @@
         }
     }
 }
+
 // ! End SideBar ! //
 
 // ! Home ! //
 #home {
     position: absolute;
     left: 0;
+
     .home-header {
         @include flex($j-c: space-between);
         margin-top: 20px;
+
         .home-right {
             @include flex();
             position: relative;
+
             .home-searchbar {
                 position: relative;
+
                 .search-bar {
                     background-color: #eef5fd;
                     border: none;
@@ -68,22 +83,27 @@
                     width: 250px;
                     font-size: 13px;
                     padding: 7px 20px;
+
                     &::placeholder {
                         color: #c4d4e2;
                     }
                 }
             }
+
             .home-notification {
                 margin-right: 20px;
+
                 button {
                     border: none;
                     background: transparent;
+
                     i {
                         font-size: $font-size-lg;
                         color: #a3abb1;
                     }
                 }
             }
+
             .home-notification-modal {
                 width: 250px;
                 border-radius: 3px;
@@ -93,9 +113,11 @@
                 top: 45px;
                 left: -120px;
                 display: none;
+
                 .home-notification-modal-list {
                     list-style-type: none;
                 }
+
                 .home-notification-modal-item {
                     display: flex;
                     align-items: center;
@@ -103,16 +125,19 @@
                     border-bottom: 1px solid #ccc;
                     padding: 10px;
                 }
+
                 .home-notification-modal-text {
                     color: #313131;
                     font-size: 13px;
                 }
+
                 .switch {
                     position: relative;
                     display: inline-block;
                     width: 50px;
                     height: 20px;
                 }
+
                 .switch input {
                     opacity: 0;
                     width: 0;
@@ -143,15 +168,15 @@
                     transition: 0.4s;
                 }
 
-                input:checked + .slider {
+                input:checked+.slider {
                     background-color: #2196f3;
                 }
 
-                input:focus + .slider {
+                input:focus+.slider {
                     box-shadow: 0 0 1px #2196f3;
                 }
 
-                input:checked + .slider:before {
+                input:checked+.slider:before {
                     -webkit-transform: translateX(26px);
                     -ms-transform: translateX(26px);
                     transform: translateX(26px);
@@ -167,27 +192,33 @@
                 }
             }
         }
+
         .home-left {
             .home-profile {
                 display: flex;
                 flex-direction: row-reverse;
                 align-items: center;
+
                 .home-profile-image {
                     img {
                         width: 50px;
                         border-radius: 50%;
                     }
                 }
+
                 .home-profile-name {
                     margin-left: 10px;
+
                     a {
                         font-size: $font-size-sm;
                         color: #313131;
                     }
                 }
+
                 .home-profile-icon {
                     margin-left: 3px;
                     @include flex();
+
                     i {
                         color: #313131;
                     }
@@ -195,34 +226,43 @@
             }
         }
     }
+
     #home-content {
         background-color: #f9faff;
         margin-top: 12px;
+
         .home-content-title {
             padding-top: 25px;
+
             .welcome {
                 @include title();
             }
+
             .name {
                 @include title();
                 color: #1943da;
             }
         }
+
         .home-content-boxes {
             margin-top: 25px;
+
             .box {
                 background-color: #fdfdff;
                 border-radius: 5px;
                 box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+
                 .home-box {
                     padding: 20px;
                     @include flex($j-c: space-between);
+
                     .home-box-title {
                         span {
                             font-family: "lalezar";
                             font-size: $font-size-xl;
                             font-weight: bold;
                             position: relative;
+
                             &::before {
                                 content: "";
                                 position: absolute;
@@ -234,6 +274,7 @@
                                 top: 50%;
                                 right: -15px;
                             }
+
                             &::after {
                                 content: "";
                                 position: absolute;
@@ -247,15 +288,18 @@
                             }
                         }
                     }
+
                     .home-box-value {
                         @include flex($j-c: space-between);
                         padding: 14px 0;
+
                         .home-box-price {
                             span {
                                 font-weight: bold;
                                 font-size: $font-size-lg;
                             }
                         }
+
                         .home-box-result {
                             span {
                                 font-weight: bold;
@@ -264,14 +308,17 @@
                             }
                         }
                     }
+
                     .home-box-text {
                         span {
                             color: #a3abb1;
                         }
                     }
+
                     .home-box-icon {
                         border-radius: 50%;
                         padding: 20px;
+
                         i {
                             font-size: 30px;
                             color: #1943da;
@@ -280,19 +327,23 @@
                 }
             }
         }
+
         .home-content-chart {
             margin-top: 20px;
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
         }
+
         .home-content-latset-users {
             background-color: #fff;
             box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
             margin-top: 20px;
             border-radius: 5px;
+
             .home-content-users-title {
                 padding: 20px 15px;
+
                 span {
                     @include title();
 
@@ -301,11 +352,14 @@
                     }
                 }
             }
+
             .home-content-users-table {
                 padding: 0 10px;
+
                 table {
                     thead {
                         background-color: #f2f7fd;
+
                         tr {
                             th {
                                 border: none;
@@ -315,13 +369,16 @@
                             }
                         }
                     }
+
                     tbody {
                         tr {
                             vertical-align: middle;
+
                             .profile-table {
                                 width: 40px;
                                 border-radius: 50%;
                             }
+
                             td {
                                 text-align: center;
                             }
@@ -332,10 +389,12 @@
         }
     }
 }
+
 // ! End Home ! //
 
 // ! Content ! //
 #content {
     display: flex;
 }
+
 // ! End Content ! //

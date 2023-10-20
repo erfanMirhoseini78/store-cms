@@ -30,18 +30,18 @@ function getDataFromDataBase() {
       tBodyTable.insertAdjacentHTML(
         "beforeend",
         "<tr><td>" +
-          user.id +
-          "</td><td>" +
-          user.name +
-          "</td><td>" +
-          user.family +
-          "</td><td>" +
-          user.phoneNumber +
-          "</td><td>" +
-          user.email +
-          "</td><td>" +
-          user.password +
-          "</td></tr>"
+        user.id +
+        "</td><td>" +
+        user.name +
+        "</td><td>" +
+        user.family +
+        "</td><td>" +
+        user.phoneNumber +
+        "</td><td>" +
+        user.email +
+        "</td><td>" +
+        user.password +
+        "</td></tr>"
       );
     }
   }
