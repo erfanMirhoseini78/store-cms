@@ -6,7 +6,13 @@ import {
 
 import {
     searchInArray,
+    paginateItems,
+    getUrlParam,
+    addParamToUrl,
 } from "./funcs/utility.js";
+
+
+window.addParamToUrl = addParamToUrl;
 
 const courseCategoryContainer = document.querySelector('#course-category__container');
 const coursesTopbarRowBtn = document.querySelector('.courses-topbar__row-btn');
@@ -68,11 +74,20 @@ window.onload = () => {
             coursesTopbarInput.addEventListener('keyup', event => {
                 const showCourses = searchInArray(courses, 'name', event.target.value);
 
-                console.log(showCourses.length);
-
                 searchedCourses = showCourses;
 
                 insertCourseBoxHtmlTemplate(showCourses, coursesShowType, courseCategoryContainer, "هیچ دوره‌ای مطابق با جستجوی شما وجود ندارد :/");
             })
+
+
+            //! Pagination
+            const coursesPaginationList = document.querySelector('.courses-pagination__list');
+
+            const currentPage = getUrlParam('page');
+            const showCourses = paginateItems([...responseCourses], 2, coursesPaginationList, currentPage);
+
+            insertCourseBoxHtmlTemplate([...showCourses], coursesShowType, courseCategoryContainer, "هیچ دوره‌ای برای این دسته بندی وجود ندارد :/");
         })
+
+
 }

@@ -316,7 +316,7 @@ const getAndShowMenus = () => {
             menus.forEach(menu => {
                 navMenu.insertAdjacentHTML('beforeend', `
                 <li class="nav__item">
-                    <a href="category.html?cat=${menu.href}" class="nav__link">
+                    <a href="category.html?cat=${menu.href}&page=1" class="nav__link">
                         ${menu.title}
                         ${menu.submenus.length ? `<i class="fas fa-angle-up nav__link-icon"></i> 
                         <ul class="nav__sub-menu">
@@ -336,15 +336,12 @@ const getAndShowMenus = () => {
 }
 
 const getAndShowCategoryCourses = async () => {
-    const queryParametrLocation = location.search.split('/');
-    let categoryCourses = queryParametrLocation[queryParametrLocation.length - 1];
+    const categoryName = getUrlParam('cat');
+    const categoryCourses = categoryName.split('/')[2];
 
     if (!categoryCourses) {
         categoryCourses = 'frontend';
     }
-
-    // Qeury Params
-    // const categoryName = getUrlParam('cat');
 
     const getCategoryCourses = await fetch(`http://localhost:4000/v1/courses/category/${categoryCourses}`);
     const showCategoryCourses = await getCategoryCourses.json();
@@ -1064,7 +1061,6 @@ const globalSearch = async () => {
 }
 
 const submitComments = async () => {
-
     const courseShortName = getUrlParam("name");
     const userToken = getToken();
 
