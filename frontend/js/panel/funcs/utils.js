@@ -16,6 +16,5 @@ const getAdminInfos = async () => {
 }
 
 export {
-    getToken,
     getAdminInfos,
 }

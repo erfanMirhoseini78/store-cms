@@ -1,6 +1,6 @@
 import {
-    getToken,
-} from "./utils.js";
+    getToken
+} from "./../../funcs/utility.js"
 
 const insertNotificationHtmlTemplate = notifications => {
     const homeNotificationModalList = document.querySelector('.home-notification-modal-list');
