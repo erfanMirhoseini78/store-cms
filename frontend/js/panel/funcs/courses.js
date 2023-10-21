@@ -1,3 +1,23 @@
+import {
+    getToken,
+} from "../../funcs/utility.js";
+
+//! Remove Course
+const removeCourse = async courseID => {
+    // console.log(courseID);
+    // const adminToken = getToken();
+
+    // let res = await fetch(`http://localhost:4000/v1/courses/${courseID}`, {
+    //     method: "DELETE",
+    //     headers: {
+    //         Authorization: `Bearer ${adminToken}`,
+    //     }
+    // });
+    // let result = res.json();
+
+    // return result;
+}
+
 const getAllCourses = async () => {
     const tableBodyWrapper = document.querySelector('.table-body__wrapper');
 
@@ -33,8 +53,9 @@ const getAllCourses = async () => {
                 </td>
                 <td class="course-score">
                 
-                    ${Array(5 - course.courseAverageScore).fill(0).map(score => '<img src="./../../images/svgs/star.svg" alt="Rating" class="course-box__star">').join('')}
-                    ${Array(course.courseAverageScore).fill(0).map(score => '<img src="./../../images/svgs/star_fill.svg" alt="Rating" class="course-box__star-fill">').join('')}
+                    ${Array(5 - course.courseAverageScore).fill(0).map(() => '<img src="./../../images/svgs/star.svg" alt="Rating" class="course-box__star">').join('')}
+
+                    ${Array(course.courseAverageScore).fill(0).map(() => '<img src="./../../images/svgs/star_fill.svg" alt="Rating" class="course-box__star-fill">').join('')}
 
                 </td>
                 <td>
@@ -44,7 +65,7 @@ const getAllCourses = async () => {
                     <button type="button" class="btn btn-primary" id="edit-btn">ویرایش</button>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-danger" id="delete-btn">حذف</button>
+                    <button onclick=removeCourse(${JSON.stringify(course._id)}) type="button" class="btn btn-danger" id="delete-btn">حذف</button>
                 </td>
             </tr>`)
     })
@@ -54,4 +75,5 @@ const getAllCourses = async () => {
 
 export {
     getAllCourses,
+    removeCourse,
 }

@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه محصولات</title>
+    <title>Home</title>
     <link rel="stylesheet" href="vendor/FontAwesome/FontAwesome.min.css">
     <link rel="stylesheet" href="vendor/swiperSlider/swiper.css" />
     <link rel="stylesheet" href="vendor/BootStrap/Bootstrap5.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css"> <!-- Courses Table Styles -->
+    <link rel="stylesheet" href="css/create-course.css"> <!-- Create Cours Styles -->
 </head>
 
 <body>
@@ -26,6 +27,7 @@
             </div>
             <div class="sidebar-menu">
                 <ul>
+                    <!-- Create Menu -->
                     <li>
                         <a href="./../main/index.html">
                             <span>
@@ -35,7 +37,7 @@
                     </li>
 
                     <li class="active-menu">
-                        <a href="./../D-Products/index.html">
+                        <a href="#">
                             <span>
                                 دوره ها
                             </span>
@@ -93,6 +95,7 @@
                                 <input type="text" class="search-bar" placeholder="جستجو...">
                             </div>
                             <div class="home-notification">
+                                <!-- Create ID From Button -->
                                 <button type="button" id="home-notification-modal__btn">
                                     <i class="far fa-bell"></i>
                                 </button>
@@ -102,6 +105,7 @@
                                     <!--! Element From JS -->
                                 </ul>
                             </div>
+                            <!-- Create Mode Color Template -->
                             <div class="mode">
                                 <ul class="mode-list">
                                     <div class="mode-list-item mode-red"></div>
@@ -133,19 +137,132 @@
             </div>
             <div class="container-fluid" id="home-content">
                 <div class="container">
+
+
+                    <div class="home-title">
+                        <span>افزودن دوره جدید</span>
+                    </div>
+                    <form class="form">
+                        <div class="col-6">
+                            <div class="name input">
+                                <label class="input-title">
+                                    نام دوره
+                                </label>
+                                <input type="text" isValid="false" placeholder="لطفا نام دوره را وارد کنید...">
+                                <span class="error-message text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="name input">
+                                <label class="input-title">
+                                    نحوه پشتیبانی دوره
+                                </label>
+                                <input type="text" isValid="false"
+                                    placeholder="لطفا نحوه پشتیبانی دوره را وارد کنید...">
+                                <span class="error-message text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="price input">
+                                <label class="input-title">
+                                    نام کوتاه دوره
+                                </label>
+                                <input type="text" isValid="false" placeholder="لطفا نام کوتاه دوره را وارد کنید...">
+                                <span class="error-message text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="price input">
+                                <label class="input-title">
+                                    قیمت دوره
+                                </label>
+                                <input type="text" isValid="false" placeholder="لطفا قیمت دوره را وارد کنید...">
+                                <span class="error-message text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="name input description">
+                                <label class="input-title">
+                                    توضیحات دوره
+                                </label>
+                                <textarea type="text" class="description-input" isValid="false"
+                                    placeholder="لطفا توضیحات دوره را وارد کنید..."></textarea>
+                                <span class="error-message text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="number input category">
+                                <label class="input-title">
+                                    دسته‌بندی دوره
+                                </label>
+                                <select class="category-list">
+                                    <option value="-1">
+                                        دسته بندی مورد نظر را انتخاب کنید
+                                    </option>
+                                </select>
+                                <span class="error-message text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-6 image">
+                            <div class="file">
+                                <label class="input-title">
+                                    عکس دوره
+                                </label>
+                                <input type="file" id="file">
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="presell">
+                                <label class="input-title">
+                                    وضعیت دوره
+                                </label>
+                                <div class="radios">
+                                    <div class="presell-true">
+                                        <label>
+                                            <span>
+                                                پیش فروش
+                                            </span>
+                                            <input type="radio" value="presell" name="presell" checked>
+                                        </label>
+                                    </div>
+                                    <div class="presell-false">
+                                        <label>
+                                            <span>
+                                                در حال برگزاری
+                                            </span>
+                                            <input type="radio" value="onperforming" name="presell">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="bottom-form">
+                                <div class="submit-btn">
+                                    <input type="submit" value="افزودن">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+
                     <div class="home-content-products">
                         <div class="home-content-products-title">
-                            <span>
-                                لیست
-                                <span class="signup">
-                                    دوره ها
-                                </span>
-                            </span>
+                            <span>لیست <span class="signup">دوره‌ها</span></span>
                         </div>
                         <div class="home-content-products-table">
                             <table class="table">
                                 <thead>
                                     <tr>
+                                        <!-- Create Table Header -->
                                         <th>
                                             شماره
                                         </th>
@@ -198,8 +315,8 @@
                 <button class="delete-modal-btn-yes">بله</button>
             </div>
         </div>
-        <div id="overlay"></div>
     </div>
+
     <script src="vendor/FontAwesome/FontAwesome.min.js"></script>
     <script src="vendor/swiperSlider/swiper.js"></script>
     <script src="js/custom.js"></script>
@@ -207,7 +324,7 @@
     <!-- Shared JS -->
     <script src="./../../js/panel/shared.js" type="module"></script>
     <!-- Courses JS -->
-    <script type="module" src="./../../js/panel/courses.js"></script>
+    <script type="module" src="./../../js/panel/courses.js"></script>>
 </body>
 
 </html>
