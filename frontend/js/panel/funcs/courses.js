@@ -122,8 +122,6 @@ const createNewCourse = async () => {
     });
     const course = await res.json();
 
-    console.log(res);
-
     if (res.status === 201) {
         showSwal(
             "success",
@@ -133,8 +131,8 @@ const createNewCourse = async () => {
                 getAllCourses();
             }
         )
-    } else {
-        showSwal()
+    }
+    else {
         showSwal(
             "error",
             "لطفا اطلاعات دوره جدید رو به درستی وارد کنید",
@@ -142,23 +140,50 @@ const createNewCourse = async () => {
             () => { }
         )
     }
-
-    return course;
 }
 
 //! Remove Courses
 const removeCourse = async courseID => {
-    // const adminToken = getToken();
+    const adminToken = getToken();
 
-    // let res = await fetch(`http://localhost:4000/v1/courses/${courseID}`, {
-    //     method: "DELETE",
-    //     headers: {
-    //         Authorization: `Bearer ${adminToken}`,
-    //     }
-    // });
-    // let result = res.json();
+    showSwal(
+        "question",
+        "آیا از حذف دوره اطمینان دارید؟",
+        "اره",
+        async output => {
+            if (output.value) {
+                let res = await fetch(`http://localhost:4000/v1/courses/${courseID}`, {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${adminToken}`,
+                    }
+                });
+                let result = await res.json();
 
-    // return result;
+                if (res.status === 200) {
+                    showSwal(
+                        "success",
+                        "دوره با موفقیت حذف شد",
+                        "خیلی هم عالی",
+                        () => {
+                            getAllCourses();
+                        }
+                    )
+                }
+                else {
+                    showSwal(
+                        "error",
+                        "حذف دوره با مشکل مواجه شده!",
+                        "بازم تلاش کن",
+                        () => { }
+                    )
+                }
+
+                return result;
+            }
+        },
+        "نه",
+    )
 }
 
 export {
