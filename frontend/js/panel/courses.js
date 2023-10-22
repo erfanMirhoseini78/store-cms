@@ -1,25 +1,20 @@
 import {
     getAllCourses,
     removeCourse,
-    getCategory,
-    selectCover,
-    getStatus,
+    prepareCreateNewCourse,
     createNewCourse,
 } from "./funcs/courses.js";
 
 window.removeCourse = removeCourse;
 
-const submitBtnInput = document.querySelector('#submit-btn__input');
-
 window.addEventListener('load', () => {
+    const submitBtnInput = document.querySelector('#submit-btn__input');
+
     getAllCourses();
-    getCategory();
-    selectCover();
-    getStatus();
+    prepareCreateNewCourse();
 
     submitBtnInput.addEventListener('click', event => {
         event.preventDefault();
-
         createNewCourse();
     })
 })
