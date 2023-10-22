@@ -148,7 +148,8 @@
                                 <label class="input-title">
                                     نام دوره
                                 </label>
-                                <input type="text" isValid="false" placeholder="لطفا نام دوره را وارد کنید...">
+                                <input id="name" type="text" isValid="false"
+                                    placeholder="لطفا نام دوره را وارد کنید...">
                                 <span class="error-message text-danger"></span>
                             </div>
                         </div>
@@ -158,7 +159,7 @@
                                 <label class="input-title">
                                     نحوه پشتیبانی دوره
                                 </label>
-                                <input type="text" isValid="false"
+                                <input id="support" type="text" isValid="false"
                                     placeholder="لطفا نحوه پشتیبانی دوره را وارد کنید...">
                                 <span class="error-message text-danger"></span>
                             </div>
@@ -169,7 +170,8 @@
                                 <label class="input-title">
                                     نام کوتاه دوره
                                 </label>
-                                <input type="text" isValid="false" placeholder="لطفا نام کوتاه دوره را وارد کنید...">
+                                <input id="short-name" type="text" isValid="false"
+                                    placeholder="لطفا نام کوتاه دوره را وارد کنید...">
                                 <span class="error-message text-danger"></span>
                             </div>
                         </div>
@@ -179,7 +181,8 @@
                                 <label class="input-title">
                                     قیمت دوره
                                 </label>
-                                <input type="text" isValid="false" placeholder="لطفا قیمت دوره را وارد کنید...">
+                                <input id="price" type="text" isValid="false"
+                                    placeholder="لطفا قیمت دوره را وارد کنید...">
                                 <span class="error-message text-danger"></span>
                             </div>
                         </div>
@@ -189,7 +192,7 @@
                                 <label class="input-title">
                                     توضیحات دوره
                                 </label>
-                                <textarea type="text" class="description-input" isValid="false"
+                                <textarea id="description" type="text" class="description-input" isValid="false"
                                     placeholder="لطفا توضیحات دوره را وارد کنید..."></textarea>
                                 <span class="error-message text-danger"></span>
                             </div>
@@ -229,7 +232,7 @@
                                             <span>
                                                 پیش فروش
                                             </span>
-                                            <input type="radio" value="presell" name="presell" checked>
+                                            <input id="presell" type="radio" value="presell" name="presell" checked>
                                         </label>
                                     </div>
                                     <div class="presell-false">
@@ -237,7 +240,7 @@
                                             <span>
                                                 در حال برگزاری
                                             </span>
-                                            <input type="radio" value="onperforming" name="presell">
+                                            <input id="start" type="radio" value="start" name="presell">
                                         </label>
                                     </div>
                                 </div>
@@ -247,7 +250,7 @@
                         <div class="col-12">
                             <div class="bottom-form">
                                 <div class="submit-btn">
-                                    <input type="submit" value="افزودن">
+                                    <input id="submit-btn__input" type="submit" value="افزودن">
                                 </div>
                             </div>
                         </div>
