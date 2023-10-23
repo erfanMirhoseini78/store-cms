@@ -141,26 +141,32 @@
                     <form class="form">
                         <div class="col-6">
                             <div class="name input">
-                                <label class="input-title">عنوان</label>
-                                <input type="text" isValid="false" placeholder="لطفا عنوان را وارد کنید...">
+                                <label class="input-title">
+                                    عنوان
+                                </label>
+                                <input id="title" type="text" isValid="false" placeholder="لطفا عنوان را وارد کنید...">
                                 <span class="error-message text-danger"></span>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="name input">
-                                <label class="input-title">عنوان</label>
-                                <input type="text" isValid="false" placeholder="لطفا عنوان را وارد کنید...">
+                                <label class="input-title">
+                                    مقصد
+                                </label>
+                                <input id="href" type="text" isValid="false" placeholder="لطفا عنوان را وارد کنید...">
                                 <span class="error-message text-danger"></span>
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="name input">
-                                <label class="input-title">عنوان</label>
+                            <div class="name input select-box">
+                                <label class="input-title">
+                                    پرنت
+                                </label>
                                 <select class="select">
-                                    <option value="menu">منو</option>
-                                    <option value="menu">منو</option>
-                                    <option value="menu">منو</option>
-                                    <option value="menu">منو</option>
+                                    <option value="-1">
+                                        منوی پرنت را انتخاب کنید
+                                    </option>
+                                    <!--! Element From JS -->
                                 </select>
                                 <!-- <input type="text" isValid="false" placeholder="لطفا عنوان را وارد کنید..."> -->
                                 <span class="error-message text-danger"></span>
@@ -170,7 +176,7 @@
                             <div class="bottom-form">
 
                                 <div class="submit-btn">
-                                    <input type="submit" value="افزودن">
+                                    <input id="submit-input__btn" type="submit" value="افزودن">
                                 </div>
                             </div>
                         </div>
@@ -216,6 +222,8 @@
         <div id="overlay"></div>
     </div>
     <script src="vendor/FontAwesome/FontAwesome.min.js"></script>
+    <!-- Sweet Alert 2 -->
+    <script src="./../../vendor/SweetAlert2/sweetalert.js"></script>
     <!-- Shared JS -->
     <script src="./../../js/panel/shared.js" type="module"></script>
     <!-- Menus JS -->

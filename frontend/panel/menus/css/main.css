@@ -11,6 +11,19 @@
     margin-bottom: 0 !important;
 }
 
+.select {
+    border-radius: 3px;
+    border: none;
+    border: 1px solid #a6a6a6;
+    padding: 5px 0;
+}
+
+.select-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 a {
     text-decoration: none;
     color: #000;
