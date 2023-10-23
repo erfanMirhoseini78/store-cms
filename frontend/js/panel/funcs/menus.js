@@ -33,12 +33,55 @@ const getAndShowAllMenus = async () => {
                     <button type="button" class="btn btn-primary edit-btn">ویرایش</button>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-danger delete-btn">حذف</button>
+                    <button type="button" class="btn btn-danger delete-btn" onclick=removeMenu(${JSON.stringify(menu._id)})>حذف</button>
                 </td>
             </tr>`)
     })
 
     return menus;
+}
+
+const removeMenu = async menuID => {
+    let adminToken = getToken();
+
+    showSwal(
+        'question',
+        'مطمئن هستید که منو رو میخواید پاک کنید؟',
+        'اره',
+        async result => {
+            if (result) {
+                const res = await fetch(`http://localhost:4000/v1/menus/${menuID}`, {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${adminToken}`,
+                    }
+                });
+
+                const menuRemoved = await res.json();
+
+                if (res.status === 200) {
+                    showSwal(
+                        'success',
+                        'منو با موفقیت حذف شد',
+                        'دمت گرم',
+                        () => {
+                            getAndShowAllMenus();
+                        }
+                    )
+                }
+                else {
+                    showSwal(
+                        'error',
+                        'موفق به حذف منو نشدی هنوز',
+                        'بازم تلاش کن',
+                        () => { }
+                    )
+                }
+
+                return menuRemoved;
+            }
+        }
+    )
 }
 
 const prepareCreateNewMenu = async () => {
@@ -112,6 +155,7 @@ const createNewMenu = async () => {
 
 export {
     getAndShowAllMenus,
+    removeMenu,
     prepareCreateNewMenu,
     createNewMenu,
 }
