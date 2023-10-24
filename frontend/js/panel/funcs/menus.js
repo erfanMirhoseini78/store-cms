@@ -49,7 +49,7 @@ const removeMenu = async menuID => {
         'مطمئن هستید که منو رو میخواید پاک کنید؟',
         'اره',
         async result => {
-            if (result) {
+            if (result.value) {
                 const res = await fetch(`http://localhost:4000/v1/menus/${menuID}`, {
                     method: "DELETE",
                     headers: {
