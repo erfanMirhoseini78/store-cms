@@ -17,6 +17,7 @@ const getAndShowAllUsers = async () => {
 
     tableBodyWrapper.innerHTML = "";
     users.forEach((user, index) => {
+        console.log(user);
         tableBodyWrapper.insertAdjacentHTML('beforeend', `
         <tr>
             <td>
@@ -42,6 +43,9 @@ const getAndShowAllUsers = async () => {
             </td>
             <td>
                 <button type='button' class='btn btn-danger delete-btn' onclick=removeUser(${JSON.stringify(user._id)})>حذف</button>
+            </td>
+            <td>
+                <button type='button' class='btn btn-info delete-btn' onclick=banUser(${JSON.stringify(user._id)})>بن</button>
             </td>
         </tr>`)
     })
@@ -92,7 +96,51 @@ const removeUser = async userID => {
     )
 }
 
+const banUser = async userID => {
+    let adminToken = getToken();
+
+    showSwal(
+        'question',
+        'آیا از بن کردن کاربر اطمینان دارید ؟',
+        'اره',
+        async result => {
+            if (result.value) {
+                const res = await fetch(`http://localhost:4000/v1/users/ban/${userID}`, {
+                    method: "PUT",
+                    headers: {
+                        Authorization: `Bearer ${adminToken}`,
+                    }
+                })
+
+                const user = await res.json();
+
+                if (res.status === 200) {
+                    showSwal(
+                        'success',
+                        'کاربر با موفقیت بن شد',
+                        'ایولاااا',
+                        () => {
+                            getAndShowAllUsers();
+                        }
+                    )
+                }
+                else {
+                    showSwal(
+                        'error',
+                        'متاسفانه کاربر بن نشد!!!',
+                        'عیب نداره',
+                        () => { }
+                    )
+                }
+
+                return user;
+            }
+        }
+    )
+}
+
 export {
     getAndShowAllUsers,
     removeUser,
+    banUser,
 }
