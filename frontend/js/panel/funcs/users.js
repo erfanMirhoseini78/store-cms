@@ -139,8 +139,27 @@ const banUser = async userID => {
     )
 }
 
+const createNewUser = async () => {
+    const nameElem = document.querySelector('#name');
+    const userNameElem = document.querySelector('#username');
+    const emailElem = document.querySelector('#email');
+    const passwordElem = document.querySelector('#password');
+    const phoneElem = document.querySelector('#phone');
+    const selectElem = document.querySelector('.select');
+    const fileElem = document.querySelector('#file');
+
+    let newUSerInfos = {
+        name: nameElem.value.trim(),
+        userName: userNameElem.value.trim(),
+        email: emailElem.value.trim(),
+        password: passwordElem.value.trim(),
+        phone: phoneElem.value.trim()
+    }
+}
+
 export {
     getAndShowAllUsers,
     removeUser,
     banUser,
+    createNewUser,
 }

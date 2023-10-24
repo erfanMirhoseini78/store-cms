@@ -11,6 +11,39 @@
     margin-bottom: 0 !important;
 }
 
+.select-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.select {
+    border-radius: 3px;
+    border: none;
+    border: 1px solid #a6a6a6;
+    padding: 5px 0;
+}
+
+#home #home-content .form .file {
+    margin: 5px 15px;
+}
+
+#home #home-content .form .file .input-title {
+    font-size: 18px;
+    font-family: "lalezar";
+}
+
+#home #home-content .form .file input {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
 a {
     text-decoration: none;
     color: #000;

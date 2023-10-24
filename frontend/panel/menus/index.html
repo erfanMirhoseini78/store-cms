@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <div id="content">
         <div id="sidebar" class="col-2">
             <div class="sidebar-header">
@@ -23,6 +24,7 @@
                     <i class="fas fa-bars"></i>
                 </div>
             </div>
+
             <div class="sidebar-menu">
                 <ul>
                     <!-- Create Menu -->
@@ -84,6 +86,7 @@
                 </ul>
             </div>
         </div>
+
         <div id="home" class="col-10">
             <div class="container-fluid">
                 <div class="container">
@@ -92,17 +95,20 @@
                             <div class="home-searchbar">
                                 <input type="text" class="search-bar" placeholder="جستجو...">
                             </div>
+
                             <div class="home-notification">
                                 <!-- Create ID From Button -->
                                 <button type="button" id="home-notification-modal__btn">
                                     <i class="far fa-bell"></i>
                                 </button>
                             </div>
+
                             <div class="home-notification-modal">
                                 <ul class="home-notification-modal-list">
                                     <!--! Element From JS -->
                                 </ul>
                             </div>
+
                             <!-- Create Mode Color Template -->
                             <div class="mode">
                                 <ul class="mode-list">
@@ -113,6 +119,7 @@
                                 </ul>
                             </div>
                         </div>
+
                         <div class="home-left">
                             <div class="home-profile">
                                 <div class="home-profile-image">
@@ -120,11 +127,13 @@
                                         <img src="img/profile.png" alt="">
                                     </a>
                                 </div>
+
                                 <div class="home-profile-name">
                                     <a href="#" id="admin-name">
                                         <!--! Element From JS -->
                                     </a>
                                 </div>
+
                                 <div class="home-profile-icon">
                                     <i class="fas fa-angle-down"></i>
                                 </div>
@@ -133,11 +142,13 @@
                     </div>
                 </div>
             </div>
+
             <div class="container-fluid" id="home-content">
                 <div class="container">
                     <div class="home-title">
                         <span>افزودن منوی جدید</span>
                     </div>
+
                     <form class="form">
                         <div class="col-6">
                             <div class="name input">
@@ -148,6 +159,7 @@
                                 <span class="error-message text-danger"></span>
                             </div>
                         </div>
+
                         <div class="col-6">
                             <div class="name input">
                                 <label class="input-title">
@@ -157,6 +169,7 @@
                                 <span class="error-message text-danger"></span>
                             </div>
                         </div>
+
                         <div class="col-6">
                             <div class="name input select-box">
                                 <label class="input-title">
@@ -172,6 +185,7 @@
                                 <span class="error-message text-danger"></span>
                             </div>
                         </div>
+
                         <div class="col-12">
                             <div class="bottom-form">
 
@@ -181,6 +195,7 @@
                             </div>
                         </div>
                     </form>
+
                     <div class="home-content-latset-users">
                         <div class="home-content-users-title">
                             <span>
@@ -190,6 +205,7 @@
                                 </span>
                             </span>
                         </div>
+
                         <div class="home-content-users-table">
                             <table class="table">
                                 <thead>
@@ -202,6 +218,7 @@
                                         <th>حذف</th>
                                     </tr>
                                 </thead>
+
                                 <tbody class="table-body">
                                     <!--! Element From JS -->
                                 </tbody>
@@ -211,6 +228,7 @@
                 </div>
             </div>
         </div>
+
         <div id="delete-modal">
             <i class="far fa-trash-alt delete-modal-icon"></i>
             <span class="delete-modal-title">از پاک کردن کاربر مطمئنی؟</span>
@@ -219,8 +237,10 @@
                 <button class="delete-modal-btn-yes">بله</button>
             </div>
         </div>
+
         <div id="overlay"></div>
     </div>
+
     <script src="vendor/FontAwesome/FontAwesome.min.js"></script>
     <!-- Sweet Alert 2 -->
     <script src="./../../vendor/SweetAlert2/sweetalert.js"></script>
@@ -228,6 +248,7 @@
     <script src="./../../js/panel/shared.js" type="module"></script>
     <!-- Menus JS -->
     <script type="module" src="./../../js/panel/menus.js"></script>
+    
 </body>
 
 </html>

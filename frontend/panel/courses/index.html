@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     <div id="content">
         <div id="sidebar" class="col-2">
             <div class="sidebar-header">
@@ -25,6 +26,7 @@
                     <i class="fas fa-bars"></i>
                 </div>
             </div>
+
             <div class="sidebar-menu">
                 <ul>
                     <!-- Create Menu -->
@@ -86,6 +88,7 @@
                 </ul>
             </div>
         </div>
+
         <div id="home" class="col-10">
             <div class="container-fluid">
                 <div class="container">
@@ -94,17 +97,20 @@
                             <div class="home-searchbar">
                                 <input type="text" class="search-bar" placeholder="جستجو...">
                             </div>
+
                             <div class="home-notification">
                                 <!-- Create ID From Button -->
                                 <button type="button" id="home-notification-modal__btn">
                                     <i class="far fa-bell"></i>
                                 </button>
                             </div>
+
                             <div class="home-notification-modal">
                                 <ul class="home-notification-modal-list">
                                     <!--! Element From JS -->
                                 </ul>
                             </div>
+
                             <!-- Create Mode Color Template -->
                             <div class="mode">
                                 <ul class="mode-list">
@@ -115,6 +121,7 @@
                                 </ul>
                             </div>
                         </div>
+
                         <div class="home-left">
                             <div class="home-profile">
                                 <div class="home-profile-image">
@@ -122,11 +129,13 @@
                                         <img src="img/profile.png" alt="">
                                     </a>
                                 </div>
+
                                 <div class="home-profile-name">
                                     <a href="#" id="admin-name">
                                         <!--! Element From JS -->
                                     </a>
                                 </div>
+
                                 <div class="home-profile-icon">
                                     <i class="fas fa-angle-down"></i>
                                 </div>
@@ -135,22 +144,25 @@
                     </div>
                 </div>
             </div>
+
             <div class="container-fluid" id="home-content">
                 <div class="container">
-
-
                     <div class="home-title">
                         <span>افزودن دوره جدید</span>
                     </div>
+
                     <form class="form">
                         <div class="col-6">
                             <div class="name input">
                                 <label class="input-title">
                                     نام دوره
                                 </label>
+
                                 <input id="name" type="text" isValid="false"
                                     placeholder="لطفا نام دوره را وارد کنید...">
-                                <span class="error-message text-danger"></span>
+
+                                <span class="error-message text-danger">
+                                </span>
                             </div>
                         </div>
 
@@ -159,9 +171,12 @@
                                 <label class="input-title">
                                     نحوه پشتیبانی دوره
                                 </label>
+
                                 <input id="support" type="text" isValid="false"
                                     placeholder="لطفا نحوه پشتیبانی دوره را وارد کنید...">
-                                <span class="error-message text-danger"></span>
+
+                                <span class="error-message text-danger">
+                                </span>
                             </div>
                         </div>
 
@@ -170,9 +185,12 @@
                                 <label class="input-title">
                                     نام کوتاه دوره
                                 </label>
+
                                 <input id="short-name" type="text" isValid="false"
                                     placeholder="لطفا نام کوتاه دوره را وارد کنید...">
-                                <span class="error-message text-danger"></span>
+
+                                <span class="error-message text-danger">
+                                </span>
                             </div>
                         </div>
 
@@ -181,9 +199,12 @@
                                 <label class="input-title">
                                     قیمت دوره
                                 </label>
+
                                 <input id="price" type="text" isValid="false"
                                     placeholder="لطفا قیمت دوره را وارد کنید...">
-                                <span class="error-message text-danger"></span>
+
+                                <span class="error-message text-danger">
+                                </span>
                             </div>
                         </div>
 
@@ -192,9 +213,13 @@
                                 <label class="input-title">
                                     توضیحات دوره
                                 </label>
+
                                 <textarea id="description" type="text" class="description-input" isValid="false"
-                                    placeholder="لطفا توضیحات دوره را وارد کنید..."></textarea>
-                                <span class="error-message text-danger"></span>
+                                    placeholder="لطفا توضیحات دوره را وارد کنید...">
+                                </textarea>
+
+                                <span class="error-message text-danger">
+                                </span>
                             </div>
                         </div>
 
@@ -256,8 +281,14 @@
 
                     <div class="home-content-products">
                         <div class="home-content-products-title">
-                            <span>لیست <span class="signup">دوره‌ها</span></span>
+                            <span>
+                                لیست
+                                <span class="signup">
+                                    دوره‌ها
+                                </span>
+                            </span>
                         </div>
+
                         <div class="home-content-products-table">
                             <table class="table">
                                 <thead>
@@ -298,6 +329,7 @@
                                         </th>
                                     </tr>
                                 </thead>
+
                                 <tbody class="table-body__wrapper">
                                     <!--! Element From JS -->
                                 </tbody>
@@ -307,6 +339,7 @@
                 </div>
             </div>
         </div>
+
         <div id="delete-modal">
             <i class="far fa-trash-alt delete-modal-icon"></i>
             <span class="delete-modal-title">از پاک کردن کاربر مطمئنی؟</span>
@@ -327,6 +360,7 @@
     <script src="./../../js/panel/shared.js" type="module"></script>
     <!-- Courses JS -->
     <script type="module" src="./../../js/panel/courses.js"></script>
+
 </body>
 
 </html>
