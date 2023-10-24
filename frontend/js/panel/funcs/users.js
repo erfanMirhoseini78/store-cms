@@ -41,7 +41,7 @@ const getAndShowAllUsers = async () => {
                 <button type='button' class='btn btn-primary edit-btn'>ویرایش</button>
             </td>
             <td>
-                <button type='button' class='btn btn-danger delete-btn'>حذف</button>
+                <button type='button' class='btn btn-danger delete-btn' onclick=removeUser(${JSON.stringify(user._id)})>حذف</button>
             </td>
         </tr>`)
     })
@@ -49,6 +49,50 @@ const getAndShowAllUsers = async () => {
     return users;
 }
 
+const removeUser = async userID => {
+    let userToken = getToken();
+
+    showSwal(
+        'question',
+        'آیا از حذف کاربر اطمینان دارید ؟',
+        'اره',
+        async result => {
+            if (result.value) {
+                const res = await fetch(`http://localhost:4000/v1/users/${userID}`, {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${userToken}`,
+                    }
+                })
+
+                const user = await res.json();
+
+                if (res.status === 200) {
+                    showSwal(
+                        'success',
+                        'کاربر با موفقیت حذف شد',
+                        'ایولاااا',
+                        () => {
+                            getAndShowAllUsers();
+                        }
+                    )
+                }
+                else {
+                    showSwal(
+                        'error',
+                        'متاسفانه کاربر حذف نشد!!!',
+                        'عیب نداره',
+                        () => { }
+                    )
+                }
+
+                return user;
+            }
+        }
+    )
+}
+
 export {
     getAndShowAllUsers,
+    removeUser,
 }
