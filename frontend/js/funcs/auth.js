@@ -43,9 +43,18 @@ const register = event => {
                 return res.json();
             }
             else if (res.status === 400 || res.status === 401) {
-                showSwal('error',
+                showSwal(
+                    'error',
                     'اطلاعات را به درستی وارد کنید',
                     'تصحیح اطلاعات',
+                    () => { }
+                )
+            }
+            else if (res.status === 403) {
+                showSwal(
+                    'error',
+                    'کاربر با این شماره تماس بن شده است',
+                    'متاسفم!!!',
                     () => { }
                 )
             }

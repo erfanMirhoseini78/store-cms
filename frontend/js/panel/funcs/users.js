@@ -17,7 +17,6 @@ const getAndShowAllUsers = async () => {
 
     tableBodyWrapper.innerHTML = "";
     users.forEach((user, index) => {
-        console.log(user);
         tableBodyWrapper.insertAdjacentHTML('beforeend', `
         <tr>
             <td>
@@ -36,7 +35,7 @@ const getAndShowAllUsers = async () => {
                 ${user.phone}
             </td>
             <td>
-                ${user.role}
+                ${user.role === 'ADMIN' ? "مدیر" : "کاربر"}
             </td>
             <td>
                 <button type='button' class='btn btn-primary edit-btn'>ویرایش</button>
@@ -119,9 +118,7 @@ const banUser = async userID => {
                         'success',
                         'کاربر با موفقیت بن شد',
                         'ایولاااا',
-                        () => {
-                            getAndShowAllUsers();
-                        }
+                        () => { }
                     )
                 }
                 else {
