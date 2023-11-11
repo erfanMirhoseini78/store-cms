@@ -3,7 +3,6 @@ import {
     showSwal,
 } from "../../funcs/utility.js";
 
-
 const getAndShowAllUsers = async () => {
     const userToken = getToken();
     const tableBodyWrapper = document.querySelector('.table-body__wrapper');
@@ -136,24 +135,70 @@ const banUser = async userID => {
     )
 }
 
-const createNewUser = async () => {
-    const nameElem = document.querySelector('#name');
-    const userNameElem = document.querySelector('#username');
-    const emailElem = document.querySelector('#email');
-    const passwordElem = document.querySelector('#password');
-    const phoneElem = document.querySelector('#phone');
-    const selectElem = document.querySelector('.select');
-    const fileElem = document.querySelector('#file');
+const createNewUser = () => {
 
-    let newUSerInfos = {
-        name: nameElem.value.trim(),
-        userName: userNameElem.value.trim(),
-        email: emailElem.value.trim(),
-        password: passwordElem.value.trim(),
-        phone: phoneElem.value.trim()
+    const nameInput = document.querySelector('#name');
+    const usernameInput = document.querySelector('#username');
+    const emailInput = document.querySelector('#email');
+    const phoneInput = document.querySelector('#phone');
+    const passwordInput = document.querySelector('#password');
+    const confirmPasswordInput = document.querySelector('#confirmPassword');
+
+    let newUser = {
+        name: nameInput.value.trim(),
+        username: usernameInput.value.trim(),
+        email: emailInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        password: passwordInput.value.trim(),
+        confirmPassword: confirmPasswordInput.value.trim()
+    }
+
+    fetch('http://localhost:4000/v1/auth/register', {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(newUser)
+    })
+        .then(res => {
+            if (res.status === 201) {
+                showSwal('success',
+                    'کاربر جدید با موفقیت ایجاد شد',
+                    'ورود به پنل',
+                    () => {
+                        clearInputRegister();
+                        getAndShowAllUsers();
+                    })
+            }
+            else if (res.status === 400 || res.status === 401) {
+                showSwal(
+                    'error',
+                    'اطلاعات را به درستی وارد کنید',
+                    'تصحیح اطلاعات',
+                    () => { }
+                )
+            }
+            else if (res.status === 403) {
+                showSwal(
+                    'error',
+                    'کاربر با این شماره تماس بن شده است',
+                    'متاسفم!!!',
+                    () => { }
+                )
+            }
+
+            return res.json();
+        })
+
+    function clearInputRegister() {
+        nameInput.value = "";
+        usernameInput.value = "";
+        emailInput.value = "";
+        phoneInput.value = "";
+        passwordInput.value = "";
+        confirmPasswordInput.value = "";
     }
 }
-
 export {
     getAndShowAllUsers,
     removeUser,

@@ -7,11 +7,10 @@ import {
 
 window.removeUser = removeUser;
 window.banUser = banUser;
+const submitInputBtn = document.querySelector('#submit-input__btn');
 
 window.addEventListener('load', () => {
     getAndShowAllUsers();
-
-    const submitInputBtn = document.querySelector('#submit-input__btn');
 
     submitInputBtn.addEventListener('click', event => {
         event.preventDefault();
