@@ -164,7 +164,7 @@ const createNewUser = () => {
             if (res.status === 201) {
                 showSwal('success',
                     'کاربر جدید با موفقیت ایجاد شد',
-                    'ورود به پنل',
+                    'خیلی هم عالی',
                     () => {
                         clearInputRegister();
                         getAndShowAllUsers();
