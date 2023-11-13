@@ -3,11 +3,15 @@ import {
     showSwal,
 } from "../../funcs/utility.js";
 
+const categoryList = document.querySelector('.category-list');
+const file = document.getElementById('file');
+const presell = document.querySelector('#presell');
+const start = document.querySelector('#start');
+
 let categoryID = -1;
 let statusValue = 'presell';
 let courseCover = null;
 
-//! Get All Courses
 const getAllCourses = async () => {
     const tableBodyWrapper = document.querySelector('.table-body__wrapper');
 
@@ -15,7 +19,6 @@ const getAllCourses = async () => {
     const courses = await res.json();
 
     tableBodyWrapper.innerHTML = "";
-
     courses.forEach((course, index) => {
         tableBodyWrapper.insertAdjacentHTML('beforeend', `
             <tr>
@@ -62,13 +65,7 @@ const getAllCourses = async () => {
     return courses;
 }
 
-//! PrepareCreateNewCourse 
 const prepareCreateNewCourse = async () => {
-    const categoryList = document.querySelector('.category-list');
-    const file = document.getElementById('file');
-    const presell = document.querySelector('#presell');
-    const start = document.querySelector('#start');
-
     let res = await fetch('http://localhost:4000/v1/category');
     let categories = await res.json();
 
@@ -80,19 +77,12 @@ const prepareCreateNewCourse = async () => {
         `)
     })
 
-    categoryList.addEventListener('change', event => {
-        categoryID = event.target.value;
-    })
-
-    file.addEventListener('change', event => {
-        courseCover = event.target.files[0];
-    })
-
+    categoryList.addEventListener('change', event => categoryID = event.target.value)
+    file.addEventListener('change', event => courseCover = event.target.files[0])
     presell.addEventListener('change', event => statusValue = event.target.value);
     start.addEventListener('change', event => statusValue = event.target.value);
 }
 
-//! Create New Courses
 const createNewCourse = async () => {
     let adminToken = getToken();
 
@@ -128,6 +118,14 @@ const createNewCourse = async () => {
             "دوره جدید با موفقیت ساخته شد",
             "خیلی هم عالی",
             () => {
+                name.value = "";
+                support.value = "";
+                shortName.value = "";
+                price.value = "";
+                description.value = "";
+                file.value = "";
+                categoryList.value = '-1';
+                presell.checked = true;
                 getAllCourses();
             }
         )
@@ -140,9 +138,10 @@ const createNewCourse = async () => {
             () => { }
         )
     }
+
+    return course;
 }
 
-//! Remove Courses
 const removeCourse = async courseID => {
     const adminToken = getToken();
 

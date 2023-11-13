@@ -1,3 +1,17 @@
+import {
+    getToken,
+    showSwal,
+} from "../../funcs/utility.js";
+
+const selectElem = document.querySelector('.select');
+const fileElem = document.querySelector('#file');
+const freeElem = document.querySelector('#free');
+const moneyElem = document.querySelector('#money');
+
+let courseID = -1;
+let sessionVideo = null;
+let statusSession = '1';
+
 const getAndShowSessions = async () => {
     const tableBodyWrapper = document.querySelector('.table-body__wrapper')
 
@@ -21,7 +35,7 @@ const getAndShowSessions = async () => {
                     ${session.createdAt.slice(0, 10)}
                 </td>
                 <td>
-                    ${session.free ? 'رایگان' : 'پولی'}
+                        ${session.free ? 'رایگان' : 'غیر رایگان'}
                 </td>
                 <td>
                     ${session.course.name}
@@ -47,15 +61,77 @@ const removeSession = async sessionID => {
     console.log(sessionID);
 }
 
-const createSession = async () => {
+const prepareCreateNewSesion = async () => {
+    const res = await fetch('http://localhost:4000/v1/courses');
+    const courses = await res.json();
 
+    courses.forEach(course => {
+        selectElem.insertAdjacentHTML('beforeend', `
+            <option value="${course._id}">
+                ${course.name}
+            </option>
+        `)
+    })
+
+    selectElem.addEventListener('change', event => courseID = event.target.value)
+    fileElem.addEventListener('change', event => sessionVideo = event.target.files[0])
+    freeElem.addEventListener('change', event => statusSession = event.target.value)
+    moneyElem.addEventListener('change', event => statusSession = event.target.value)
 }
 
+const createSession = async () => {
+    const adminToken = getToken();
+    const titleElem = document.querySelector('#title');
+    const timeElem = document.querySelector('#time');
+
+    let formData = new FormData();
+
+    formData.append('title', titleElem.value.trim());
+    formData.append('time', timeElem.value.trim());
+    formData.append('video', sessionVideo);
+    formData.append('free', statusSession);
+
+    const res = await fetch(`http://localhost:4000/v1/courses/${courseID}/sessions`, {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${adminToken}`
+        },
+        body: formData
+    })
+    const result = await res.json();
+
+    if (res.status === 201) {
+        showSwal(
+            'success',
+            'جلسه با موفقیت آپلود شد',
+            'خیلی هم عالی',
+            () => {
+                titleElem.value = "";
+                timeElem.value = "";
+                fileElem.value = "";
+                selectElem.value = '-1';
+                freeElem.checked = true;
+                getAndShowSessions();
+            }
+        )
+    }
+    else {
+        showSwal(
+            'error',
+            'آپلود جلسه با خطا مواجه شد',
+            'عیب نداره',
+            () => { }
+        )
+    }
+
+    return result;
+}
 
 export {
     getAndShowSessions,
     editSession,
     removeSession,
+    prepareCreateNewSesion,
     createSession,
 }
 

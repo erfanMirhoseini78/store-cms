@@ -172,7 +172,8 @@
                             <div class="col-6">
                                 <div class="name input">
                                     <label class="input-title">عنوان جلسه</label>
-                                    <input type="text" isValid="false" placeholder="لطفا نام جلسه را وارد کنید...">
+                                    <input type="text" id="title" isValid="false"
+                                        placeholder="لطفا نام جلسه را وارد کنید...">
                                     <span class="error-message text-danger"></span>
                                 </div>
                             </div>
@@ -180,7 +181,8 @@
                             <div class="col-6">
                                 <div class="price input">
                                     <label class="input-title">مدت زمان جلسه</label>
-                                    <input type="text" isValid="false" placeholder="لطفا مدت زمان جلسه را وارد کنید...">
+                                    <input type="text" id="time" isValid="false"
+                                        placeholder="لطفا مدت زمان جلسه را وارد کنید...">
                                     <span class="error-message text-danger"></span>
                                 </div>
                             </div>
@@ -189,12 +191,10 @@
                                 <div class="price input">
                                     <label class="input-title" style="display: block;">دوره</label>
                                     <select class="select">
-                                        <option>دوره جی اس </option>
-                                        <option>دوره جی اس </option>
-                                        <option>دوره جی اس </option>
-                                        <option>دوره جی اس </option>
-                                        <option>دوره جی اس </option>
-                                        <option>دوره جی اس </option>
+                                        <option value="-1">
+                                            دوره مورد نظر را انتخاب کنید
+                                        </option>
+                                        <!--! Element From JS -->
                                     </select>
                                     <span class="error-message text-danger"></span>
                                 </div>
@@ -203,7 +203,7 @@
                             <div class="col-6 image">
                                 <div class="file">
                                     <label class="input-title">
-                                        عکس دوره
+                                        ویدئو جلسه
                                     </label>
                                     <input type="file" id="file">
                                 </div>
@@ -212,23 +212,23 @@
                             <div class="col-6">
                                 <div class="presell">
                                     <label class="input-title">
-                                        وضعیت دوره
+                                        وضعیت جلسه
                                     </label>
                                     <div class="radios">
                                         <div class="presell-true">
                                             <label>
                                                 <span>
-                                                    پیش فروش
+                                                    رایگان
                                                 </span>
-                                                <input id="presell" type="radio" value="presell" name="presell" checked>
+                                                <input id="free" type="radio" value="1" name="free" checked>
                                             </label>
                                         </div>
                                         <div class="presell-false">
                                             <label>
                                                 <span>
-                                                    در حال برگزاری
+                                                    غیر رایگان
                                                 </span>
-                                                <input id="start" type="radio" value="start" name="presell">
+                                                <input id="money" type="radio" value="0" name="free">
                                             </label>
                                         </div>
                                     </div>
@@ -264,7 +264,7 @@
                                         <th>عنوان</th>
                                         <th>مدت زمان</th>
                                         <th>تاریخ آپلود</th>
-                                        <th>رایگان یا پولی</th>
+                                        <th>رایگان یا غیر رایگان</th>
                                         <th>دوره</th>
                                         <th>ویرایش</th>
                                         <th>حذف</th>
