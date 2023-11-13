@@ -182,8 +182,7 @@
                                     <label class="input-title" style="display: block;">
                                         عنوان مقاله
                                     </label>
-                                    <input type="text" placeholder="عنوان مقاله را وارد کنید ...">
-                                    <span class="error-message text-danger"></span>
+                                    <input type="text" id="title" placeholder="عنوان مقاله را وارد کنید ...">
                                 </div>
                             </div>
 
@@ -192,8 +191,7 @@
                                     <label class="input-title" style="display: block;">
                                         لینک مقاله
                                     </label>
-                                    <input type="text" placeholder="لینک مقاله را وارد کنید ...">
-                                    <span class="error-message text-danger"></span>
+                                    <input type="text" id="link" placeholder="لینک مقاله را وارد کنید ...">
                                 </div>
                             </div>
 
@@ -202,9 +200,8 @@
                                     <label class="input-title" style="display: block;">
                                         چکیده مقاله
                                     </label>
-                                    <textarea style="width: 100%;height: 200px;"
+                                    <textarea id="summary" style="width: 100%;height: 200px;"
                                         placeholder="چکیده مقاله را وارد کنید ..."></textarea>
-                                    <span class="error-message text-danger"></span>
                                 </div>
                             </div>
 
@@ -214,7 +211,6 @@
                                         محتوای مقاله
                                     </label>
                                     <div id="editor"></div>
-                                    <span class="error-message text-danger"></span>
                                 </div>
                             </div>
 
@@ -224,7 +220,6 @@
                                         کاور مقاله
                                     </label>
                                     <input type="file" id="file">
-                                    <span class="error-message text-danger"></span>
                                 </div>
                             </div>
 
@@ -238,14 +233,14 @@
                                             دسته بندی مورد نظر را انتخاب کنید
                                         </option>
                                     </select>
-                                    <span class="error-message text-danger"></span>
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="bottom-form">
                                     <div class="submit-btn">
-                                        <input type="submit" value="افزودن">
+                                        <!-- Create ID From Input -->
+                                        <input type="submit" id="submit-input__btn" value="افزودن">
                                     </div>
                                 </div>
                             </div>
@@ -295,6 +290,8 @@
     <script src="./../../js/panel/shared.js" type="module"></script>
     <!-- Article JS -->
     <script src="../../js/panel/articles.js" type="module"></script>
+    <!-- CKEditor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
 </body>
 
