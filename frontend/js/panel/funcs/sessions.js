@@ -58,7 +58,46 @@ const editSession = async sessionID => {
 }
 
 const removeSession = async sessionID => {
-    console.log(sessionID);
+    const adminToken = getToken();
+
+    showSwal(
+        'question',
+        'آیا از پاک کردن جلسه مورد نظر اطمینان دارید ؟',
+        'اره',
+        async result => {
+            if (result.isConfirmed) {
+                const res = await fetch(`http://localhost:4000/v1/courses/sessions/${sessionID}`, {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${adminToken}`
+                    }
+                });
+                const result = await res.json();
+
+                if (res.status === 200) {
+                    showSwal(
+                        'success',
+                        'جلسه مورد نظر با موفقیت حذف شد',
+                        'اینم از این',
+                        () => {
+                            getAndShowSessions();
+                        }
+                    )
+                }
+                else {
+                    showSwal(
+                        'success',
+                        'در حذف جلسه مورد نظر مشکلی به وجود آمده است',
+                        'درستش میکنیم',
+                        () => { }
+                    )
+                }
+
+                return result;
+            }
+        }
+    )
+
 }
 
 const prepareCreateNewSesion = async () => {
