@@ -171,6 +171,87 @@
 
             <div class="container-fluid" id="home-content">
                 <div class="container">
+                    <div class="home-title">
+                        <span>افزودن مقاله جدید</span>
+                    </div>
+
+                    <div class="home-content-edit active-edit-modal">
+                        <form class="form">
+                            <div class="col-6">
+                                <div class="name input">
+                                    <label class="input-title" style="display: block;">
+                                        عنوان مقاله
+                                    </label>
+                                    <input type="text" placeholder="عنوان مقاله را وارد کنید ...">
+                                    <span class="error-message text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="name input">
+                                    <label class="input-title" style="display: block;">
+                                        لینک مقاله
+                                    </label>
+                                    <input type="text" placeholder="لینک مقاله را وارد کنید ...">
+                                    <span class="error-message text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="name input">
+                                    <label class="input-title" style="display: block;">
+                                        چکیده مقاله
+                                    </label>
+                                    <textarea style="width: 100%;height: 200px;"
+                                        placeholder="چکیده مقاله را وارد کنید ..."></textarea>
+                                    <span class="error-message text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="name input">
+                                    <label class="input-title" style="display: block;">
+                                        محتوای مقاله
+                                    </label>
+                                    <div id="editor"></div>
+                                    <span class="error-message text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="name input">
+                                    <label class="input-title" style="display: block;">
+                                        کاور مقاله
+                                    </label>
+                                    <input type="file" id="file">
+                                    <span class="error-message text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="number input">
+                                    <label class="input-title">
+                                        دسته‌بندی مقاله
+                                    </label>
+                                    <select class="category-list">
+                                        <option value="-1">
+                                            دسته بندی مورد نظر را انتخاب کنید
+                                        </option>
+                                    </select>
+                                    <span class="error-message text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="bottom-form">
+                                    <div class="submit-btn">
+                                        <input type="submit" value="افزودن">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
                     <div class="home-content-products">
                         <div class="home-content-products-title">
                             <span>لیست
