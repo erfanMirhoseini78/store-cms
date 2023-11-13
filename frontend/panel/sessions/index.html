@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>جلسات</title>
+    <title>سبزلرن | جلسات</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="vendor/FontAwesome/FontAwesome.min.css" />
     <link rel="stylesheet" href="vendor/BootStrap/Bootstrap5.min.css" />
@@ -164,7 +164,7 @@
             <div class="container-fluid" id="home-content">
                 <div class="container">
                     <div class="home-title">
-                        <span>افزودن قسمت جدید</span>
+                        <span>افزودن جلسه جدید</span>
                     </div>
 
                     <div class="home-content-edit active-edit-modal">
@@ -172,36 +172,74 @@
                             <div class="col-6">
                                 <div class="name input">
                                     <label class="input-title">عنوان جلسه</label>
-                                    <input type="text" isValid="false" placeholder="لطفا نام جلسه را وارد کنید...">
+                                    <input type="text" id="title" isValid="false"
+                                        placeholder="لطفا نام جلسه را وارد کنید...">
                                     <span class="error-message text-danger"></span>
                                 </div>
                             </div>
+
                             <div class="col-6">
                                 <div class="price input">
                                     <label class="input-title">مدت زمان جلسه</label>
-                                    <input type="text" isValid="false" placeholder="لطفا مدت زمان جلسه را وارد کنید...">
+                                    <input type="text" id="time" isValid="false"
+                                        placeholder="لطفا مدت زمان جلسه را وارد کنید...">
                                     <span class="error-message text-danger"></span>
                                 </div>
                             </div>
+
                             <div class="col-6">
                                 <div class="price input">
                                     <label class="input-title" style="display: block;">دوره</label>
                                     <select class="select">
-                                        <option>دوره جی اس </option>
-                                        <option>دوره جی اس </option>
-                                        <option>دوره جی اس </option>
-                                        <option>دوره جی اس </option>
-                                        <option>دوره جی اس </option>
-                                        <option>دوره جی اس </option>
+                                        <option value="-1">
+                                            دوره مورد نظر را انتخاب کنید
+                                        </option>
+                                        <!--! Element From JS -->
                                     </select>
                                     <span class="error-message text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-6 image">
+                                <div class="file">
+                                    <label class="input-title">
+                                        ویدئو جلسه
+                                    </label>
+                                    <input type="file" id="file">
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="presell">
+                                    <label class="input-title">
+                                        وضعیت جلسه
+                                    </label>
+                                    <div class="radios">
+                                        <div class="presell-true">
+                                            <label>
+                                                <span>
+                                                    رایگان
+                                                </span>
+                                                <input id="free" type="radio" value="1" name="free" checked>
+                                            </label>
+                                        </div>
+                                        <div class="presell-false">
+                                            <label>
+                                                <span>
+                                                    غیر رایگان
+                                                </span>
+                                                <input id="money" type="radio" value="0" name="free">
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="bottom-form">
                                     <div class="submit-btn">
-                                        <input type="submit" value="افزودن">
+                                        <!-- Create ID From Input -->
+                                        <input type="submit" id="submit-input__btn" value="افزودن">
                                     </div>
                                 </div>
                             </div>
@@ -210,7 +248,11 @@
 
                     <div class="home-content-latset-users">
                         <div class="home-content-users-title">
-                            <span>لیست <span class="signup">جلسات</span></span>
+                            <span>لیست
+                                <span class="signup">
+                                    جلسات
+                                </span>
+                            </span>
                         </div>
 
                         <div class="home-content-users-table">
@@ -220,13 +262,15 @@
                                         <!-- Create Table Header -->
                                         <th>شماره</th>
                                         <th>عنوان</th>
-                                        <th>تایم</th>
+                                        <th>مدت زمان</th>
                                         <th>تاریخ آپلود</th>
+                                        <th>رایگان یا غیر رایگان</th>
                                         <th>دوره</th>
                                         <th>ویرایش</th>
                                         <th>حذف</th>
                                     </tr>
                                 </thead>
+
                                 <tbody class="table-body__wrapper">
                                     <!--! Element From JS -->
                                 </tbody>
