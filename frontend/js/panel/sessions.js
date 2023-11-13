@@ -18,8 +18,5 @@ window.addEventListener('load', () => {
 
 submitInputBtn.addEventListener('click', event => {
     event.preventDefault();
-
-    console.log('Clicked');
-
     createSession();
 })
