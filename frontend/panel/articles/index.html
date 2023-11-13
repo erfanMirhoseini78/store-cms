@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>سبزلرن | مقاله ها</title>
     <link rel="stylesheet" href="vendor/FontAwesome/FontAwesome.min.css">
     <link rel="stylesheet" href="vendor/swiperSlider/swiper.css" />
     <link rel="stylesheet" href="vendor/BootStrap/Bootstrap5.min.css">
@@ -13,29 +13,106 @@
 </head>
 
 <body>
+
     <div id="content">
         <div id="sidebar" class="col-2">
             <div class="sidebar-header">
                 <div class="sidebar-logo">
-                    <a href="#"><img src="img/logo.png" alt="Logo"></a>
+                    <a href="#">
+                        <img src="img/logo.png" alt="Logo">
+                    </a>
                 </div>
 
                 <div class="sidebar-menu-btn">
                     <i class="fas fa-bars"></i>
                 </div>
             </div>
+
             <div class="sidebar-menu">
                 <ul>
-                    <li class="active-menu"><a href="#"><span>صفحه اصلی</span></a></li>
-                    <li><a href="#"><span>دوره ها</span></a></li>
-                    <li><a href="#"><span>منو ها</span></a></li>
-                    <li><a href="#"><span>مقاله ها</span></a></li>
-                    <li><a href="#"><span>کاربران</span></a></li>
-                    <li><a href="#"><span>کدهای تخفیف</span></a></li>
-                    <li><a href="#"><span>دسته‌بندی‌ها</span></a></li>
+                    <li>
+                        <a href="./../main/index.html">
+                            <span>
+                                صفحه اصلی
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../courses/index.html">
+                            <span>
+                                دوره ها
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./../menus/index.html">
+                            <span>
+                                منو ها
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>
+                                مقاله ها
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./../users/index.html">
+                            <span>
+                                کاربران
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span>
+                                کدهای تخفیف
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./../categories/index.html">
+                            <span>
+                                دسته‌بندی‌ها
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./../contacts/index.html">
+                            <span>
+                                پیغام ها
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./../sessions/index.html">
+                            <span>
+                                جلسات
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="active-menu">
+                        <a href="./../articles/index.html">
+                            <span>
+                                مقاله ها
+                            </span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
+
         <div id="home" class="col-10">
             <div class="container-fluid">
                 <div class="container">
@@ -44,43 +121,21 @@
                             <div class="home-searchbar">
                                 <input type="text" class="search-bar" placeholder="جستجو...">
                             </div>
+
                             <div class="home-notification">
-                                <button type="button">
+                                <!-- Create ID From Button -->
+                                <button type="button" id="home-notification-modal__btn">
                                     <i class="far fa-bell"></i>
                                 </button>
                             </div>
+
                             <div class="home-notification-modal">
                                 <ul class="home-notification-modal-list">
-                                    <li class="home-notification-modal-item">
-                                        <span class="home-notification-modal-text">پیغام ها</span>
-                                        <label class="switch">
-                                            <input type="checkbox" checked>
-                                            <span class="slider round"></span>
-                                        </label>
-                                    </li>
-                                    <li class="home-notification-modal-item">
-                                        <span class="home-notification-modal-text">پیغام ها</span>
-                                        <label class="switch">
-                                            <input type="checkbox" checked>
-                                            <span class="slider round"></span>
-                                        </label>
-                                    </li>
-                                    <li class="home-notification-modal-item">
-                                        <span class="home-notification-modal-text">پیغام ها</span>
-                                        <label class="switch">
-                                            <input type="checkbox" checked>
-                                            <span class="slider round"></span>
-                                        </label>
-                                    </li>
-                                    <li class="home-notification-modal-item">
-                                        <span class="home-notification-modal-text">پیغام ها</span>
-                                        <label class="switch">
-                                            <input type="checkbox" checked>
-                                            <span class="slider round"></span>
-                                        </label>
-                                    </li>
+                                    <!--! Element From JS -->
                                 </ul>
                             </div>
+
+                            <!-- Create Mode Color Template -->
                             <div class="mode">
                                 <ul class="mode-list">
                                     <div class="mode-list-item mode-red"></div>
@@ -90,6 +145,7 @@
                                 </ul>
                             </div>
                         </div>
+
                         <div class="home-left">
                             <div class="home-profile">
                                 <div class="home-profile-image">
@@ -97,9 +153,13 @@
                                         <img src="img/profile.png" alt="">
                                     </a>
                                 </div>
+
                                 <div class="home-profile-name">
-                                    <a href="#">احسان خورمهر</a>
+                                    <a href="#" id="admin-name">
+                                        <!--! Element From JS -->
+                                    </a>
                                 </div>
+
                                 <div class="home-profile-icon">
                                     <i class="fas fa-angle-down"></i>
                                 </div>
@@ -108,17 +168,23 @@
                     </div>
                 </div>
             </div>
+
             <div class="container-fluid" id="home-content">
                 <div class="container">
                     <div class="home-content-products">
                         <div class="home-content-products-title">
-                            <span>لیست <span class="signup">مقالات</span></span>
+                            <span>لیست
+                                <span class="signup">
+                                    مقالات
+                                </span>
+                            </span>
                         </div>
+
                         <div class="home-content-products-table">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        
+                                        <!-- Create Table Header -->
                                         <th>شماره</th>
                                         <th>عنوان</th>
                                         <th>حالت</th>
@@ -128,8 +194,8 @@
                                         <th>حذف</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                   <!-- Articles Data Loaded From JS -->
+                                <tbody class="table-body__wrapper">
+                                    <!--! Element From JS -->
                                 </tbody>
                             </table>
                         </div>
@@ -137,21 +203,18 @@
                 </div>
             </div>
         </div>
-        <div id="delete-modal">
-            <i class="far fa-trash-alt delete-modal-icon"></i>
-            <span class="delete-modal-title">از پاک کردن کاربر مطمئنی؟</span>
-            <div class="delete-modal-btns">
-                <button class="delete-modal-btn-no">خیر</button>
-                <button class="delete-modal-btn-yes">بله</button>
-            </div>
-        </div>
-        <div id="overlay"></div>
     </div>
+
     <script src="vendor/FontAwesome/FontAwesome.min.js"></script>
-    <script src="vendor/swiperSlider/swiper.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/script.js"></script>
+    <!-- Sweet Alert 2 -->
+    <script src="./../../vendor/SweetAlert2/sweetalert.js"></script>
+    <!-- Shared JS -->
+    <script src="./../../js/panel/shared.js" type="module"></script>
+    <!-- Article JS -->
     <script src="../../js/panel/articles.js" type="module"></script>
+
 </body>
 
 </html>
