@@ -164,7 +164,7 @@
             <div class="container-fluid" id="home-content">
                 <div class="container">
                     <div class="home-title">
-                        <span>افزودن قسمت جدید</span>
+                        <span>افزودن جلسه جدید</span>
                     </div>
 
                     <div class="home-content-edit active-edit-modal">
@@ -176,6 +176,7 @@
                                     <span class="error-message text-danger"></span>
                                 </div>
                             </div>
+
                             <div class="col-6">
                                 <div class="price input">
                                     <label class="input-title">مدت زمان جلسه</label>
@@ -183,6 +184,7 @@
                                     <span class="error-message text-danger"></span>
                                 </div>
                             </div>
+
                             <div class="col-6">
                                 <div class="price input">
                                     <label class="input-title" style="display: block;">دوره</label>
@@ -198,6 +200,41 @@
                                 </div>
                             </div>
 
+                            <div class="col-6 image">
+                                <div class="file">
+                                    <label class="input-title">
+                                        عکس دوره
+                                    </label>
+                                    <input type="file" id="file">
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="presell">
+                                    <label class="input-title">
+                                        وضعیت دوره
+                                    </label>
+                                    <div class="radios">
+                                        <div class="presell-true">
+                                            <label>
+                                                <span>
+                                                    پیش فروش
+                                                </span>
+                                                <input id="presell" type="radio" value="presell" name="presell" checked>
+                                            </label>
+                                        </div>
+                                        <div class="presell-false">
+                                            <label>
+                                                <span>
+                                                    در حال برگزاری
+                                                </span>
+                                                <input id="start" type="radio" value="start" name="presell">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="col-12">
                                 <div class="bottom-form">
                                     <div class="submit-btn">
@@ -210,7 +247,11 @@
 
                     <div class="home-content-latset-users">
                         <div class="home-content-users-title">
-                            <span>لیست <span class="signup">جلسات</span></span>
+                            <span>لیست
+                                <span class="signup">
+                                    جلسات
+                                </span>
+                            </span>
                         </div>
 
                         <div class="home-content-users-table">
@@ -220,13 +261,15 @@
                                         <!-- Create Table Header -->
                                         <th>شماره</th>
                                         <th>عنوان</th>
-                                        <th>تایم</th>
+                                        <th>مدت زمان</th>
                                         <th>تاریخ آپلود</th>
+                                        <th>رایگان یا پولی</th>
                                         <th>دوره</th>
                                         <th>ویرایش</th>
                                         <th>حذف</th>
                                     </tr>
                                 </thead>
+
                                 <tbody class="table-body__wrapper">
                                     <!--! Element From JS -->
                                 </tbody>
