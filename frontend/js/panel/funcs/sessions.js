@@ -47,10 +47,15 @@ const removeSession = async sessionID => {
     console.log(sessionID);
 }
 
+const createSession = async () => {
+
+}
+
 
 export {
     getAndShowSessions,
     editSession,
     removeSession,
+    createSession,
 }
 
