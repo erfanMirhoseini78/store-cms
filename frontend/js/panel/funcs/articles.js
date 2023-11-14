@@ -8,7 +8,6 @@ const fileElem = document.getElementById('file');
 const titleElem = document.querySelector('#title');
 const linkElem = document.querySelector('#link');
 const summaryElem = document.querySelector('#summary');
-const editorElem = document.querySelector('#editor');
 
 let categoryID = '-1';
 let coverArticle = null;
@@ -58,8 +57,46 @@ const getAndShowArticles = async () => {
     return articles;
 }
 
-const removeArticle = articleID => {
-    console.log(articleID);
+const removeArticle = async articleID => {
+    const adminToken = getToken();
+
+    showSwal(
+        'question',
+        'آیا از حذف مقاله مورد نظر اطمینان دارید ؟',
+        'اره خیالت راحت',
+        async result => {
+            if (result.isConfirmed) {
+                const res = await fetch(`http://localhost:4000/v1/articles/${articleID}`, {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${adminToken}`
+                    }
+                })
+                const result = await res.json();
+
+                if (res.status === 200) {
+                    showSwal(
+                        'success',
+                        'مقاله مورد نظر با موفقیت حذف شد',
+                        'ایولاااا',
+                        () => {
+                            getAndShowArticles();
+                        }
+                    )
+                }
+                else {
+                    showSwal(
+                        'error',
+                        'مشکلی در حذف مقاله مورد نظر وجود دارد',
+                        'حلش میکنیم',
+                        () => { }
+                    )
+                }
+
+                return result;
+            }
+        }
+    )
 }
 
 const prepareCreateNewArticles = async () => {
@@ -106,7 +143,6 @@ const createNewArticle = async () => {
     const res = await fetch('http://localhost:4000/v1/articles', {
         method: "POST",
         headers: {
-            // 'Content-Type': 'application/json',
             Authorization: `Bearer ${adminToken}`
         },
         body: formDate
