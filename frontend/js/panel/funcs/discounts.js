@@ -122,7 +122,45 @@ const createNewDiscount = async () => {
 }
 
 const removeDiscount = async discountID => {
-    console.log(discountID);
+    const adminToken = getToken();
+
+    showSwal(
+        'question',
+        'آیا از حذف کد تخفیف اطمینان دارید ؟',
+        'اره حتما',
+        async result => {
+            if (result.isConfirmed) {
+                const res = await fetch(`http://localhost:4000/v1/offs/${discountID}`, {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${adminToken}`
+                    }
+                });
+                const result = await res.json();
+
+                if (res.status == 200) {
+                    showSwal(
+                        'success',
+                        'کد تخفیف با موفقیت حذف شد',
+                        'عالی شد',
+                        () => {
+                            getAndShowDiscounts();
+                        }
+                    )
+                }
+                else {
+                    showSwal(
+                        'error',
+                        'در حذف کد تخفیف خطایی رخ داده است',
+                        'درستش میکنیم',
+                        () => { }
+                    )
+                }
+
+                return result;
+            }
+        }
+    )
 }
 
 export {
