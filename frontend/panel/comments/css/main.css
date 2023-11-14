@@ -1357,30 +1357,6 @@ ul {
     justify-content: center;
 }
 
-/* Contact Answer Styles */
-
-.answer-contact {
-    background-color: green !important;
-    color: #fff;
-}
-
-.no-answer-contact {
-    background-color: red !important;
-    color: #fff;
-}
-
-/* Comment */
-
-.answer-comment {
-    background-color: green !important;
-    color: white;
-}
-
-.no-answer-comment {
-    background-color: red !important;
-    color: white;
-}
-
 /* Custome Style */
 .alert {
     margin-bottom: 0 !important;
