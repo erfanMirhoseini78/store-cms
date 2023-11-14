@@ -103,8 +103,6 @@ const answerToContact = async email => {
         )
     }
 
-    console.log(res);
-
     return result;
 }
 

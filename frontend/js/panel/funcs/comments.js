@@ -62,29 +62,22 @@ const answerComment = async commentID => {
         inputPlaceholder: "پاسخ خود را اینجا تایپ کنید ...",
         showCancelButton: true,
         confirmButtonText: 'ثبت پاسخ',
-        cancelButtonText: 'منصرف شدید'
+        cancelButtonText: 'منصرف شدید',
     });
     if (text) {
         Swal.fire(text);
     }
 
     if (!(text === undefined) && !(text === "")) {
-        const answerBodyInfos = {
-            body: text
-        }
-
         const res = await fetch(`http://localhost:4000/v1/comments/answer/${commentID}`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${adminToken}`
             },
-            body: JSON.stringify(answerBodyInfos)
+            body: JSON.stringify({ body: text })
         })
         const result = await res.json();
-
-        console.log(res);
-        console.log(result);
 
         if (res.status === 200) {
             showSwal(
@@ -110,7 +103,45 @@ const answerComment = async commentID => {
 }
 
 const removeComment = async commentID => {
-    console.log(commentID);
+    const adminToken = getToken();
+
+    showSwal(
+        'question',
+        'آیا از حذف کامنت اطمینان دارید ؟',
+        'اره',
+        async result => {
+            if (result.isConfirmed) {
+                const res = await fetch(`http://localhost:4000/v1/comments/${commentID}`, {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${adminToken}`
+                    }
+                });
+                const result = await res.json();
+
+                if (res.status === 200) {
+                    showSwal(
+                        'success',
+                        'کامنت مورد نظر با موفقیت حذف شد',
+                        'خداروشکر',
+                        () => {
+                            getAndShowComments();
+                        }
+                    )
+                }
+                else {
+                    showSwal(
+                        'error',
+                        'در حذف کامنت مشکلی به وجود آمده است',
+                        'حلش میکنیم',
+                        () => { }
+                    )
+                }
+
+                return result;
+            }
+        }
+    )
 }
 
 const showComment = commentObj => {
