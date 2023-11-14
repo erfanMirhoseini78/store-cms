@@ -3,6 +3,13 @@ import {
     showSwal,
 } from "../../funcs/utility.js";
 
+const coursesSelect = document.querySelector('#courses-select');
+const codeElem = document.querySelector('#code');
+const percentElem = document.querySelector('#percent');
+const maxElem = document.querySelector('#max');
+
+let courseID = '-1';
+
 const getAndShowDiscounts = async () => {
     const adminToken = getToken();
 
@@ -53,24 +60,18 @@ const getAndShowDiscounts = async () => {
     return discounts;
 }
 
-const coursesSelect = document.querySelector('#courses-select');
-const codeElem = document.querySelector('#code');
-const percentElem = document.querySelector('#percent');
-const timeElem = document.querySelector('#time');
-
-let courseID = '-1';
-
 const prepareCreateNewDiscount = async () => {
     const res = await fetch('http://localhost:4000/v1/courses');
     const courses = await res.json();
 
-    courses.forEach(course => {
-        coursesSelect.insertAdjacentHTML('beforeend', `
-            <option value="${course._id}">
-                ${course.name}
-            </option>
-        `)
-    })
+    courses.filter(course => course.price !== 0)
+        .forEach(course => {
+            coursesSelect.insertAdjacentHTML('beforeend', `
+        <option value="${course._id}">
+            ${course.name}
+        </option>
+    `)
+        })
 
     coursesSelect.addEventListener('change', event => courseID = event.target.value);
 }
@@ -82,7 +83,7 @@ const createNewDiscount = async () => {
         code: codeElem.value.trim(),
         percent: percentElem.value.trim(),
         course: courseID,
-        max: +timeElem.value.trim()
+        max: +maxElem.value.trim()
     }
 
     const res = await fetch('http://localhost:4000/v1/offs', {
@@ -104,7 +105,7 @@ const createNewDiscount = async () => {
                 coursesSelect.value = '-1';
                 codeElem.value = "";
                 percentElem.value = "";
-                timeElem.value = "";
+                maxElem.value = "";
                 getAndShowDiscounts();
             }
         )
