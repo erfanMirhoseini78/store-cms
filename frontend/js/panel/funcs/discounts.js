@@ -53,6 +53,74 @@ const getAndShowDiscounts = async () => {
     return discounts;
 }
 
+const coursesSelect = document.querySelector('#courses-select');
+const codeElem = document.querySelector('#code');
+const percentElem = document.querySelector('#percent');
+const timeElem = document.querySelector('#time');
+
+let courseID = '-1';
+
+const prepareCreateNewDiscount = async () => {
+    const res = await fetch('http://localhost:4000/v1/courses');
+    const courses = await res.json();
+
+    courses.forEach(course => {
+        coursesSelect.insertAdjacentHTML('beforeend', `
+            <option value="${course._id}">
+                ${course.name}
+            </option>
+        `)
+    })
+
+    coursesSelect.addEventListener('change', event => courseID = event.target.value);
+}
+
+const createNewDiscount = async () => {
+    const adminToken = getToken();
+
+    const newDiscountInfos = {
+        code: codeElem.value.trim(),
+        percent: percentElem.value.trim(),
+        course: courseID,
+        max: +timeElem.value.trim()
+    }
+
+    const res = await fetch('http://localhost:4000/v1/offs', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${adminToken}`
+        },
+        body: JSON.stringify(newDiscountInfos)
+    })
+    const result = await res.json();
+
+    if (res.status === 201) {
+        showSwal(
+            'success',
+            'کد تخفیف با موفقیت ایجاد شد',
+            'خدارو شکر',
+            () => {
+                coursesSelect.value = '-1';
+                codeElem.value = "";
+                percentElem.value = "";
+                timeElem.value = "";
+                getAndShowDiscounts();
+            }
+        )
+    }
+    else {
+        showSwal(
+            'error',
+            'در ایجاد کد تخفیف مشکلی به وجود آمده است',
+            'حلش میکنیم',
+            () => { }
+        )
+    }
+
+    return result;
+}
+
 const removeDiscount = async discountID => {
     console.log(discountID);
 }
@@ -60,4 +128,6 @@ const removeDiscount = async discountID => {
 export {
     getAndShowDiscounts,
     removeDiscount,
+    prepareCreateNewDiscount,
+    createNewDiscount,
 }
