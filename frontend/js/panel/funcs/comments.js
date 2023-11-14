@@ -53,7 +53,60 @@ const getAndShowComments = async () => {
 }
 
 const answerComment = async commentID => {
-    console.log(commentID);
+    const adminToken = getToken();
+
+    // Swal
+    const { value: text } = await Swal.fire({
+        input: "textarea",
+        inputLabel: "پاسخ",
+        inputPlaceholder: "پاسخ خود را اینجا تایپ کنید ...",
+        showCancelButton: true,
+        confirmButtonText: 'ثبت پاسخ',
+        cancelButtonText: 'منصرف شدید'
+    });
+    if (text) {
+        Swal.fire(text);
+    }
+
+    if (!(text === undefined) && !(text === "")) {
+        const answerBodyInfos = {
+            body: text
+        }
+
+        const res = await fetch(`http://localhost:4000/v1/comments/answer/${commentID}`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${adminToken}`
+            },
+            body: JSON.stringify(answerBodyInfos)
+        })
+        const result = await res.json();
+
+        console.log(res);
+        console.log(result);
+
+        if (res.status === 200) {
+            showSwal(
+                'success',
+                'پاسخ با موفقیت ارسال شد',
+                'هورااااا',
+                () => {
+                    getAndShowComments();
+                }
+            )
+        }
+        else {
+            showSwal(
+                'error',
+                'پاسخ به درستی ارسال نشد',
+                'دوباره تلاش کن',
+                () => { }
+            )
+        }
+
+        return result;
+    }
 }
 
 const removeComment = async commentID => {
@@ -156,6 +209,7 @@ const rejectionComment = async commentID => {
 
 export {
     getAndShowComments,
+    answerComment,
     removeComment,
     showComment,
     acceptComment,

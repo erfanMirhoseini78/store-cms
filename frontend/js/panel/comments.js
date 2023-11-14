@@ -1,5 +1,6 @@
 import {
     getAndShowComments,
+    answerComment,
     removeComment,
     showComment,
     acceptComment,
@@ -10,6 +11,7 @@ window.removeComment = removeComment;
 window.showComment = showComment;
 window.acceptComment = acceptComment;
 window.rejectionComment = rejectionComment;
+window.answerComment = answerComment;
 
 window.addEventListener('load', () => {
     getAndShowComments();
