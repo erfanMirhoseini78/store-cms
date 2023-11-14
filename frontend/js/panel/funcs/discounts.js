@@ -29,10 +29,10 @@ const getAndShowDiscounts = async () => {
                     ${discount.creator}
                 </td>
                 <td>
-                    ${discount.percent}
+                    ${discount.percent}%
                 </td>
                 <td>
-                    ${discount.updatedAt.slice(0, 10)}
+                    ${discount.max}
                 </td>
                 <td>
                     ${discount.uses}

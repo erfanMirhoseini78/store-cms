@@ -1004,15 +1004,14 @@ ul {
 }
 
 #home #home-content {
-    margin-top: 15px;
-    padding: 15px 10px;
+    padding: 0 10px 15px 10px;
 }
 
 #home #home-content .home-content-latset-users {
     background-color: #fff;
     -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
+    margin-top: 2rem;
     border-radius: 5px;
 }
 
@@ -1374,4 +1373,11 @@ ul {
 
 .alert {
     margin-bottom: 0 !important;
+}
+
+.select {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #a6a6a6;
+    padding: 5px 15px;
 }
