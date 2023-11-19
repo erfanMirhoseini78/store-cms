@@ -146,6 +146,7 @@ ul {
     height: 100vh;
     position: fixed;
     right: 0;
+    overflow-y: scroll;
 }
 
 #sidebar .sidebar-header {
@@ -472,7 +473,7 @@ ul {
 #home #home-content .home-content-products .home-content-products-table table tbody tr td {
     text-align: center;
 }
- 
+
 #home #home-content .home-content-edit {
     -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
