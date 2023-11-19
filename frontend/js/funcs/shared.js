@@ -337,7 +337,7 @@ const getAndShowMenus = () => {
 
 const getAndShowCategoryCourses = async () => {
     const categoryName = getUrlParam('cat');
-    const categoryCourses = categoryName.split('/')[2];
+    let categoryCourses = categoryName.split('/')[2];
 
     if (!categoryCourses) {
         categoryCourses = 'frontend';
@@ -611,7 +611,6 @@ const getCourseDetails = () => {
     })
         .then(res => res.json())
         .then(course => {
-            console.log(course);
             breadcrumbContentGroping.innerHTML = `<a href="category.html?cat=/category-info/${course.categoryID.name}" class="breadcrumb__content-link">
                 ${course.categoryID.title}
                 <i class="fas fa-angle-left breadcrumb__content-link-icon"></i>
@@ -629,9 +628,205 @@ const getCourseDetails = () => {
 
             document.title = `سبزلرن | ${course.name}`;
 
-            courseInfosRegisterText.insertAdjacentHTML('beforeend',
-                course.isUserRegisteredToThisCourse ?
-                    'دانشجو دوره هستید' : 'ثبت نام در دوره');
+            if (course.isUserRegisteredToThisCourse) {
+                courseInfosRegisterText.insertAdjacentHTML('beforeend',
+                    'دانشجو دوره هستید');
+            }
+            else {
+                courseInfosRegisterText.insertAdjacentHTML('beforeend',
+                    'ثبت نام در دوره');
+
+                courseInfosRegisterText.addEventListener('click', event => {
+                    event.preventDefault();
+
+                    if (!(course.price)) {
+                        showSwal(
+                            'question',
+                            'آیا از ثبت نام در دوره اطمینان دارید ؟',
+                            'اره دارم',
+                            async result => {
+                                if (result.isConfirmed) {
+                                    const res = await fetch(`http://localhost:4000/v1/courses/${course._id}/register`, {
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/json",
+                                            Authorization: `Bearer ${userToken}`
+                                        },
+                                        body: JSON.stringify({ price: course.price })
+                                    })
+                                    const result = await res.json();
+
+                                    if (res.status === 201) {
+                                        showSwal(
+                                            'success',
+                                            'با موفقیت در دوره ثبت نام شدید',
+                                            'هورااا',
+                                            () => {
+                                                location.reload();
+                                            }
+                                        )
+                                    }
+                                    else {
+                                        showSwal(
+                                            'error',
+                                            'ثبت نام در دوره با خطایی مواجه شده',
+                                            'حلش میکنیم',
+                                            () => { }
+                                        )
+                                    }
+
+                                    return result;
+                                }
+                            }
+                        )
+                    }
+                    else {
+                        showSwal(
+                            'question',
+                            'آیا از ثبت نام در دوره اطمینان دارید ؟',
+                            'اره چرا که نه',
+                            async result => {
+                                if (result.isConfirmed) {
+                                    showSwal(
+                                        'question',
+                                        'آیا کد تخفیف دارید؟',
+                                        'اره دارم',
+                                        async result => {
+                                            if (result.isConfirmed) {
+
+                                                // Swal
+                                                const { value: text } = await Swal.fire({
+                                                    input: "textarea",
+                                                    inputLabel: "پاسخ",
+                                                    inputPlaceholder: "کد تخفیف خود را اینجا تایپ کنید ...",
+                                                    showCancelButton: true,
+                                                    confirmButtonText: 'ثبت کد تخفیف',
+                                                    cancelButtonText: 'منصرف شدید',
+                                                });
+                                                if (text) {
+                                                    Swal.fire(text);
+                                                }
+
+                                                if (!(text === undefined) && !(text === "")) {
+                                                    const res = await fetch(`http://localhost:4000/v1/offs/${text}`, {
+                                                        method: "POST",
+                                                        headers: {
+                                                            "Content-Type": "application/json",
+                                                            Authorization: `Bearer ${userToken}`
+                                                        },
+                                                        body: JSON.stringify({ course: course._id })
+                                                    })
+                                                    const code = await res.json();
+
+                                                    if (res.status === 200) {
+                                                        const res = await fetch(`http://localhost:4000/v1/courses/${course._id}/register`, {
+                                                            method: "POST",
+                                                            headers: {
+                                                                "Content-Type": "application/json",
+                                                                Authorization: `Bearer ${userToken}`
+                                                            },
+                                                            body: JSON.stringify({ price: course.price - (course.price * code.percent / 100) })
+                                                        })
+                                                        const result = await res.json();
+
+                                                        if (res.ok) {
+                                                            showSwal(
+                                                                'success',
+                                                                'با موفقیت در دوره ثبت نام شدید',
+                                                                'هورااا',
+                                                                () => {
+                                                                    // location.reload();
+                                                                }
+                                                            )
+                                                        }
+                                                        else {
+                                                            showSwal(
+                                                                'error',
+                                                                'ثبت نام در دوره با خطایی مواجه شده',
+                                                                'حلش میکنیم',
+                                                                () => { }
+                                                            )
+                                                        }
+                                                    }
+                                                    else if (res.status === 404) {
+                                                        showSwal(
+                                                            'error',
+                                                            'کد تخفیف وارد شده معتبر نمیباشد',
+                                                            'یکی دیگه پیدا میکنم',
+                                                            () => { }
+                                                        )
+                                                    }
+                                                    else if (res.status === 409) {
+                                                        showSwal(
+                                                            'error',
+                                                            'مهلت استفاده از کد تخفیف به اتمام رسیده!',
+                                                            'یکی دیگه پیدا میکنم',
+                                                            () => { }
+                                                        )
+                                                    }
+                                                    else {
+                                                        showSwal(
+                                                            'error',
+                                                            'ثبت نام در دوره با خطایی مواجه شده',
+                                                            'حلش میکنیم',
+                                                            () => { }
+                                                        )
+                                                    }
+
+                                                    return result;
+                                                }
+                                                else {
+                                                    showSwal(
+                                                        'error',
+                                                        'کد تخفیف را به درستی وارد کنید',
+                                                        'حلش میکنیم',
+                                                        () => { }
+                                                    )
+                                                }
+                                            }
+                                            else {
+                                                const res = await fetch(`http://localhost:4000/v1/courses/${course._id}/register`, {
+                                                    method: "POST",
+                                                    headers: {
+                                                        Authorization: `Bearer ${userToken}`,
+                                                        "Content-Type": 'application/json'
+                                                    },
+                                                    body: JSON.stringify({ price: course.price })
+                                                })
+                                                const result = await res.json();
+
+                                                if (res.status === 201) {
+                                                    showSwal(
+                                                        'success',
+                                                        'با موفقیت در دوره ثبت نام شدید',
+                                                        'هورااا',
+                                                        () => {
+                                                            location.reload();
+                                                        }
+                                                    )
+                                                }
+                                                else {
+                                                    showSwal(
+                                                        'error',
+                                                        'ثبت نام در دوره با خطایی مواجه شده',
+                                                        'حلش میکنیم',
+                                                        () => { }
+                                                    )
+                                                }
+
+                                                return result;
+                                            }
+                                        }
+                                    )
+                                }
+                                else {
+
+                                }
+                            }
+                        )
+                    }
+                })
+            }
 
             courseBoxesBoxStatus.innerHTML = course.isComplete ? "در حال برگزاری" : "به اتمام رسیده";
             courseBoxesBoxSupport.innerHTML = course.support;
@@ -889,7 +1084,6 @@ const getAndShowOneSessionCourse = async () => {
 }
 
 const submitContactUsMessage = () => {
-
     // Select Elems From DOM
     const loginFormUsernameInput = document.querySelector('.login-form__username-input');
     const loginFormEmailInput = document.querySelector('.login-form__email-input');
@@ -915,7 +1109,6 @@ const submitContactUsMessage = () => {
             body: JSON.stringify(newContactUsBody)
         })
             .then(res => {
-                console.log(res);
                 if (res.status === 201) {
                     showSwal(
                         'success',
@@ -1064,7 +1257,6 @@ const globalSearch = async () => {
 
     if (result.allResultArticles.length) {
         result.allResultArticles.forEach(article => {
-            console.log(article);
             articlesWrappe.insertAdjacentHTML('beforeend', `
             <div class="col-4">
                 <div class="article-card">

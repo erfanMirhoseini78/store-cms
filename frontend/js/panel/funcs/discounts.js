@@ -48,7 +48,7 @@ const getAndShowDiscounts = async () => {
                     ${discount.createdAt.slice(0, 10)}
                 </td>
                 <td>
-                    <button type='button' class='btn btn-primary delete-btn' onclick=answerDiscount(${JSON.stringify(discount._id)})>پاسخ</button>
+                    <button type='button' class='btn btn-primary delete-btn' onclick=answerDiscount(${JSON.stringify(discount._id)})>ویرایش</button>
                 </td>
                 <td>
                     <button type='button' class='btn btn-danger delete-btn' onclick=removeDiscount(${JSON.stringify(discount._id)})>حذف</button>
