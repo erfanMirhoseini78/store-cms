@@ -87,6 +87,7 @@ const getAndShowAllCourses = async () => {
 
     coursesContainer.innerHTML = '';
     allCourses.slice(0, 6).forEach(course => {
+        console.log(course);
         coursesContainer.insertAdjacentHTML('beforeend', `
                 <div class="col-4">
                     <div class="course-box">
