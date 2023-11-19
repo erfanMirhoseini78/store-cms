@@ -125,9 +125,13 @@ const getAndShowAllCourses = async () => {
                                         ${course.registers}
                                     </span>
                                 </div>
-                                <span class="course-box__price">
-                                    ${course.price ? `${course.price.toLocaleString()} تومان` : "رایگان"}
-                                </span>
+
+                                <div class="courses-box__price">
+                                    ${course.price ? (course.price && course.discount) && `
+                                        <span class="courses-box__price-discount">${(course.price - (course.price * course.discount / 100)).toLocaleString()} تومان</span>
+                                        <span class="courses__box__price courses-box__undiscount">${(course.price).toLocaleString()} تومان</span>` : 'رایگان'}
+                                </div>
+
                             </div>
                         </div>
 
@@ -137,6 +141,13 @@ const getAndShowAllCourses = async () => {
                                 <i class="fas fa-arrow-left course-box__footer-icon"></i>
                             </a>
                         </div>
+                        ${course.discount ?
+                `<span class="courses-box__discount">
+                                ${course.discount}%
+                            </span>` :
+                ''}
+                        
+
                     </div>
                 </div>
             `)
