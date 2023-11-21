@@ -1,5 +1,6 @@
 import {
     getAdminInfos,
+    showSwal,
 } from "./funcs/utils.js";
 
 import {
@@ -37,4 +38,36 @@ window.addEventListener('load', () => {
 
             insertNotificationHtmlTemplate(admin.notifications);
         })
+})
+
+const logoutBtn = document.querySelector('#logout-btn');
+
+logoutBtn.addEventListener('click', event => {
+    event.preventDefault();
+
+    showSwal(
+        'question',
+        'آیا از خروج اطمینان دارید ؟',
+        'خیالت راحت',
+        async result => {
+            if (result.isConfirmed) {
+                showSwal(
+                    'success',
+                    'با موفقیت خارج شدید !',
+                    'کارت درسته',
+                    () => {
+                        logOut();
+                    }
+                )
+            }
+            else {
+                showSwal(
+                    'error',
+                    'در خارج شدن از اکانت مشکلی پیش آمده است',
+                    'حلش میکنیم',
+                    () => { }
+                )
+            }
+        }
+    )
 })

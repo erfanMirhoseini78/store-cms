@@ -1,5 +1,5 @@
 import {
-    getToken
+    getToken,
 } from "./../../funcs/utility.js"
 
 const getAdminInfos = async () => {
@@ -15,6 +15,13 @@ const getAdminInfos = async () => {
     return admin;
 }
 
+const logOut = () => {
+    localStorage.removeItem('user');
+
+    return true;
+}
+
 export {
     getAdminInfos,
+    logOut,
 }
